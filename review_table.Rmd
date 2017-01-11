@@ -1,0 +1,88 @@
+---
+title: "Literature review of corporate default prediction "
+author: "Benjamin Christoffersen"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  html_document:
+    css: "style.css"
+---
+
+```{r setup, include=FALSE}
+options(scipen = 100, digits = 3)
+```
+
+```{r, echo=FALSE, results='asis', message=FALSE, warning=TRUE, error=TRUE}
+# Read in data
+review_data <- read.csv("data/review_data.csv", header = T, sep = ",", quote = '"', 
+                        stringsAsFactors = F, fileEncoding = "UTF-8-BOM")
+actual_headers <- read.csv("data/review_data.csv", header = F, sep = ",", quote = '"', 
+                           stringsAsFactors = F, nrows = 1, fileEncoding = "UTF-8-BOM")
+
+colnames(review_data) <- actual_headers
+
+# Replace the model abbrevations 
+model_abb <- read.table("data/model_def", sep = ",", header = F, stringsAsFactors = F)
+review_data$Models <- sapply(review_data$Models, function(x){
+    ms <- unlist(strsplit(x, ", "))
+    ms_match <- match(ms, model_abb[, 1])
+    if(any(is.na(ms_match))){
+        stop("Could not find ", paste0(
+            "'", ms[is.na(ms_match)], "'", collapse = " "))
+    }
+    paste0(model_abb[ms_match, 2], collapse = "\n")
+})
+
+# Find further article information
+source("R/google_scholar_info.R")
+google_dat <- apply(
+  review_data[, c("Article name", "Publisher")], 1, function(x)
+    get_google_scholar_info(x[1], x[2]))
+google_dat <- data.frame(matrix(unlist(google_dat), nrow = length(google_dat), 
+                                byrow = T, dimnames = 
+                                  list(NULL, names(google_dat[[1]]))), 
+                         stringsAsFactors = F)
+google_dat[, c("year", "n_citations")] <- 
+  sapply(google_dat[, c("year", "n_citations")], as.numeric)
+
+google_dat <- plyr::rename(google_dat, 
+                           c("journal_url" = "link", "n_citations" = "Citations"))
+
+review_data <- cbind(review_data, google_dat)
+
+# Order rows by my train and number of citations
+review_data <- 
+  review_data[order(review_data$`My rating (1 = best, 5 = worst)`, 
+                    -review_data$Citations), ]
+
+# Order columns and define alignment
+align_n_c_order <- c(
+  "Article name" = "left", 
+  "My rating (1 = best, 5 = worst)" = "right", 
+  "Citations" = "right", 
+  "My review" = "left", 
+  "Outcome" = "left", 
+  "Sample size (failure / non-failure)" = "left",
+  "Models" = "left", 
+  "Data source" = "left", 
+  "Sampling" = "left", 
+  "link" = "left", 
+  "year" = "right", 
+  "Publisher" = "left")
+
+review_data <- 
+  review_data[, names(align_n_c_order)]
+row.names(review_data) <- NULL
+
+# Final formating of header 
+review_data <- plyr::rename(review_data, c(
+  "My rating (1 = best, 5 = worst)" = "My rating\n(1 = best, 5 = worst)",
+  "Sample size (failure / non-failure)" = "Sample size\n(failure / non-failure)"
+))
+
+# Print table
+pander::pandoc.table(review_data,
+                     keep.line.breaks = T, 
+                     justify = align_n_c_order, 
+                     split.table = Inf, 
+                     style = 'grid')
+```

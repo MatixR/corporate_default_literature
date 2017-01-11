@@ -1,0 +1,28 @@
+﻿Article name,Publisher,Models,Data source,Sampling,Sample size (failure / non-failure),Outcome,My review,"My rating (1 = best, 5 = worst)"
+Bankruptcy forecasting: An empirical comparison of AdaBoost and neural networks,Decision Support Systems,"LDA, NN, AdaBoost",Spanish firms from the SABI database of Bureau Van Dijk,"Random sampling with some sort of prior weight depending on covaraites. Details are not clear
+Select data from 2001-2005
+Mix years / ignores longitudinal aspect",590 / 590 (firms),8.9% accurarcy on hold-out for class assigment  with AdaBoost,"Overall decent article. Drawbacks are: 
+Missing details about sampling
+The 0-1 classifier may fail on real data set where failures are rare when trained on this data",3
+Data mining method for listed companies’ financial distress prediction,Knowledge-Based Systems,DT,"Chinece firms from China
+Stock Market and Accounting Research Database
+Default indicator is 'specially treated (ST) by China Securities Supervision and Management Committee'","Paired firms between 2000 and 2005
+Mix years / ignores longitudinal aspect
+Details about parring is not clear
+'In order to eliminate outliers, companies with financial ratios deviating from the mean value as much as three times of standard deviation are excluded'
+",92 / 106 (firms),95% accurarcy with cross validation with what they coin 'Resubstitution',"A lot of details are missing. It is not clear to me what the different tree/forest models are
+Very small sample with 35 covaraites
+Hard to say anything good about their sampling",5
+Ensemble boosted trees with synthetic features generation in application to bankruptcy prediction,Expert Systems With Applications,"DT, B, AdaBoost",Polish  manufacturing sector with data from the Emerging Markets Information Service,"Failing firms are drawn from 2007–2013
+Non-failing firms are taken where 'the availability of a minimum of three consecutive financial statements in the period 2000–2012'
+Firms do have multiple entries
+Unclear if failing firms also appear with financial statements for the year where they do not default
+Mix years / ignores longitudinal aspect
+Unclear what is meant by the different xthYear data sets",Up to 515 / 10173 (financial statements),Up to  95.9% AUC with cross validation,"Credit for:
+Large data set
+Interesting idea of synthetic features and Extreme Gradient Boosting
+Making the data set avilable (see http://bit.ly/2id2zk8)
+
+I am not sure how exactly the sampling is done
+Sad that the longitudinal aspect is ignored
+Little emphasis have been put on the other models they compare with. I have gotten +80% cross validation AUC with both Logit models and SVM with one days work",2
