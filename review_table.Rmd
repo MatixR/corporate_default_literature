@@ -11,7 +11,7 @@ output:
 options(scipen = 100, digits = 3)
 ```
 
-```{r, echo=FALSE, results='asis', message=FALSE, warning=TRUE, error=TRUE}
+```{r, echo=FALSE,message=FALSE, warning=TRUE, error=TRUE,results='asis'}
 # Read in data
 review_data <- read.csv("data/review_data.csv", header = T, sep = ",", quote = '"', 
                         stringsAsFactors = F, fileEncoding = "UTF-8-BOM")
@@ -33,17 +33,41 @@ review_data$Models <- sapply(review_data$Models, function(x){
 })
 
 # Find further article information
-source("R/google_scholar_info.R")
-google_dat <- apply(
-  review_data[, c("Article name", "Publisher")], 1, function(x)
-    get_google_scholar_info(x[1], x[2]))
-google_dat <- data.frame(matrix(unlist(google_dat), nrow = length(google_dat), 
-                                byrow = T, dimnames = 
-                                  list(NULL, names(google_dat[[1]]))), 
-                         stringsAsFactors = F)
+if(FALSE){ # Set to FALSE if data should be loaded from output folder
+  source("R/google_scholar_info.R")
+  google_dat <- apply(
+    review_data[, c("Article name", "Publisher")], 1, function(x)
+      get_google_scholar_info(x[1], x[2]))
+  google_dat <- data.frame(matrix(unlist(google_dat), nrow = length(google_dat), 
+                                  byrow = T, dimnames = 
+                                    list(NULL, names(google_dat[[1]]))), 
+                           stringsAsFactors = F)
+  
+  if(all(is.na(google_dat)))
+    stop("Likely got 503 errors as google banned the ip for a few days")
+  
+  write.table(cbind(review_data[, c("Article name", "Publisher")],
+                    google_dat), 
+              "output/google_data", row.names = F, col.names = T)
+} else {
+  google_dat <- read.table("output/google_data", row.names = NULL, 
+                           stringsAsFactors = F, header = T)
+  
+  google_dat <- 
+    google_dat[match(review_data$`Article name`, google_dat$Article.name), 
+               c("journal_url", "year", "n_citations")]
+}
+
 google_dat[, c("year", "n_citations")] <- 
   sapply(google_dat[, c("year", "n_citations")], as.numeric)
 
+# Put urls into a <a> tag
+google_dat$journal_url <- ifelse(
+  is.na(google_dat$journal_url), 
+  rep(NA, nrow(google_dat)), 
+  paste0("<a href = '", google_dat$journal_url, "' >link</a>"))
+
+# format column names
 google_dat <- plyr::rename(google_dat, 
                            c("journal_url" = "link", "n_citations" = "Citations"))
 
@@ -51,23 +75,39 @@ review_data <- cbind(review_data, google_dat)
 
 # Order rows by my train and number of citations
 review_data <- 
-  review_data[order(review_data$`My rating (1 = best, 5 = worst)`, 
-                    -review_data$Citations), ]
+  if(!all(is.na(review_data$Citations)))
+    review_data[order(review_data$`My rating (1: best, 5: worst)`, 
+                      -review_data$Citations), ] else
+                        review_data[order(review_data$`My rating (1: best, 5: worst)`), ]
 
 # Order columns and define alignment
 align_n_c_order <- c(
   "Article name" = "left", 
-  "My rating (1 = best, 5 = worst)" = "right", 
+  "My rating (1: best, 5: worst)" = "right", 
   "Citations" = "right", 
   "My review" = "left", 
   "Outcome" = "left", 
   "Sample size (failure / non-failure)" = "left",
   "Models" = "left", 
   "Data source" = "left", 
-  "Sampling" = "left", 
-  "link" = "left", 
+  "Sampling" = "left",
   "year" = "right", 
-  "Publisher" = "left")
+  "Publisher" = "left",
+  "link" = "left")
+
+split_cells <- c(
+  "Article name" = 25, 
+  "My rating (1: best, 5: worst)" = 20, 
+  "Citations" = 10, 
+  "My review" = 50, 
+  "Outcome" = 50, 
+  "Sample size (failure / non-failure)" = 20,
+  "Models" = 25, 
+  "Data source" = 50, 
+  "Sampling" = 50,
+  "year" = 4, 
+  "Publisher" = 20,
+  "link" = 50)
 
 review_data <- 
   review_data[, names(align_n_c_order)]
@@ -75,14 +115,27 @@ row.names(review_data) <- NULL
 
 # Final formating of header 
 review_data <- plyr::rename(review_data, c(
-  "My rating (1 = best, 5 = worst)" = "My rating\n(1 = best, 5 = worst)",
-  "Sample size (failure / non-failure)" = "Sample size\n(failure / non-failure)"
+  "My rating (1: best, 5: worst)" = "My rating<br>(1: best, 5: worst)",
+  "Sample size (failure / non-failure)" = "Sample size<br>(failure / non-failure)"
 ))
 
+# Replace line breaks with br tags
+is_char <- sapply(review_data, is.character)
+review_data[, is_char] <- 
+  sapply(review_data[, is_char], gsub, pattern = "\\s*\\n\\s*",
+         replacement = "\\ \\<br\\> \\")
+
+# We also correct for invalid dash entries
+review_data[, is_char] <- 
+  sapply(review_data[, is_char], gsub, pattern = "–",
+         replacement = "-")
+
 # Print table
+pander::panderOptions('knitr.auto.asis', FALSE)
 pander::pandoc.table(review_data,
                      keep.line.breaks = T, 
                      justify = align_n_c_order, 
-                     split.table = Inf, 
-                     style = 'grid')
+                     split.table = Inf,
+                     split.cells = split_cells[names(align_n_c_order)],
+                     style = 'multiline')
 ```

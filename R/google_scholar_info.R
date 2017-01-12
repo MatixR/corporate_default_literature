@@ -6,19 +6,19 @@ get_google_scholar_info <- with(new.env(), {
   
   function(name = "", journal = ""){
     # Try to open the url
-    url_ <- paste0("https://scholar.google.ch/scholar?as_q=&as_epq=", 
+    url_ <- paste0("https://scholar.google.com/scholar?as_q=&as_epq=", 
                    gsub("\\ ", "+", name), "&as_publication=", 
                    gsub("\\ ", "+", journal), "&hl=en")
     
     # Dont want issues with google searches blooking us out
     # cat("\nBefore:", 1 - as.numeric(Sys.time()) + as.numeric(last_call))
-    Sys.sleep(max(1e-8, 1 - as.numeric(Sys.time()) + as.numeric(last_call)))
+    Sys.sleep(max(1e-8, 1 + runif(1) - as.numeric(Sys.time()) + as.numeric(last_call)))
     last_call <<- Sys.time()
     # cat("\nAfter: ", 1 - as.numeric(Sys.time()) + as.numeric(last_call))
     
     did_fail <- FALSE
     tryCatch({
-      site <- read_html(url_)
+      site <- site <- read_html(url_)
     }, error = function(e){
       warning("Failed with url ", url_, ". Errors is", "\n")
       warning(str(e))
@@ -26,7 +26,7 @@ get_google_scholar_info <- with(new.env(), {
     })
     
     if(did_fail){
-      return(invisible())
+      return(list(journal_url = NA, year = NA, n_citations = NA))
     }
     
     # Extract the html nodes with the results
@@ -35,11 +35,11 @@ get_google_scholar_info <- with(new.env(), {
     
     # Only return something if we found exactly one result
     if(length(res_node) > 1){
-      warning("Found multiple matches for ", name, " in ", journal, "\n")
-      return(invisible())
+      warning("Found multiple matches for ", name, " in ", journal, ". Url is '", url_,  "'\n")
+      return(list(journal_url = NA, year = NA, n_citations = NA))
     } else if(length(res_node) == 0){
-      warning("Did not find any matches for ", name, " in ", journal, "\n")
-      return(invisible())
+      warning("Did not find any matches for ", name, " in ", journal, ". Url is '", url_, "'\n")
+      return(list(journal_url = NA, year = NA, n_citations = NA))
     }
     
     # Get the journal url and number of citations and return
@@ -48,7 +48,9 @@ get_google_scholar_info <- with(new.env(), {
     
     n_citations <- html_text(html_nodes(
       res_node, xpath = "(./div[contains(@class, 'gs_fl')]/a)[1]/text()"))
-    n_citations <-  as.numeric(gsub("^Cited by ", "", n_citations))
+    if(grepl("^Cite$", n_citations) || grepl("^Related articles$", n_citations))
+      n_citations <- 0 else
+        n_citations <-  as.numeric(gsub("^Cited by ", "", n_citations))
     
     year <- html_text(html_nodes(
       res_node, xpath = "./div[contains(@class, 'gs_a')]/text()"))

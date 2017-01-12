@@ -67,7 +67,7 @@ h6 {
 }
 </style>
 
-<link href="data:text/css;charset=utf-8,body%20%2Emain%2Dcontainer%20%7B%0Awidth%3A%203000px%3B%0Amax%2Dwidth%3A%20none%0A%7D%20" rel="stylesheet" type="text/css" />
+<link href="data:text/css;charset=utf-8,body%20%2Emain%2Dcontainer%20%7B%0Awidth%3A%203500px%3B%0Amax%2Dwidth%3A%20none%0A%7D%20" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -119,25 +119,284 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Literature review of corporate default prediction</h1>
 <h4 class="author"><em>Benjamin Christoffersen</em></h4>
-<h4 class="date"><em>11 January, 2017</em></h4>
+<h4 class="date"><em>12 January, 2017</em></h4>
 
 </div>
 
 
-<pre><code>## Warning in value[[3L]](cond): Failed with url https://scholar.google.ch/scholar?as_q=&amp;as_epq=Bankruptcy+forecasting:+An+empirical+comparison+of+AdaBoost+and+neural+networks&amp;as_publication=Decision+Support+Systems&amp;hl=en. Errors is</code></pre>
-<p>List of 2 $ message: chr “HTTP error 503.” $ call : language open.connection(x, “rb”) - attr(*, “class”)= chr [1:3] “simpleError” “error” “condition”</p>
-<pre><code>## Warning in value[[3L]](cond):</code></pre>
-<pre><code>## Warning in value[[3L]](cond): Failed with url https://scholar.google.ch/scholar?as_q=&amp;as_epq=Data+mining+method+for+listed+companies’+financial+distress+prediction&amp;as_publication=Knowledge-Based+Systems&amp;hl=en. Errors is</code></pre>
-<p>List of 2 $ message: chr “HTTP error 503.” $ call : language open.connection(x, “rb”) - attr(*, “class”)= chr [1:3] “simpleError” “error” “condition”</p>
-<pre><code>## Warning in value[[3L]](cond):</code></pre>
-<pre><code>## Warning in value[[3L]](cond): Failed with url https://scholar.google.ch/scholar?as_q=&amp;as_epq=Ensemble+boosted+trees+with+synthetic+features+generation+in+application+to+bankruptcy+prediction&amp;as_publication=Expert+Systems+With+Applications&amp;hl=en. Errors is</code></pre>
-<p>List of 2 $ message: chr “HTTP error 503.” $ call : language open.connection(x, “rb”) - attr(*, “class”)= chr [1:3] “simpleError” “error” “condition”</p>
-<pre><code>## Warning in value[[3L]](cond):</code></pre>
-<pre><code>## Error in matrix(unlist(google_dat), nrow = length(google_dat), byrow = T, : 'data' must be of a vector type, was 'NULL'</code></pre>
-<pre><code>## Error in data.frame(..., check.names = FALSE): arguments imply differing number of rows: 3, 0</code></pre>
-<pre><code>## Error in -review_data$Citations: invalid argument to unary operator</code></pre>
-<pre><code>## Error in `[.data.frame`(review_data, , names(align_n_c_order)): undefined columns selected</code></pre>
-<pre><code>## Error in pandoc.table.return(...): Wrong number of parameters (12 instead of *9*) passed: justify</code></pre>
+<pre><code>## Warning in get_google_scholar_info(x[1], x[2]): Found multiple matches for A Comparison of Corporate Bankruptcy Models in Australia: The Merton vs. Accounting-based Models in Asia-Pacific Journal of Risk and Insurance. Url is 'https://scholar.google.com/scholar?as_q=&amp;as_epq=A+Comparison+of+Corporate+Bankruptcy+Models+in+Australia:+The+Merton+vs.+Accounting-based+Models&amp;as_publication=Asia-Pacific+Journal+of+Risk+and+Insurance&amp;hl=en'</code></pre>
+<table>
+<colgroup>
+<col width="4%"></col>
+<col width="3%"></col>
+<col width="2%"></col>
+<col width="9%"></col>
+<col width="9%"></col>
+<col width="4%"></col>
+<col width="4%"></col>
+<col width="9%"></col>
+<col width="9%"></col>
+<col width="1%"></col>
+<col width="4%"></col>
+<col width="35%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Article name</th>
+<th align="right">My rating<br>(1: best, 5: worst)</th>
+<th align="right">Citations</th>
+<th align="left">My review</th>
+<th align="left">Outcome</th>
+<th align="left">Sample size<br>(failure / non-failure)</th>
+<th align="left">Models</th>
+<th align="left">Data source</th>
+<th align="left">Sampling</th>
+<th align="right">year</th>
+<th align="left">Publisher</th>
+<th align="left">link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Forecasting Bankruptcy More Accurately: A Simple Hazard Model</td>
+<td align="right">1</td>
+<td align="right">1968</td>
+<td align="left">Showed how to fit a variable with logistic regression where one takes the longitudinal aspect of each firm into account. Further, illustrates how not doing this can imply bias with a small example thus implying a huge crituque of previous studies. Compares a model with previous used models. Lags accounting variables. Lastly, one of the first to the best of my knowledge who does out-sample test by using data from the following year <br> Changed the literature and is one prime papers</td>
+<td align="left">Report decile ranking for out-sample-test (in time) that are hard to summarize in a table cell</td>
+<td align="left">At most 33621 financial statements and 291 bankruptcies</td>
+<td align="left">Logistic regression</td>
+<td align="left">US listed firms with accounting data from Compustat Industrial File and the CRSP Daily Stock Return File. Defaults data ‘from the Wall Street Journal Index, the Capital Changes Reporter, and the Compustat Research File. I also searched for firms whose stock was delisted from the NYSE or AMEX in the Directory of Obsolete Securities (Financial Stock Guide Service [1993]) and Nexis. All firms that filed for any type of bankruptcy within 5 years of delisting are considered bankrupt’ <br> Include firms that began trading before 1962 or after 1992 and financial firms are excluded</td>
+<td align="left">None</td>
+<td align="right">2001</td>
+<td align="left">The Journal of Business</td>
+<td align="left"><a href="http://www.jstor.org/stable/10.1086/209665">link</a></td>
+</tr>
+<tr class="even">
+<td align="left">A Failure-Rate Model for the Danish Corporate Sector</td>
+<td align="right">2</td>
+<td align="right">8</td>
+<td align="left">Uses logistic regresion with a few new / non-commenly used covaraites <br> Use a large sample of firms <br> Finds that: <br> Critical auditor comment is quite significant <br> Some differences with a sector by sector model <br> Firms size (in terms of number of employees) have impact on the ability to predict in sample and on estimates</td>
+<td align="left">(In sample?) AUC of 82.5</td>
+<td align="left">‘approximately 300,000 annual accounts of which almost 8,000 from failed companies’</td>
+<td align="left">Logistic regression</td>
+<td align="left">‘Danish public limited liability companies (A/S) and private limited liability companies (ApS)’ with accounting data from KOB A/S <br> Estimation sample covers the period 1995-99 <br> Default is defined as: <br> ‘The company is being liquidated or is subject to compulsory liquidation <br> The company has been dissolved, dissolved by the courts, or is subject to compulsory dissolution by the court <br> The company is subject to a compulsory deed of arrangement with creditors or is subject to a compulsory scheme of arrangement with creditors’ <br> Holding companies consolidated accounts and company with less than 50000 DKK is excluded</td>
+<td align="left">None</td>
+<td align="right">2004</td>
+<td align="left"></td>
+<td align="left"><a href="https://www.econstor.eu/handle/10419/82347">link</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Additive Intensity Regression Models in Corporate Default Analysis</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="left">Uses additive intensity (Aalen) models from the timereg package in R. The study is descriptive and shows that the coeffecient in typical models used (e.g. Shumway (2001)) in default prediction may be time-varying. The model baseline hazard with macro economic variables <br> Cons: <br> Descriptive study that cannot be used for prediction</td>
+<td align="left">None</td>
+<td align="left">370 / 2557 firms with multiple financial statements from each firm</td>
+<td align="left">Additive Intensity models</td>
+<td align="left">US listed firms with Default indicators from Moodys Default Risk Service Database with financial data from CRSP (Center for Research in Security Prices) <br> Excludes ‘All consecutive default events occurring within a 1-month horizon of any previously registered default ascribed to the same parent company’ and financial firms <br> Use data from January 1, 1982 to January 1, 2006</td>
+<td align="left">None</td>
+<td align="right">2013</td>
+<td align="left">JOURNAL OF FINANCIAL ECONOMETRICS</td>
+<td align="left"><a href="http://jfec.oxfordjournals.org/content/11/3/443.short">link</a></td>
+</tr>
+<tr class="even">
+<td align="left">Ensemble boosted trees with synthetic features generation in application to bankruptcy prediction</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="left">Applies Extreme Gradient Boosting as the first as far as I am aware in this context. Further, they construct features with a quite simple method that do seem to work <br> Credit for: <br> Large data set <br> Interesting idea of synthetic features and Extreme Gradient Boosting <br> Making the data set avilable (see <a href="http://bit.ly/2id2zk8" class="uri">http://bit.ly/2id2zk8</a>) <br> I am not sure how exactly the sampling is done <br> Sad that the longitudinal aspect is ignored <br> Little emphasis have been put on the other models they compare with. I have gotten +80% cross validation AUC with both Logit models and SVM with one days work with the data set</td>
+<td align="left">Up to 95.9% AUC with cross validation</td>
+<td align="left">Up to 515 / 10173 (financial statements)</td>
+<td align="left">Decision Tree <br> Boosting <br> AdaBoost</td>
+<td align="left">Polish manufacturing sector with data from the Emerging Markets Information Service</td>
+<td align="left">Failing firms are drawn from 2007-2013 <br> Non-failing firms are taken where ‘the availability of a minimum of three consecutive financial statements in the period 2000-2012’ <br> Firms do have multiple entries <br> Unclear if failing firms also appear with financial statements for the year where they do not default <br> Mix years / ignores longitudinal aspect <br> Unclear what is meant by the different xthYear data sets“ailing firms are d</td>
+<td align="right">2016</td>
+<td align="left">Expert Systems With Applications</td>
+<td align="left"><a href="http://www.sciencedirect.com/science/article/pii/S0957417416301592">link</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Bankruptcy prediction using support vector machine with optimal choice of kernel function parameters</td>
+<td align="right">3</td>
+<td align="right">569</td>
+<td align="left">The main focus of the article is to use support vector machines in this context <br> Credit for: <br> Comparing different kernals function <br> Being one of the first to apply support vector machines is this context? <br> Nice introduction of support vector machines using the standard library libsvm <br> Nice illustration of SVM in 2D with principle components <br> Sad that the longitudinal aspect is ignored <br> Not directly applicable to real life data with the 50%-50% sample</td>
+<td align="left">83% accuracy with hold-out (though C-cost and kernal parameter is trained on the whole data)</td>
+<td align="left">944 / 944 (firms)</td>
+<td align="left">Support Vector machine <br> Logistic regression <br> Neural Network <br> Linear Discriminant Analysis</td>
+<td align="left">Data is from ‘Koreas largest credit guarantee organization’ with ‘all of the non-bankruptcy cases are from medium-sized heavy industry firms in 2002 and the corresponding bankruptcy cases are also from the same industry. In general, however, the number of bankruptcy cases is smaller than that of non-bankruptcy cases; hence, we collected additional bankruptcy cases from the years of 2000, 2001, and 2002’</td>
+<td align="left">All bankeruptcies and 944 random non-bankerupcies</td>
+<td align="right">2005</td>
+<td align="left">Expert Systems with Applications</td>
+<td align="left"><a href="http://www.sciencedirect.com/science/article/pii/S0957417404001526">link</a></td>
+</tr>
+<tr class="even">
+<td align="left">Bankruptcy forecasting: An empirical comparison of AdaBoost and neural networks</td>
+<td align="right">3</td>
+<td align="right">160</td>
+<td align="left">Introduces AdaBoost and shows how it can ba applied <br> Compare with Neural Networks. I have too little knowledge about Neural Networks to judge their modeling <br> Missing details about sampling <br> The 0-1 classifier may fail on real data set where failures are rare when trained on this data</td>
+<td align="left">8.9% accurarcy on hold-out for class assigment with AdaBoost</td>
+<td align="left">590 / 590 (firms)</td>
+<td align="left">Linear Discriminant Analysis <br> Neural Network <br> AdaBoost</td>
+<td align="left">Spanish firms from the SABI database of Bureau Van Dijk</td>
+<td align="left">Random sampling with some sort of prior weight depending on covaraites. Details are not clear <br> Select data from 2001-2005 <br> Mix years / ignores longitudinal aspect</td>
+<td align="right">2008</td>
+<td align="left">Decision Support Systems</td>
+<td align="left"><a href="http://www.sciencedirect.com/science/article/pii/S016792360700214X">link</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Modelling The Credit Risk Of The Hungarian Sme Sector</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td align="left">Model firm failure for micro, small and medium-sized enterprises with logistic models <br> Categorize firms in terms of sales figures and employees <br> Use macro economics variables <br> As rightly mentioned, the banks may introduce a selection bias with which firms that are in the sample <br> May provide evidence that larger firms are more homogeneous and their credit risk depends more on the fnancial indicators of <br> the company <br> Cons: <br> Including a dummy variable for all the years from age 1, 2, 3, …, 24 a category for +25 seems alarming to me <br> The continuous dropping of variable (including age factor levels) based on arguments like: ‘… we did not include the liquidity positon of microenterprises, since we are not convinced that greater liquidity would directly increase the credit risk of a company’ <br> Comparing estimates signs and magnitudes with different specification of the linear predictor due to the previous comment <br></td>
+<td align="left">Out sample (in time) AUCs between 69%-81%</td>
+<td align="left">Up to 2629468 financial statements and 173664 firms</td>
+<td align="left">Logistic regression</td>
+<td align="left">Hungarian firms with financial statements which was submitted to the Hungarian Natonal Tax and Customs Administraton <br> Default data is from Central Credit Informaton System (KHR) which gather informaton about all loan and loan-type contracts <br> ‘… government- or local government-owned companies (above a 25 per cent ownership rato), non-proft insttutons serving households and fnancial corporatons were fltered out’ <br> Default is defined as ‘[the firm] were in default with at least 10 per cent of their contracts’ within a year where a contract is considered to have defaulted if ‘30-day defaults [are] ongoing for at least 60 days’ <br> Data from 2007 to 2014</td>
+<td align="left">None</td>
+<td align="right">2016</td>
+<td align="left">mnb</td>
+<td align="left"><a href="https://ideas.repec.org/p/mnb/opaper/2016-123.html">link</a></td>
+</tr>
+<tr class="even">
+<td align="left">The Research of SME Financial Crisis Warning Model Based on Neural Network</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td align="left">Fit a neaural network to predict the chinece firms that have two consecutive years of losses <br> Details about sampling is not presented <br> All observations may be bagged including the hold-out which may imply that the longitudinal aspect is ignored <br></td>
+<td align="left">Accuracy 83% to 95% presumably on a hold-out set</td>
+<td align="left">748 firms of which 70% is a traning set, 15% is a testing set and 15% is an examining set</td>
+<td align="left">Neural Network</td>
+<td align="left">Chinece ‘SMEs listed in the stock markets in Shanghai and Shenzhen from 2011 to 2015’ <br> Distress is defined as being marked signed ST which means two consecutive years of loss</td>
+<td align="left">They ‘selected’ which may imply some sort of sampling</td>
+<td align="right">2016</td>
+<td align="left"></td>
+<td align="left"><a href="http://www.dpi-proceedings.com/index.php/dtem/article/view/4142">link</a></td>
+</tr>
+<tr class="odd">
+<td align="left">A Comparison of Corporate Bankruptcy Models in Australia: The Merton vs. Accounting-based Models</td>
+<td align="right">3</td>
+<td align="right">NA</td>
+<td align="left">Compares the variables from Altman (1968), Zmijewski (1984), and Shumway (2001) in logic model with the Merton model. Further, they make a combination and find the best performance <br> Nice with a study for Australian. Interesting that they find that the Merton model out-performs the other <br> It is unclear to me whether the reported Forecasting Accuracy is in-sample or out-sample</td>
+<td align="left">Report expected cost measure of classification errors (ECM) with an cut-off value to get 0-1 variable with different cost values. Also reports deciles like Shumway (2001)</td>
+<td align="left">93 / 1144 firms with multiple financial statements from each firm</td>
+<td align="left">Logistic regression</td>
+<td align="left">‘Companies listed on the Australian Stock Exchange (ASX) during 1990-2003. Bankruptcy data is collected from two sources: The website of www.delisted.com.au and Delisted Companies (1900-2003) by Financial Analysis Publications’ <br> The default indicator is in ‘the strict legal sense’ of administration, receivership, or liquidation <br> Covariates are from Aspect Fin Analysis and/or Aspect Dat Analysis and Thomson Financial Datastream <br> Financial firms are excluded</td>
+<td align="left">None</td>
+<td align="right">NA</td>
+<td align="left">Asia-Pacific Journal of Risk and Insurance</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">Distress Risk: An Accelerated Failure Time Survival Analysis Approach</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="left">They apply an Accelerated Failure time model (particularly a log-logistic distribution). The starting time is when the firm is listed as is applied to the similar data set as Shumway (2001) <br> Find only minor improvments to the models in Shumway (2001) and Campbell et al. (2008) in terms of in-sample AUC and out-sample decile rankings <br> A note here is that in my experience the age of the firms does not matter much. Hence, the previous finding is expected <br> Draws conclusions on fits where some coeffecients are large in absolute terms (see table 6). I guess it is a result of multicollinearity</td>
+<td align="left">Similar results to Shumway (2001)</td>
+<td align="left">‘ 546 bankruptcy observations, 8,664 other exit firms and an average of 3,874 active firms for each year over the 1980-2014 period, a total of 544250 quarterly firm observations’</td>
+<td align="left">Accelerated Failure time <br> Logistic regression <br> Linear Discriminant Analysis</td>
+<td align="left">US listed firms between 1980 and 2014 obtained from the Compustat/CRSP <br> Excludes financial firms <br> Failure is defined as ‘delisted firms that underwent bankruptcy or liquidation according to both the Compustat and CRSP classification’</td>
+<td align="left">None</td>
+<td align="right">NA</td>
+<td align="left"></td>
+<td align="left"><a href="https://acfr.aut.ac.nz/__data/assets/pdf_file/0019/56440/42830-J-Svec-Distress-Risk.pdf">link</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Data mining method for listed companies financial distress prediction</td>
+<td align="right">5</td>
+<td align="right">123</td>
+<td align="left">Does some sort of random forest, bagging with decision trees amd/or descision tree. It is not clear to me <br> A lot of details are missing. It is not clear to me what the different tree/forest models are <br> Very small sample with 35 covaraites <br> Hard to say anything good about their sampling</td>
+<td align="left">95% accurarcy with cross validation with what they coin ‘Resubstitution’</td>
+<td align="left">92 / 106 (firms)</td>
+<td align="left">Decision Tree</td>
+<td align="left">Chinece firms from China <br> Stock Market and Accounting Research Database <br> Default indicator is ‘specially treated (ST) by China Securities Supervision and Management Committee’</td>
+<td align="left">Paired firms between 2000 and 2005 <br> Mix years / ignores longitudinal aspect <br> Details about parring is not clear <br> In addition they: ‘… eliminate outliers, companies with financial ratios deviating from the mean value as much as three times of standard deviation are excluded’ <br></td>
+<td align="right">2008</td>
+<td align="left">Knowledge-Based Systems</td>
+<td align="left"><a href="http://www.sciencedirect.com/science/article/pii/S0950705106001936">link</a></td>
+</tr>
+<tr class="even">
+<td align="left">A Combination Use of Bagging and Random Subspace with Memory Mechanism for Dynamic Financial Distress Prediction</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="left">They compare different ways of accountning for time-varying effects with neural networks. In essence, they use data in slidding window for their best model. Further, they apply an ensamble method where variables in each fit is random <br> It is nice that they account for the longitudinal aspect of data <br> Getting at best 80% accuracy (in-sample?) with a small data set with neural networks and 36 variables seems too low when further considering that we are looking at listed firms. Hence, data should be rather clean/homogeneous <br> Paired sample“hey compare different ways of ac</td>
+<td align="left">At best 80% accuracy (in-sample?)</td>
+<td align="left">Up to 122 financial statements in one year. I gather it must be 50-50 split due to the pair sample</td>
+<td align="left">Neural Network <br> Boosting</td>
+<td align="left">‘Chinese listed companies is collected from CCER Economic and Financial Database’ <br> Defaults are defined as those where ‘China Securities Supervision and Management <br> Committee (CSSMC) carried out a ’Special Treatment (ST)’ to warn the listed companies with negative net’ profits in consecutive 2 years <br> Uses financial data from firms 3 years prior with ‘ST’ <br></td>
+<td align="left">All bankeruptcies in 2001-14 <br> Pair with non-bankrupt firms from the same industry, similar total assets and who do not have a ‘ST’ in the next 5 years</td>
+<td align="right">2016</td>
+<td align="left">Industrial Engineering and Engineering Management</td>
+<td align="left"><a href="http://ieeexplore.ieee.org/abstract/document/7798055/">link</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Prediction of Financial Distress Companies on Bursa Malaysia Using Adaptive Neuro-Fuzzy Inference System</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="left">While the Adaptive Neuro-Fuzzy Inference System may be useful getting 86% on a small data set with a parsimonious model relative to the sample size is not convincing to me <br> I gather some sort of sampling must have been done since ‘PN17 stands for Practice Note 17/2005 and is issued by Bursa Malaysia; relating to companies that are in financial distress’ (web source) <br></td>
+<td align="left">accuracy rate of 86% though it is not clear to me whether this is in or out sample</td>
+<td align="left">20 / 44 where there is a 50%-50% split to in training</td>
+<td align="left">See my review</td>
+<td align="left">‘distressed and nondistressed companies were collected for five years prior tobeing listed under the PN17 categories by the Bursa Malaysia. For example, for a company which was announced as distressed in 2015, the variables were computed for the year 2014 (year 1), 2013 (year 2), 2012 (year 3), 2010 (year 4) and2009 (year 5). The name of companies listed under PN17 was obtained from the Media Releases and Companies Announcements from the Bursa Malaysia website, while thefinancial data were collected from the Thomson Reuters Datastream’</td>
+<td align="left">None?</td>
+<td align="right">NA</td>
+<td align="left"></td>
+<td align="left"><a href="http://academic-raub.com/wp-content/uploads/2016/11/P1013.pdf">link</a></td>
+</tr>
+<tr class="even">
+<td align="left">Probability-of-default curve calibration and the validation of internal rating systems</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="left">Goes through how to calibrate a [0, 1] score to probablities of default <br> They use scores from the article ‘Approach to the assessment of credit risk for non-financial <br> corporations. Evidence from Poland’. This seems to be a logistic regression where the score is the lienar predictor <br> It is not clear to me why you take the linear predictor from logistic regression, map it to [0,1] (not using the inverse logit function?) and then use the method they use <br> It is not clear to me why you would pull together the industries they do</td>
+<td align="left"></td>
+<td align="left">298 / 5091 financial statements</td>
+<td align="left">See my review</td>
+<td align="left">Polish firms from 2007 to 2012 <br> Defaults from Narodowy Bank Polski and National Court Register (KRS) <br> Financial data from AMADEUS (Bureau van Dijk); Notoria OnLine <br> Some selection is done on total exposure, industry (Agriculture, forestry and fishing plus Financial and insurance activities) and type of firm “olish firms from 2007 to 2012 <br> Defaults from Narodowy Bank Polski and National Court Register (KRS) <br> Financial data from</td>
+<td align="left">None</td>
+<td align="right">NA</td>
+<td align="left"></td>
+<td align="left"><a href="https://www.bis.org/ifc/events/ifc_8thconf/ifc_8thconf_4c4pap.pdf">link</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Approach to the assessment of credit risk for non-financial corporations. Poland Evidence</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="left">See ‘Probability-of-default curve calibration and the validation of internal rating systems’ <br> I only quickly scanned this but what I saw did not seem resonable / worth reading</td>
+<td align="left"></td>
+<td align="left">See ‘Probability-of-default curve calibration and the validation of internal rating systems’</td>
+<td align="left">Logistic regression</td>
+<td align="left">See ‘Probability-of-default curve calibration and the validation of internal rating systems’</td>
+<td align="left">See ‘Probability-of-default curve calibration and the validation of internal rating systems’</td>
+<td align="right">NA</td>
+<td align="left"></td>
+<td align="left"><a href="http://www.bis.org/ifc/events/ws_micro_macro/nehrebecka_paper.pdf">link</a></td>
+</tr>
+<tr class="even">
+<td align="left">FINANCIAL DISTRESS FORECASTING OF NON-FINANCIAL FIRMS: A CASE OF PAKISTAN</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="left">Applies Zmijewski (1984) logistic model to companies in Pakistian in 2001 to 2010 <br> The english is bad and the only interest would be that the model is applied to the particular data set. <br> Caveat: I only skimmed the article</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Logistic regression</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="right">NA</td>
+<td align="left"></td>
+<td align="left"><a href="https://www.researchgate.net/profile/Agha_Jahanzeb2/publication/309802036_FINANCIAL_DISTRESS_FORECASTING_OF_NON-FINANCIAL_FIRMS_A_CASE_OF_PAKISTAN/links/5824039208ae7ea5be72249c.pdf">link</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Characteristics of firm failure processes in an international context</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="left">This is a thesis that summarizes four previous studies. The goal of the studies seems/is descripitve. A large focus is put on the trajectory of failures <br> It is interesting with models applied to an international data set <br> Use change in accoutning variables. Might be good idea though I figure these should be relative and not abosolute when used in logistic regression <br> Study 2 and 3 may be interesting <br> I would argue that 1200-ish firms is not a large sample which the authors claim <br> Seems like we have a lot of variables given the figures on page 48 and when you look at the study designs on page 56 plus the sample sizes <br> Caveat: I have not read beyond page 57</td>
+<td align="left"></td>
+<td align="left">Study 1: 70 firms <br> Study 2 and 3: 1216 firms <br> Study 4: 1281 firms <br> Guess multiple finanical records / period is used in e.g. logistic regression</td>
+<td align="left">Logistic regression</td>
+<td align="left">Study 1: Finnish and Estonian <br> Study 2 and 3: European manufacturing firms <br> Sutdy 4: Estonia <br> See page 46 and 52 for details</td>
+<td align="left">Not stated / I could not find comments about sampling</td>
+<td align="right">2016</td>
+<td align="left"></td>
+<td align="left"><a href="https://dspace.ut.ee/handle/10062/54368">link</a></td>
+</tr>
+</tbody>
+</table>
 
 
 

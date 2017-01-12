@@ -3,3 +3,10 @@ NN,Neural Network
 AdaBoost,AdaBoost
 DT,Decision Tree
 B,Boosting
+SVM,Support Vector machine
+LOGI,Logistic regression
+AH,Additive Intensity models
+SMR,See my review
+CL,Cluster analysis
+FA,Factor analysis
+ACF,Accelerated Failure time 
