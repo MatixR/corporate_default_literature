@@ -22,7 +22,7 @@ Non-failing firms are taken where 'the availability of a minimum of three consec
 Firms do have multiple entries
 Unclear if failing firms also appear with financial statements for the year where they do not default
 Mix years / ignores longitudinal aspect
-Unclear what is meant by the different "xthYear" data sets""ailing firms are d",Up to 515 / 10173 (financial statements),Up to  95.9% AUC with cross validation,"Applies Extreme Gradient Boosting as the first as far as I am aware in this context. Further, they construct features with a quite simple method that do seem to work 
+Unclear what is meant by the different 'xthYear' data sets (at least to me)",Up to 515 / 10173 (financial statements),Up to  95.9% AUC with cross validation,"Applies Extreme Gradient Boosting as the first as far as I am aware in this context. Further, they construct features with a quite simple method that do seem to work 
 
 Credit for:
 Large data set
@@ -130,10 +130,9 @@ corporations. Evidence from Poland'. This seems to be a logistic regression wher
 It is not clear to me why you take the linear predictor from logistic regression, map it to [0,1] (not using the inverse logit function?) and then use the method they use
 It is not clear to me why you would pull together the industries they do",5
 Approach to the assessment of credit risk for non-financial corporations. Poland Evidence,,LOGI,See 'Probability-of-default curve calibration and the validation of internal rating systems',See 'Probability-of-default curve calibration and the validation of internal rating systems',See 'Probability-of-default curve calibration and the validation of internal rating systems',,"See 'Probability-of-default curve calibration and the validation of internal rating systems'
-
-I only quickly scanned this but what I saw did not seem resonable / worth reading",5
+I only quickly scanned this but what I saw did not seem resonable / worth reading given my review of the above article",5
 FINANCIAL DISTRESS FORECASTING OF NON-FINANCIAL FIRMS: A CASE OF PAKISTAN,,LOGI,,,,,"Applies Zmijewski (1984) logistic model to companies in Pakistian in 2001 to 2010
-The english is bad and the only interest would be that the model is applied to the particular data set. 
+The english is bad and the only interest would be that the model is applied to the particular data set as far as I see
 Caveat: I only skimmed the article",5
 Characteristics of firm failure processes in an international context,,LOGI,"Study 1: Finnish and Estonian 
 Study 2 and 3: European manufacturing firms
@@ -160,3 +159,41 @@ Failure is defined as 'delisted firms that underwent bankruptcy or liquidation a
 Find only minor improvments to the models in Shumway (2001) and  Campbell et al. (2008) in terms of in-sample AUC and out-sample decile rankings
 A note here is that in my experience the age of the firms does not matter much. Hence, the previous finding is expected
 Draws conclusions on fits where some coeffecients are large in absolute terms (see table 6). I guess it is a result of multicollinearity ",4
+Medium Risk Companies: The Probability of Notching-Up,International Journal of Economics and Finance,LOGI,"Italian firms from 2007-10
+'The sample excludes firms with significant outlier in some of their explanatory variables so that all the observations in the 1st and the 100th percentile are dropped'
+'Default ... is defined as a payment being ninety days or more past due at least once since origination' with data from the Credit register at Crif Spa
+Includes financial statements with 'not less than 5 million euro of total revenues from sales and not more than 50 million euro' with at least 5 years of operations in Italy
+Excludes '... financial firms, public firms, farms and construction firms.'",None,"37,560 firm-year observations that span 9,390 individual' with 504 defaulting firms","78% accuracy in-sample between the "worst" rating class and the rest as far as I gather""8% accuracy in-sample between the "worst" rating cl""% accuracy in-sa","Performs forward stepwise selection with a logistic model for Italian firms. They then map the predicted default rate into 10 rating classes. Classes are then used to look at transitions between classes from year to year. I found the latter part less interesting from a default prediction perspective
+The handling of outliers seems questionable to me. They must exclude a lot of firms?
+The exclussion of financial statements below 5m. euro means that the method is not applicable for firms whos sales drop below the limit in the financial statement before they default",4
+A Global Model for Bankruptcy Prediction,PloS one,LOGI,"Data from 1990-2013 '440 non-financial, quoted companies belonging to three regions: Asia (Japan, South Korea, Singapore and Taiwan), Europe (Austria, Denmark, France, Germany, Ireland, Italy, Luxembourg, Holland, Norway, Portugal, Spain, Sweden, Switzerland and the United Kingdom) and America (Bermuda, Canada and the United States)' from compustat","50-50 split with match sampling on year, country and industry where the match is selected at random ",220 / 220 firms,AUC on hold-out sample of 80% to 93%,"Fits regional and a global logitistic model with financial data from 1, 2 and 3 years prior to the default
+I find some flaws:
+The study is nice in that it test for regional differences. Though, I see no reason for the sampling when they use logistic regression
+Small samples with with 10 variables
+Infers that there is regional differences based on different selected variables in the regional model where the model is selected that minimize an information criteria (Hannan-Quinn criteria) which I guess is seleted with stepwise selection or similar
+Matched sampling
+Bag all observations across years",4
+Forecasting European Corporate Bankruptcy,,"LOGI, LDA","Firms from Belgium, France, Greece, Italy, the Netherlands, Portugal, or Spain in the ORBIS, a database of Bureau van Dijk
+Data is from 2004-13 excluding 2010
+From one of these industry: ‘Construction’, ‘Machinery, equipment, furniture, recycling’, ‘Metals & metal products’, ‘Other services’, or ‘Wholesale & retail trade’
+See page 34 for further criterias
+",A 10-1 ratio which I guess is random. Though ' A minimum of 200 healthy firms' in each year. See page 34 for further details,1991 firms in their 2004-06 sample,AUC ranging from 34% to 92% on hold-out samples,"Compares linear discrimation analysis, logistic regression and probit models for European firms
+Compares inter and intra industry models
+Estimates the model over three periods
+Scale ratio by inverse of industry ratios
+Includes macro economic variables
+I am not convinced that their yearly strafied sampling of a 10:1 ratio is a good way to do it
+The absolotue value of the estimated coeffecients seems quite large. I guess it is a cause of multicollinearity
+The authors lost me with their 31 tables and 4 page conclussion ",5
+Bankruptcy Prediction Using Memetic Algorithm,International Workshop on Multi-disciplinary Trends,SMR,,,,,"Use a 'new memetic algorithm using Cuckoo search algorithm and Particle Swarm optimization algorithm' to train classifiers of sets of data of banks
+It is not clear what data they are using and how it is sample
+They do not get a consistent better result with accurarcy relative to a decision tree",5
+Why Do Companies Fail,,CM,"Australian firm both private, public listed and public non-listed
+Data for listed firms is for firms on the Australian Stock Exchange from Morningstar
+Data for unlisted firms is from Dun & Bradstreet
+Default indicator is from Australian Securities and Investments Commission
+Some removal of imposible values is performed - see page 13",None,532 / 90729 financial statements with 23326 unique firms,AUCs of 73% (in sample?),"Estimates a discrete cox regression (that is use the cloglog function in binary regression). The underlying time variable is set to the log of age of the firm times a constant from what I gather. Age is 'measured as the natural log of the number of years since the company registered with Default indicator is from Australian Securities and Investments Commission'
+Notice that adding a year dummy to a discrete Cox regression is essentially semi parametric cox regression where the underlying time process is the calender time 
+Compares estimates from listed and non-listed firms that are modeled seperatly 
+Has a large sample of both firms
+Has some nice Kaplan-Meier Failure Curves for age strafied by private, public listed or public not listed",4

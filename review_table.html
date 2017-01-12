@@ -207,7 +207,7 @@ $(document).ready(function () {
 <td align="left">Up to 515 / 10173 (financial statements)</td>
 <td align="left">Decision Tree <br> Boosting <br> AdaBoost</td>
 <td align="left">Polish manufacturing sector with data from the Emerging Markets Information Service</td>
-<td align="left">Failing firms are drawn from 2007-2013 <br> Non-failing firms are taken where ‘the availability of a minimum of three consecutive financial statements in the period 2000-2012’ <br> Firms do have multiple entries <br> Unclear if failing firms also appear with financial statements for the year where they do not default <br> Mix years / ignores longitudinal aspect <br> Unclear what is meant by the different xthYear data sets“ailing firms are d</td>
+<td align="left">Failing firms are drawn from 2007-2013 <br> Non-failing firms are taken where ‘the availability of a minimum of three consecutive financial statements in the period 2000-2012’ <br> Firms do have multiple entries <br> Unclear if failing firms also appear with financial statements for the year where they do not default <br> Mix years / ignores longitudinal aspect <br> Unclear what is meant by the different ‘xthYear’ data sets (at least to me)</td>
 <td align="right">2016</td>
 <td align="left">Expert Systems With Applications</td>
 <td align="left"><a href="http://www.sciencedirect.com/science/article/pii/S0957417416301592">link</a></td>
@@ -297,6 +297,48 @@ $(document).ready(function () {
 <td align="left"><a href="https://acfr.aut.ac.nz/__data/assets/pdf_file/0019/56440/42830-J-Svec-Distress-Risk.pdf">link</a></td>
 </tr>
 <tr class="odd">
+<td align="left">Medium Risk Companies: The Probability of Notching-Up</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="left">Performs forward stepwise selection with a logistic model for Italian firms. They then map the predicted default rate into 10 rating classes. Classes are then used to look at transitions between classes from year to year. I found the latter part less interesting from a default prediction perspective <br> The handling of outliers seems questionable to me. They must exclude a lot of firms? <br> The exclussion of financial statements below 5m. euro means that the method is not applicable for firms whos sales drop below the limit in the financial statement before they default</td>
+<td align="left">78% accuracy in-sample between the worst rating class and the rest as far as I gather“8% accuracy in-sample between the worst rating cl”% accuracy in-sa</td>
+<td align="left">37,560 firm-year observations that span 9,390 individual’ with 504 defaulting firms</td>
+<td align="left">Logistic regression</td>
+<td align="left">Italian firms from 2007-10 <br> ‘The sample excludes firms with significant outlier in some of their explanatory variables so that all the observations in the 1st and the 100th percentile are dropped’ <br> ‘Default … is defined as a payment being ninety days or more past due at least once since origination’ with data from the Credit register at Crif Spa <br> Includes financial statements with ‘not less than 5 million euro of total revenues from sales and not more than 50 million euro’ with at least 5 years of operations in Italy <br> Excludes ‘… financial firms, public firms, farms and construction firms.’</td>
+<td align="left">None</td>
+<td align="right">2016</td>
+<td align="left">International Journal of Economics and Finance</td>
+<td align="left"><a href="http://www.ccsenet.org/journal/index.php/ijef/article/view/63487">link</a></td>
+</tr>
+<tr class="even">
+<td align="left">A Global Model for Bankruptcy Prediction</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="left">Fits regional and a global logitistic model with financial data from 1, 2 and 3 years prior to the default <br> I find some flaws: <br> The study is nice in that it test for regional differences. Though, I see no reason for the sampling when they use logistic regression <br> Small samples with with 10 variables <br> Infers that there is regional differences based on different selected variables in the regional model where the model is selected that minimize an information criteria (Hannan-Quinn criteria) which I guess is seleted with stepwise selection or similar <br> Matched sampling <br> Bag all observations across years</td>
+<td align="left">AUC on hold-out sample of 80% to 93%</td>
+<td align="left">220 / 220 firms</td>
+<td align="left">Logistic regression</td>
+<td align="left">Data from 1990-2013 ‘440 non-financial, quoted companies belonging to three regions: Asia (Japan, South Korea, Singapore and Taiwan), Europe (Austria, Denmark, France, Germany, Ireland, Italy, Luxembourg, Holland, Norway, Portugal, Spain, Sweden, Switzerland and the United Kingdom) and America (Bermuda, Canada and the United States)’ from compustat</td>
+<td align="left">50-50 split with match sampling on year, country and industry where the match is selected at random</td>
+<td align="right">NA</td>
+<td align="left">PloS one</td>
+<td align="left"><a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0166693">link</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Why Do Companies Fail</td>
+<td align="right">4</td>
+<td align="right">NA</td>
+<td align="left">Estimates a discrete cox regression (that is use the cloglog function in binary regression). The underlying time variable is set to the log of age of the firm times a constant from what I gather. Age is ‘measured as the natural log of the number of years since the company registered with Default indicator is from Australian Securities and Investments Commission’ <br> Notice that adding a year dummy to a discrete Cox regression is essentially semi parametric cox regression where the underlying time process is the calender time <br> Compares estimates from listed and non-listed firms that are modeled seperatly <br> Has a large sample of both firms <br> Has some nice Kaplan-Meier Failure Curves for age strafied by private, public listed or public not listed</td>
+<td align="left">AUCs of 73% (in sample?)</td>
+<td align="left">532 / 90729 financial statements with 23326 unique firms</td>
+<td align="left">Cox Hazard model</td>
+<td align="left">Australian firm both private, public listed and public non-listed <br> Data for listed firms is for firms on the Australian Stock Exchange from Morningstar <br> Data for unlisted firms is from Dun &amp; Bradstreet <br> Default indicator is from Australian Securities and Investments Commission <br> Some removal of imposible values is performed - see page 13</td>
+<td align="left">None</td>
+<td align="right">NA</td>
+<td align="left"></td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
 <td align="left">Data mining method for listed companies financial distress prediction</td>
 <td align="right">5</td>
 <td align="right">123</td>
@@ -310,7 +352,7 @@ $(document).ready(function () {
 <td align="left">Knowledge-Based Systems</td>
 <td align="left"><a href="http://www.sciencedirect.com/science/article/pii/S0950705106001936">link</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">A Combination Use of Bagging and Random Subspace with Memory Mechanism for Dynamic Financial Distress Prediction</td>
 <td align="right">5</td>
 <td align="right">0</td>
@@ -324,7 +366,7 @@ $(document).ready(function () {
 <td align="left">Industrial Engineering and Engineering Management</td>
 <td align="left"><a href="http://ieeexplore.ieee.org/abstract/document/7798055/">link</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Prediction of Financial Distress Companies on Bursa Malaysia Using Adaptive Neuro-Fuzzy Inference System</td>
 <td align="right">5</td>
 <td align="right">0</td>
@@ -338,7 +380,7 @@ $(document).ready(function () {
 <td align="left"></td>
 <td align="left"><a href="http://academic-raub.com/wp-content/uploads/2016/11/P1013.pdf">link</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Probability-of-default curve calibration and the validation of internal rating systems</td>
 <td align="right">5</td>
 <td align="right">0</td>
@@ -352,11 +394,11 @@ $(document).ready(function () {
 <td align="left"></td>
 <td align="left"><a href="https://www.bis.org/ifc/events/ifc_8thconf/ifc_8thconf_4c4pap.pdf">link</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Approach to the assessment of credit risk for non-financial corporations. Poland Evidence</td>
 <td align="right">5</td>
 <td align="right">0</td>
-<td align="left">See ‘Probability-of-default curve calibration and the validation of internal rating systems’ <br> I only quickly scanned this but what I saw did not seem resonable / worth reading</td>
+<td align="left">See ‘Probability-of-default curve calibration and the validation of internal rating systems’ <br> I only quickly scanned this but what I saw did not seem resonable / worth reading given my review of the above article</td>
 <td align="left"></td>
 <td align="left">See ‘Probability-of-default curve calibration and the validation of internal rating systems’</td>
 <td align="left">Logistic regression</td>
@@ -366,11 +408,11 @@ $(document).ready(function () {
 <td align="left"></td>
 <td align="left"><a href="http://www.bis.org/ifc/events/ws_micro_macro/nehrebecka_paper.pdf">link</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">FINANCIAL DISTRESS FORECASTING OF NON-FINANCIAL FIRMS: A CASE OF PAKISTAN</td>
 <td align="right">5</td>
 <td align="right">0</td>
-<td align="left">Applies Zmijewski (1984) logistic model to companies in Pakistian in 2001 to 2010 <br> The english is bad and the only interest would be that the model is applied to the particular data set. <br> Caveat: I only skimmed the article</td>
+<td align="left">Applies Zmijewski (1984) logistic model to companies in Pakistian in 2001 to 2010 <br> The english is bad and the only interest would be that the model is applied to the particular data set as far as I see <br> Caveat: I only skimmed the article</td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">Logistic regression</td>
@@ -380,7 +422,7 @@ $(document).ready(function () {
 <td align="left"></td>
 <td align="left"><a href="https://www.researchgate.net/profile/Agha_Jahanzeb2/publication/309802036_FINANCIAL_DISTRESS_FORECASTING_OF_NON-FINANCIAL_FIRMS_A_CASE_OF_PAKISTAN/links/5824039208ae7ea5be72249c.pdf">link</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Characteristics of firm failure processes in an international context</td>
 <td align="right">5</td>
 <td align="right">0</td>
@@ -393,6 +435,34 @@ $(document).ready(function () {
 <td align="right">2016</td>
 <td align="left"></td>
 <td align="left"><a href="https://dspace.ut.ee/handle/10062/54368">link</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Forecasting European Corporate Bankruptcy</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="left">Compares linear discrimation analysis, logistic regression and probit models for European firms <br> Compares inter and intra industry models <br> Estimates the model over three periods <br> Scale ratio by inverse of industry ratios <br> Includes macro economic variables <br> I am not convinced that their yearly strafied sampling of a 10:1 ratio is a good way to do it <br> The absolotue value of the estimated coeffecients seems quite large. I guess it is a cause of multicollinearity <br> The authors lost me with their 31 tables and 4 page conclussion</td>
+<td align="left">AUC ranging from 34% to 92% on hold-out samples</td>
+<td align="left">1991 firms in their 2004-06 sample</td>
+<td align="left">Logistic regression <br> Linear Discriminant Analysis</td>
+<td align="left">Firms from Belgium, France, Greece, Italy, the Netherlands, Portugal, or Spain in the ORBIS, a database of Bureau van Dijk <br> Data is from 2004-13 excluding 2010 <br> From one of these industry: ‘Construction’, ‘Machinery, equipment, furniture, recycling’, ‘Metals &amp; metal products’, ‘Other services’, or ‘Wholesale &amp; retail trade’ <br> See page 34 for further criterias <br></td>
+<td align="left">A 10-1 ratio which I guess is random. Though ‘A minimum of 200 healthy firms’ in each year. See page 34 for further details</td>
+<td align="right">2016</td>
+<td align="left"></td>
+<td align="left"><a href="http://theses.ubn.ru.nl/handle/123456789/3533">link</a></td>
+</tr>
+<tr class="even">
+<td align="left">Bankruptcy Prediction Using Memetic Algorithm</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="left">Use a ‘new memetic algorithm using Cuckoo search algorithm and Particle Swarm optimization algorithm’ to train classifiers of sets of data of banks <br> It is not clear what data they are using and how it is sample <br> They do not get a consistent better result with accurarcy relative to a decision tree</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">See my review</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="right">2016</td>
+<td align="left">International Workshop on Multi-disciplinary Trends</td>
+<td align="left"><a href="http://link.springer.com/chapter/10.1007/978-3-319-49397-8_13">link</a></td>
 </tr>
 </tbody>
 </table>

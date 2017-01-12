@@ -6,8 +6,8 @@ get_google_scholar_info <- with(new.env(), {
   
   function(name = "", journal = ""){
     # Try to open the url
-    url_ <- paste0("https://scholar.google.com/scholar?as_q=&as_epq=", 
-                   gsub("\\ ", "+", name), "&as_publication=", 
+    url_ <- paste0('https://scholar.google.com/scholar?as_q=&as_epq="', 
+                   gsub("\\ ", "+", name), '"&as_publication=', 
                    gsub("\\ ", "+", journal), "&hl=en")
     
     # Dont want issues with google searches blooking us out
