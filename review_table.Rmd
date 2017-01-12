@@ -139,3 +139,9 @@ pander::pandoc.table(review_data,
                      split.cells = split_cells[names(align_n_c_order)],
                      style = 'multiline')
 ```
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $("body > div.container-fluid.main-container > table > colgroup > col:nth-child(12)").attr("width", "1%");
+});
+</script>
