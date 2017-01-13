@@ -159,6 +159,29 @@ pander::pandoc.table(review_data,
 <script src="js/jquery.dataTables.min.js"></script>
 
 <script type="text/javascript">
+// Sort function for NA from https://datatables.net/forums/discussion/7446/numeric-sort-with-na-in-some-cells
+$.fn.dataTableExt.oSort['numeric_ignore_nan-asc'] = function(x,y) {
+if (isNaN(x) && isNaN(y)) return ((x < y) ? 1 : ((x > y) ? -1 : 0));
+
+if (isNaN(x)) return 1;
+if (isNaN(y)) return -1;
+
+x = parseFloat( x );
+y = parseFloat( y );
+return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+};
+
+$.fn.dataTableExt.oSort['numeric_ignore_nan-desc'] = function(x,y) {
+if (isNaN(x) && isNaN(y)) return ((x < y) ? 1 : ((x > y) ? -1 : 0));
+
+if (isNaN(x)) return 1;
+if (isNaN(y)) return -1;
+
+x = parseFloat( x );
+y = parseFloat( y );
+return ((x < y) ? 1 : ((x > y) ? -1 : 0));
+};
+
 $(document).ready(function(){
   $("#review-table > table > colgroup").remove();
   $("#review-table > table").removeAttr('width');
@@ -166,20 +189,21 @@ $(document).ready(function(){
     "scrollY": "1200px",
 		"scrollX":        true,
 		"autoWidth": false,
+		"order": [[1, "asc" ], [2, "desc" ]],
     "columnDefs": [
-      { "width": "20em", "targets": 0 },
-      { "width": "10em", "targets": 1 },
-      { "width": "10em", "targets": 2 },
-      { "width": "50em", "targets": 3 },
-      { "width": "6em", "targets": 4 },
-      { "width": "50em", "targets": 5 },
-      { "width": "50em", "targets": 6 },
-      { "width": "50em", "targets": 7 },
-      { "width": "25em", "targets": 8 },
-      { "width": "50em", "targets": 9 },
-      { "width": "50em", "targets": 10 },
-      { "width": "5em", "targets": 11 },
-      { "width": "20em", "targets": 12 }
+      { "width": "18em", "targets": 0 },  // article name
+      { "width": "9em", "type": "numeric_ignore_nan", "targets": 1 },   // rating
+      { "width": "5em", "type": "numeric_ignore_nan", "targets": 2 },   // citations
+      { "width": "40em", "targets": 3 },  // abstact
+      { "width": "6em", "targets": 4 },   // link
+      { "width": "40em", "targets": 5 },  // review
+      { "width": "20em", "targets": 6 },  // outcome
+      { "width": "20em", "targets": 7 },  // sample size
+      { "width": "20em", "targets": 8 },  // models
+      { "width": "40em", "targets": 9 },  // data set
+      { "width": "20em", "targets": 10 }, // sampling
+      { "width": "5em", "targets": 11 },  // year
+      { "width": "10em", "targets": 12 }  // publisher
     ]
   });
 });
