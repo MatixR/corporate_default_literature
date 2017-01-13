@@ -3,8 +3,8 @@ title: "Literature review of corporate default prediction "
 author: "Benjamin Christoffersen"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
-  html_document:
-    css: "style.css"
+  function(...) rmarkdown::html_document(..., css=c("css/jquery.dataTables.min.css", "css/style.css")):
+    toc: false
 ---
 
 ```{r setup, include=FALSE}
@@ -47,7 +47,7 @@ review_data$Models <- sapply(review_data$Models, function(x){
 })
 
 # Find further article information
-if(T){ # Set to FALSE if data should be loaded from output folder
+if(F){ # Set to FALSE if data should be loaded from output folder
   source("R/google_scholar_info.R")
   google_dat <- apply(
     review_data[, c("Article name", "Publisher")], 1, function(x)
@@ -156,8 +156,31 @@ pander::pandoc.table(review_data,
                      style = 'multiline')
 ```
 
+<script src="js/jquery.dataTables.min.js"></script>
+
 <script type="text/javascript">
 $(document).ready(function(){
-  $("#review-table > table > colgroup > col:nth-child(5)").attr("width", "1%");
+  $("#review-table > table > colgroup").remove();
+  $("#review-table > table").removeAttr('width');
+  $("#review-table > table").DataTable({
+    "scrollY": "1200px",
+		"scrollX":        true,
+		"autoWidth": false,
+    "columnDefs": [
+      { "width": "20em", "targets": 0 },
+      { "width": "10em", "targets": 1 },
+      { "width": "10em", "targets": 2 },
+      { "width": "50em", "targets": 3 },
+      { "width": "6em", "targets": 4 },
+      { "width": "50em", "targets": 5 },
+      { "width": "50em", "targets": 6 },
+      { "width": "50em", "targets": 7 },
+      { "width": "25em", "targets": 8 },
+      { "width": "50em", "targets": 9 },
+      { "width": "50em", "targets": 10 },
+      { "width": "5em", "targets": 11 },
+      { "width": "20em", "targets": 12 }
+    ]
+  });
 });
 </script>

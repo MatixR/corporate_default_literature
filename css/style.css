@@ -1,0 +1,17 @@
+body .main-container {
+  width: 100%;
+}
+
+table{
+  margin: 0 auto;
+  width: 100%;
+  clear: both;
+  border-collapse: collapse;
+  table-layout: fixed;
+  word-wrap:break-word;
+}
+
+div.dataTables_wrapper {
+        width: 1200px;
+        margin: 0 auto;
+}
