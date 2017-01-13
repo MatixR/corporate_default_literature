@@ -835,9 +835,11 @@ $(document).ready(function(){
   $("#review-table > table > colgroup").remove();
   $("#review-table > table").removeAttr('width');
   $("#review-table > table").DataTable({
-    "scrollY": "1200px",
+    "scrollY": "800px",
         "scrollX":        true,
         "autoWidth": false,
+        "pageLength": 4,
+        "lengthMenu": [ 4, 10, 50, 100 ],
         "order": [[1, "asc" ], [2, "desc" ]],
     "columnDefs": [
       { "width": "18em", "targets": 0 },  // article name
