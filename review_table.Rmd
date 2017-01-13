@@ -79,7 +79,7 @@ google_dat[, c("year", "n_citations")] <-
 google_dat$journal_url <- ifelse(
   is.na(google_dat$journal_url), 
   rep(NA, nrow(google_dat)), 
-  paste0("<a href = '", google_dat$journal_url, "' >link</a>"))
+  paste0("<a target='_blank' href='", google_dat$journal_url, "' >Link</a>"))
 
 # format column names
 google_dat <- plyr::rename(google_dat, 
@@ -187,7 +187,7 @@ $(document).ready(function(){
   $("#review-table > table").removeAttr('width');
   $("#review-table > table").DataTable({
     "scrollY": "800px",
-		"scrollX":        true,
+		"scrollX": true,
 		"autoWidth": false,
 		"pageLength": 4,
 		"lengthMenu": [ 4, 10, 50, 100 ],
@@ -196,13 +196,13 @@ $(document).ready(function(){
       { "width": "18em", "targets": 0 },  // article name
       { "width": "9em", "type": "numeric_ignore_nan", "targets": 1 },   // rating
       { "width": "5em", "type": "numeric_ignore_nan", "targets": 2 },   // citations
-      { "width": "40em", "targets": 3 },  // abstact
+      { "width": "30em", "targets": 3 },  // abstact
       { "width": "6em", "targets": 4 },   // link
-      { "width": "40em", "targets": 5 },  // review
+      { "width": "30em", "targets": 5 },  // review
       { "width": "20em", "targets": 6 },  // outcome
       { "width": "20em", "targets": 7 },  // sample size
       { "width": "20em", "targets": 8 },  // models
-      { "width": "40em", "targets": 9 },  // data set
+      { "width": "30em", "targets": 9 },  // data set
       { "width": "20em", "targets": 10 }, // sampling
       { "width": "5em", "targets": 11 },  // year
       { "width": "10em", "targets": 12 }  // publisher
