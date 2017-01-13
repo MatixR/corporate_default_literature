@@ -23,7 +23,9 @@ My rating is my subject score based on the following criteria:
 
 Details of the rating are explaind in "My review". An NA rating means that I have not yet read the paper/document but it is on my TODO list
 
-```{r, echo=FALSE,message=FALSE, warning=TRUE, error=TRUE,results='asis'}
+## Review table
+
+```{r, echo=FALSE,message=FALSE, warning=TRUE, error=TRUE, results='asis'}
 # Read in data
 review_data <- read.csv("data/review_data.csv", header = T, sep = ",", quote = '"', 
                         stringsAsFactors = F, fileEncoding = "UTF-8-BOM")
@@ -45,7 +47,7 @@ review_data$Models <- sapply(review_data$Models, function(x){
 })
 
 # Find further article information
-if(FALSE){ # Set to FALSE if data should be loaded from output folder
+if(T){ # Set to FALSE if data should be loaded from output folder
   source("R/google_scholar_info.R")
   google_dat <- apply(
     review_data[, c("Article name", "Publisher")], 1, function(x)
@@ -103,7 +105,7 @@ align_n_c_order <- c(
   "Outcome" = "left", 
   "Sample size (failure / non-failure)" = "left",
   "Models" = "left", 
-  "Data source" = "left", 
+  "Data source/set" = "left", 
   "Sampling" = "left",
   "year" = "right", 
   "Publisher" = "left")
@@ -117,7 +119,7 @@ split_cells <- c(
   "Outcome" = 50, 
   "Sample size (failure / non-failure)" = 20,
   "Models" = 25, 
-  "Data source" = 50, 
+  "Data source/set" = 50, 
   "Sampling" = 50,
   "year" = 4, 
   "Publisher" = 20,
@@ -156,6 +158,6 @@ pander::pandoc.table(review_data,
 
 <script type="text/javascript">
 $(document).ready(function(){
-  $("#my-rating > table > colgroup > col:nth-child(5)").attr("width", "1%");
+  $("#review-table > table > colgroup > col:nth-child(5)").attr("width", "1%");
 });
 </script>

@@ -11,4 +11,5 @@ CL,Cluster analysis
 FA,Factor analysis
 ACF,Accelerated Failure time 
 CM,Cox Hazard model
-GAM,Generalized Additive models
+GAM,Generalized Additive models,
+RF,Random Forests

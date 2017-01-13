@@ -136,6 +136,14 @@ $(document).ready(function () {
 <li>Credit scoring is not considered unless I find the paper relevant</li>
 </ul>
 <p>Details of the rating are explaind in “My review”. An NA rating means that I have not yet read the paper/document but it is on my TODO list</p>
+</div>
+<div id="review-table" class="section level2">
+<h2>Review table</h2>
+<pre><code>## Warning in get_google_scholar_info(x[1], x[2]): Found multiple matches for A Comparison of Corporate Bankruptcy Models in Australia: The Merton vs. Accounting-based Models in Asia-Pacific Journal of Risk and Insurance. Url is 'https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;A+Comparison+of+Corporate+Bankruptcy+Models+in+Australia:+The+Merton+vs.+Accounting-based+Models&quot;&amp;as_publication=Asia-Pacific+Journal+of+Risk+and+Insurance&amp;hl=en'. Taking the first</code></pre>
+<pre><code>## Warning in get_google_scholar_info(x[1], x[2]): Found multiple matches for Why Do Companies Fail in . Url is 'https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;Why+Do+Companies+Fail&quot;&amp;as_publication=&amp;hl=en'. Taking the first</code></pre>
+<pre><code>## Warning in get_google_scholar_info(x[1], x[2]): Did not find any matches for Bankruptcy prediction by generalized additive models in Applied Stochastic Models in Business and Industr. Url is 'https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;Bankruptcy+prediction+by+generalized+additive+models&quot;&amp;as_publication=Applied+Stochastic+Models+in+Business+and+Industr&amp;hl=en'</code></pre>
+<pre><code>## Warning in get_google_scholar_info(x[1], x[2]): Found multiple matches for Financial ratios as predictors of failure in Journal of accounting research. Url is 'https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;Financial+ratios+as+predictors+of+failure&quot;&amp;as_publication=Journal+of+accounting+research&amp;hl=en'. Taking the first</code></pre>
+<pre><code>## Warning in get_google_scholar_info(x[1], x[2]): Did not find any matches for Using Bayesian networks for bankruptcy prediction: Some methodological issues in Computing, Artificial Intelligence and Information Management. Url is 'https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;Using+Bayesian+networks+for+bankruptcy+prediction:+Some+methodological+issues&quot;&amp;as_publication=Computing,+Artificial+Intelligence+and+Information+Management&amp;hl=en'</code></pre>
 <table>
 <colgroup>
 <col width="4%"></col>
@@ -163,7 +171,7 @@ $(document).ready(function () {
 <th align="left">Outcome</th>
 <th align="left">Sample size<br>(failure / non-failure)</th>
 <th align="left">Models</th>
-<th align="left">Data source</th>
+<th align="left">Data source/set</th>
 <th align="left">Sampling</th>
 <th align="right">year</th>
 <th align="left">Publisher</th>
@@ -246,6 +254,21 @@ $(document).ready(function () {
 <td align="left">Expert Systems With Applications</td>
 </tr>
 <tr class="even">
+<td align="left">PREDICTING CORPORATE BANKRUPTCY: AN EVALUATION OF ALTERNATIVE STATISTICAL FRAMEWORKS</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="left">Abstract Corporate bankruptcy prediction has attracted significant research attention from business academics, regulators and financial economists over the past five decades. However, much of this literature has relied on quite simplistic classifiers such as logistic regression and linear discriminant analysis (LDA). Based on a large sample of US corporate bankruptcies, we examine the predictive performance of 16 classifiers, ranging from the …</td>
+<td align="left"><a href="http://onlinelibrary.wiley.com/doi/10.1111/jbfa.12218/full">link</a></td>
+<td align="left">A study that compares a varity of methods on US pulically listed firms <br> Seems to suggest that the ensamble methods are preferable <br> Box cox transform variables. Seems only to matter for the models that do depend on monotonic transformation as expected <br> Tries with missing value imputation using an SVM method. The performance does not change <br> Lags details of sampling of non-failing firms and the <br> I am not convienced that the marking all three prior years as failure is a good idea - especially if they do let the defaulting firms be control in any other periods <br> Note that they addresss the prevoius point on page 28 under the header ‘Look-ahead bias.’ Further, you loose a lot of data this way. The failing firms would have been active healthy firms for while before defaulting</td>
+<td align="left">AUC from 74%-93% computed with cross validation</td>
+<td align="left">‘3,960 firm year observations for the bankrupt sample; and 26,169 firm year observations for the … non-failed group’</td>
+<td align="left">Boosting <br> Logistic regression <br> Support Vector machine <br> Random Forests <br> Support Vector machine <br> AdaBoost <br> Neural Network</td>
+<td align="left">US public company <br> Default data is from ‘Standards and Poor Capital IQ service.’ <br> ‘collected up to three years of financial variables on all bankrupt firms prior to the year of bankruptcy’ <br> They ‘code previous years [in plural] of a bankrupt firm as bankrupt. For instance, if a company failed in 2013, and three preceding years of financial data exists on that firm, all years are coded as 0’ or bankrupt.‘<br> Chapter 11 filling is used as the definition of failure <br> It is not clear to me how the accounting data is selected for the non-failing firms. See page 11 (’We extracted the same data for the non-failed control sample’)</td>
+<td align="left">It is unclear to me if the controls are sampled. See page 11</td>
+<td align="right">2016</td>
+<td align="left">Journal of Business Finance</td>
+</tr>
+<tr class="odd">
 <td align="left">Bankruptcy prediction using support vector machine with optimal choice of kernel function parameters</td>
 <td align="right">3</td>
 <td align="right">569</td>
@@ -260,7 +283,7 @@ $(document).ready(function () {
 <td align="right">2005</td>
 <td align="left">Expert Systems with Applications</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Bankruptcy forecasting: An empirical comparison of AdaBoost and neural networks</td>
 <td align="right">3</td>
 <td align="right">160</td>
@@ -275,11 +298,11 @@ $(document).ready(function () {
 <td align="right">2008</td>
 <td align="left">Decision Support Systems</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Variable selection and corporate bankruptcy forecasts</td>
 <td align="right">3</td>
 <td align="right">12</td>
-<td align="left">Abstract We investigate the relative importance of various bankruptcy predictors commonly used in the existing literature by applying a variable selection technique, the least absolute shrinkage and selection operator (LASSO), to a comprehensive bankruptcy database. Over the 1980-2009 period, LASSO admits the majority of Campbell et al.(2008) predictive variables into the bankruptcy forecast model. Interestingly, by contrast with recent studies, …</td>
+<td align="left">Abstract We investigate the relative importance of various bankruptcy predictors commonly used in the existing literature by applying a variable selection technique, the least absolute shrinkage and selection operator (LASSO), to a comprehensive bankruptcy database. Over the 19802009 period, LASSO admits the majority of Campbell et al.(2008) predictive variables into the bankruptcy forecast model. Interestingly, by contrast with recent studies, …</td>
 <td align="left"><a href="http://www.sciencedirect.com/science/article/pii/S0378426614003823">link</a></td>
 <td align="left">Performs an logistic regression with Lasso (L1) penalty with data from the US. Find improvements in relative to the model in Campbell et al (2008) <br> I do not think to conclusions should be drawn on which covariate are selected when multicollinearity is present. As far as I re-call, the selection properties of Lasso regression is ussually driven under the assumption of orthogonal design matricies for good reasons</td>
 <td align="left">1 year a-head out-sample forecast AUC of 84%</td>
@@ -290,7 +313,7 @@ $(document).ready(function () {
 <td align="right">2015</td>
 <td align="left">Journal of Banking &amp; Finance</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">A Comparison of Corporate Bankruptcy Models in Australia: The Merton vs. Accounting-based Models</td>
 <td align="right">3</td>
 <td align="right">4</td>
@@ -305,7 +328,7 @@ $(document).ready(function () {
 <td align="right">2009</td>
 <td align="left">Asia-Pacific Journal of Risk and Insurance</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Modelling The Credit Risk Of The Hungarian Sme Sector</td>
 <td align="right">3</td>
 <td align="right">0</td>
@@ -320,7 +343,7 @@ $(document).ready(function () {
 <td align="right">2016</td>
 <td align="left">mnb</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">The Research of SME Financial Crisis Warning Model Based on Neural Network</td>
 <td align="right">3</td>
 <td align="right">0</td>
@@ -335,7 +358,7 @@ $(document).ready(function () {
 <td align="right">2016</td>
 <td align="left"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Why Do Companies Fail</td>
 <td align="right">3</td>
 <td align="right">0</td>
@@ -350,7 +373,7 @@ $(document).ready(function () {
 <td align="right">NA</td>
 <td align="left"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Bankruptcy prediction by generalized additive models</td>
 <td align="right">3</td>
 <td align="right">NA</td>
@@ -365,7 +388,7 @@ $(document).ready(function () {
 <td align="right">NA</td>
 <td align="left">Applied Stochastic Models in Business and Industr</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Financial ratios as predictors of failure</td>
 <td align="right">4</td>
 <td align="right">5345</td>
@@ -379,6 +402,21 @@ $(document).ready(function () {
 <td align="left">I assume that the failed firms must be sampled or selected from the entire population <br> Paired sample based oon indstry and asset size</td>
 <td align="right">1966</td>
 <td align="left">Journal of accounting research</td>
+</tr>
+<tr class="even">
+<td align="left">A comparison of alternative bankruptcy prediction models</td>
+<td align="right">4</td>
+<td align="right">96</td>
+<td align="left">Early models of bankruptcy prediction employed financial ratios drawn from pre-bankruptcy financial statements and performed well both in-sample and out-of-sample. Since then there has been an ongoing effort in the literature to develop models with even greater predictive performance. A significant innovation in the literature was the introduction into bankruptcy prediction models of capital market data such as excess stock returns and stock return …</td>
+<td align="left"><a href="http://www.sciencedirect.com/science/article/pii/S1815566910000032">link</a></td>
+<td align="left">Test previous model specification for logit models on similar data sets in the US <br> Adds a variable for the ‘number of separate business segments in each of our sample firms’ <br> Adds a lagged version of some of the variables <br> I would assumet that this action would make their result artifically high. Firms that exit for other reason could likely be similar to firms that default:‘We exclude firms that are delisted from CRSP or deleted from Compustat for reasons other than bankruptcy or liquidation’ <br> This is just stupid. Of course the test gets better in sample as the firms that fail are likely similar a few years prior. Though, you would not know this berfore hand. This comment is for ‘[our is model] equivalent … Shumway[s] (2001) [model], except that we only include one firm-year observation for each bankrupt firm but all firm-year observations for the surviving firm. This refinement significantly improves model performance.’</td>
+<td align="left">AUC of 93% though see the my review</td>
+<td align="left">887 bankruptcies and 49,724 non-bankrupt firm-years</td>
+<td align="left">Logistic regression</td>
+<td align="left">US firms listed on NYSE and AMEX between 1980-2006 <br> Data is from New Generation Research (www.bankruptcydata.com), Compustat and CRSP <br> Use chapter 11 as the default outcome <br> Excludes firms with missing values and financial firms and those with SIC greater than 5999</td>
+<td align="left">None</td>
+<td align="right">2010</td>
+<td align="left">Journal of Contemporary Accounting &amp; Economics</td>
 </tr>
 <tr class="odd">
 <td align="left">Forecasting financial failure using a Kohonen map: A comparative study to improve model stability over time</td>
@@ -441,6 +479,21 @@ $(document).ready(function () {
 <td align="left">PloS one</td>
 </tr>
 <tr class="odd">
+<td align="left">Using Bayesian networks for bankruptcy prediction: Some methodological issues</td>
+<td align="right">4</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">Use Bayes Bayesian network for US listed firms <br> An advantage of these methods is that the methods can deal with missing values as they show <br> Show improvements relative to a logistic regression. I speculate that the improvements would not be present if they dealt with extremes values (see the descriptive statistics in table 2) <br> It is problematic if firms that do fail are not included in the years where they do not fail as controls</td>
+<td align="left">Around 81% accurarcy using cross validation</td>
+<td align="left">890 / 6932 financial statements</td>
+<td align="left">Support Vector machine <br> Logistic regression</td>
+<td align="left">Firms traded on publicly NASDAQ <br> ‘bankrupt firms are identified through Compustat and Lexis-Nexis Bankruptcy Report’ <br> It seems that bankerupt firms are only included as with their latest financial statement (see page 742) <br> A few firms with missing values are deleted with all missing variables</td>
+<td align="left">‘… we randomly select 500 firms from the identified active-firm-pool for each sample year. Once a non-bankrupt firm is selected for a year, it is excluded from selection in later years’</td>
+<td align="right">NA</td>
+<td align="left">Computing, Artificial Intelligence and Information Management</td>
+</tr>
+<tr class="even">
 <td align="left">Data mining method for listed companies financial distress prediction</td>
 <td align="right">5</td>
 <td align="right">123</td>
@@ -454,6 +507,21 @@ $(document).ready(function () {
 <td align="left">Paired firms between 2000 and 2005 <br> Mix years / ignores longitudinal aspect <br> Details about parring is not clear <br> In addition they: ‘… eliminate outliers, companies with financial ratios deviating from the mean value as much as three times of standard deviation are excluded’ <br></td>
 <td align="right">2008</td>
 <td align="left">Knowledge-Based Systems</td>
+</tr>
+<tr class="odd">
+<td align="left">More than a Dummy: The Probability of Failure, Survival and Acquisition of Firms in Financial Distress</td>
+<td align="right">5</td>
+<td align="right">45</td>
+<td align="left">We discuss three methodological issues concerning forecasts of the outcome of financial distress. First, we argue that rather than using a binary model the outcome of financial distress should be modeled using a multinomial specification that distinguishes between failure, survival as going concern, and acquisition. We also argue for a random rather than matched-pair sampling technique to better reflect decision making reality. Finally, we …</td>
+<td align="left"><a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1740-4762.2011.01024.x/full">link</a></td>
+<td align="left">While I do find multi exit models interesting (which they model) I have no idea why they only define ‘survivers’ as those who goes below a certain Altman Z-score. Why not extend the idea Shumway (2001) into a multinomial model? <br> Either their ROC curves turns mirrored or their performance is horriable (see page 14)…</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Logistic regression</td>
+<td align="left">US firms listed on NYSE,AMEX, and NASDAQ exchanges in the period 1980-93 <br> Compustat is used for financial statements <br> LEXIS/NEXIS database is used for exit type <br> Randomly selected sixteen three-digit SIC code industries <br> ‘an early warning signal’ was present in the period 1980 to 1988. They used the Alman Z-score for this purpose <br> Imputes industry median or zeros for missing values. See page 5</td>
+<td align="left"></td>
+<td align="right">2012</td>
+<td align="left">European Management Review</td>
 </tr>
 <tr class="even">
 <td align="left">A Combination Use of Bagging and Random Subspace with Memory Mechanism for Dynamic Financial Distress Prediction</td>
@@ -606,18 +674,48 @@ $(document).ready(function () {
 <td align="left">International Journal of Economics and Finance</td>
 </tr>
 <tr class="even">
-<td align="left">(In sample?) AUC between 83%-91%</td>
+<td align="left">Default in the Nordic High-Yield Bond Market</td>
 <td align="right">5</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
+<td align="right">0</td>
+<td align="left">In this thesis, we analyze the determining factors of default in the Nordic high-yield bond market. The study is carried out on 627 original issue bonds in the period 2006 to 2014. Binary logit models are used to identify the key determinants of default, and the estimated models can be used to predict default probabilities. Our results suggest that a combination of financial ratios, certain characteristics of the issued bond, an industry variable, the size of …</td>
+<td align="left"><a href="https://brage.bibsys.no/xmlui/handle/11250/2403788">link</a></td>
 <td align="left">Master thesis studying 627 high-yield bonds in the period of 2006-14. 126 of these default. Uses logistic regression and Cox regression with stepwise model selection <br> Small sample</td>
-<td align="left"></td>
+<td align="left">(In sample?) AUC between 83%-91%</td>
 <td align="left"></td>
 <td align="left">Logistic regression <br> Cox Hazard model</td>
 <td align="left"></td>
 <td align="left"></td>
-<td align="right">NA</td>
+<td align="right">2016</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Predicting bankruptcy in European e-commerce sector</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="left">In the current competitive and uncertain e-commerce environment, businesses have the need to predict in advance their likelihood of falling into bankruptcy. The central focus of this paper is to statistically model through different approaches the bankruptcy probability of e- commerce companies in Europe. The authors examine the econometric techniques twostep cluster, logistic regression, discriminant analysis, data mining tree, and roc curves to …</td>
+<td align="left"><a href="https://mpra.ub.uni-muenchen.de/id/eprint/74460">link</a></td>
+<td align="left">Small sample of 124 companies of European E commerce retailers. Data spans up to 2014. Applies different method to predict the outcome <br> An almost 48%-52% sample is made. I cannot find details about the sampling <br> I see no reason to sample with the methods they use</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Logistic regression <br> Decision Tree <br> Cluster analysis</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="right">2016</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">How useful are auditors going concern opinions as predictors of default?</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="left">Abstract Previous studies show a large discrepancy between auditors’ going concern opinions (GCOs) and subsequent corporate defaults. This discrepancy is often attributed to GCOs having low information content and to auditors failing to provide timely warnings to investors. We examine whether GCOs are better predictors of subsequent defaults, including bankruptcies, than ex ante statistical estimates of probability of default (PD), based on …</td>
+<td align="left"><a href="http://warrington.ufl.edu/accounting/docs/2016_Paper7.pdf">link</a></td>
+<td align="left">Compares logistic models on US data where one include a binary variable from the Credit Initiative predicted probability of default (see page 34) and the other includes a indicator for going concern opinions (GCOs) <br> It is not clear to me why you make this comparisson and include the binary variable they do. Why not test the Credit Initiative model directly? <br> It may be that they only use firms who do eventually default? I guess so from page 17 with the notion of distressed firm-years and the section on page 26</td>
+<td align="left">AUC of 87%-89% using cross validation</td>
+<td align="left">16929 observations which I guess is financial statements</td>
+<td align="left">Logistic regression</td>
+<td align="left">US companies in 2000-12 <br> Default data is from ‘the database of the Credit Research Initiative (CRI)’ <br> Accounting data is from Compustat North America with audit data from Audit Analytics <br> Excludes financial firms <br> Use a hard and soft defintion of failure (see page 15)</td>
+<td align="left">None as far as I gather</td>
+<td align="right">2016</td>
 <td align="left"></td>
 </tr>
 <tr class="odd">
@@ -714,7 +812,7 @@ $(document).ready(function () {
 </table>
 <script type="text/javascript">
 $(document).ready(function(){
-  $("#my-rating > table > colgroup > col:nth-child(5)").attr("width", "1%");
+  $("#review-table > table > colgroup > col:nth-child(5)").attr("width", "1%");
 });
 </script>
 </div>

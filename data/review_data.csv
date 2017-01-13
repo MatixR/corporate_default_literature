@@ -1,4 +1,4 @@
-﻿Article name,Publisher,Models,Data source,Sampling,Sample size (failure / non-failure),Outcome,My review,"My rating (1: best, 5: worst)"
+﻿Article name,Publisher,Models,Data source/set,Sampling,Sample size (failure / non-failure),Outcome,My review,"My rating (1: best, 5: worst)"
 Bankruptcy forecasting: An empirical comparison of AdaBoost and neural networks,Decision Support Systems,"LDA, NN, AdaBoost",Spanish firms from the SABI database of Bureau Van Dijk,"Random sampling with some sort of prior weight depending on covaraites. Details are not clear
 Select data from 2001-2005
 Mix years / ignores longitudinal aspect",590 / 590 (firms),8.9% accurarcy on hold-out for class assigment  with AdaBoost,"Introduces AdaBoost and shows how it can ba applied
@@ -243,5 +243,49 @@ Clustering and visualization of bankruptcy trajectory using self-organizing map,
 Predicting Financial Distress: Multi Scenarios Modeling Using Neural Network,International Journal of Economics and Finance,NN,,,,,"Fits a neural network with only 37 firms from the Egyptian stock exchange. 82 financial statements are excluded due to missing variables
 Firms a sampled though I could not figure out the details
 Caveat: I only skimmed the article",5
-(In sample?) AUC between 83%-91%,,"LOGI, CM",,,,,"Master thesis studying 627 high-yield bonds in the period of 2006-14. 126 of these default. Uses logistic regression and Cox regression with stepwise model selection
+Default in the Nordic High-Yield Bond Market,,"LOGI, CM",,,,(In sample?) AUC between 83%-91%,"Master thesis studying 627 high-yield bonds in the period of 2006-14. 126 of these default. Uses logistic regression and Cox regression with stepwise model selection
 Small sample",5
+Predicting bankruptcy in European e-commerce sector,,"LOGI, DT, CL",,,,,"Small sample of 124 companies of European E commerce retailers. Data spans up to 2014. Applies different method to predict the outcome
+An almost 48%-52% sample is made. I cannot find details about the sampling
+I see no reason to sample with the methods they use",5
+How useful are auditors’ going concern opinions as predictors of default?,,LOGI,"US companies in 2000-12
+Default data is from 'the database of the Credit Research Initiative (CRI)'
+Accounting data is from  Compustat North America with audit data from  Audit Analytics
+Excludes financial firms
+Use a hard and soft defintion of failure (see page 15)",None as far as I gather,16929 observations which I guess is financial statements,AUC of 87%-89% using cross validation,"Compares logistic models on US data where one include a binary variable from the Credit Initiative predicted probability of default (see page 34) and the other includes a indicator for going concern opinions (GCOs)
+It is not clear to me why you make this comparisson and include the binary variable they do. Why not test the Credit Initiative model directly?
+It may be that they only use firms who do eventually default? I guess so from page 17 with the notion of distressed firm-years and the section on page 26",5
+PREDICTING CORPORATE BANKRUPTCY: AN EVALUATION OF ALTERNATIVE STATISTICAL FRAMEWORKS,Journal of Business Finance,"B, LOGI, SVM, RF, SVM, AdaBoost, NN","US public company
+Default data is from 'Standard’s and Poor Capital IQ service.'
+'collected up to three years of financial variables on all bankrupt firms prior to the year of bankruptcy'
+They 'code previous years [in plural] of a bankrupt firm as bankrupt. For instance, if a company failed in 2013, and three preceding years of financial data exists on that firm, all years are coded as ‘0’ or bankrupt.'
+Chapter 11 filling is used as the definition of failure
+It is not clear to me how the accounting data is selected for the non-failing firms. See page 11 ('We extracted the same data for the non-failed control sample')",It is unclear to me if the controls are sampled. See page 11,"'3,960 firm year observations for the bankrupt sample; and 26,169 firm year observations for the ... non-failed group'",AUC from 74%-93% computed with cross validation,"A study that compares a varity of methods on US pulically listed firms
+Seems to suggest that the ensamble methods are preferable
+Box cox transform variables. Seems only to matter for the models that do depend on monotonic transformation as expected
+Tries with missing value imputation using an SVM method. The performance does not change 
+Lags details of sampling of non-failing firms and the
+I am not convienced that the marking all three prior years as failure is a good idea - especially if they do let the defaulting firms be control in any other periods
+Note that they addresss the prevoius point on page 28 under the header 'Look-ahead bias. ' Further, you loose a lot of data this way. The failing firms would have been active healthy firms for while before defaulting",2
+"More than a Dummy: The Probability of Failure, Survival and Acquisition of Firms in Financial Distress",European Management Review,LOGI,"US firms listed on NYSE,AMEX, and NASDAQ exchanges in the period 1980-93
+Compustat is used for financial statements
+LEXIS/NEXIS database is used for exit type
+Randomly selected sixteen three-digit SIC code industries 
+'an early warning signal' was present in the period 1980 to 1988. They used the Alman Z-score for this purpose
+Imputes industry median or zeros for missing values. See page 5",,,,"While I do find multi exit models interesting (which they model) I have no idea why they only define 'survivers' as those who goes below a certain Altman Z-score. Why not extend the idea Shumway (2001) into a multinomial model?
+Either their ROC curves turns mirrored or their performance is horriable (see page 14)... ",5
+A comparison of alternative bankruptcy prediction models,Journal of Contemporary Accounting & Economics,LOGI,"US firms listed on NYSE and AMEX between 1980-2006
+Data is from New Generation Research (www.bankruptcydata.com), Compustat and CRSP
+Use chapter 11 as the default outcome
+Excludes firms with missing values and financial firms and those with SIC greater than 5999",None,"887 bankruptcies and 49,724 non-bankrupt firm-years",AUC of 93% though see the my review ,"Test previous model specification for logit models on similar data sets in the US
+Adds a variable for the 'number of separate business segments in each of our sample firms'
+Adds a lagged version of some of the variables
+I would assumet that this action would make their result artifically high. Firms that exit for other reason could likely be similar to firms that default:' We exclude firms that are delisted from CRSP or deleted from Compustat for reasons other than bankruptcy or liquidation'
+This is just stupid. Of course the test gets better in sample as the firms that fail are likely similar a few years prior. Though, you would not know this berfore hand. This comment is for '[our is model] equivalent ... Shumway[s] (2001) [model], except that we only include one firm-year observation for each bankrupt firm but all firm-year observations for the surviving firm. This refinement significantly improves model performance.'",4
+Using Bayesian networks for bankruptcy prediction: Some methodological issues,"Computing, Artificial Intelligence and Information Management","SVM, LOGI","Firms traded on publicly NASDAQ
+'bankrupt firms are identified through Compustat and Lexis–Nexis Bankruptcy Report'
+It seems that bankerupt firms are only included as with their latest financial statement (see page 742)
+A few firms with missing values are deleted with all missing variables","'... we randomly select 500 firms from the identified active-firm-pool for each sample year. Once a non-bankrupt firm is selected for a year, it is excluded from selection in later years'",890 / 6932 financial statements,Around 81% accurarcy using cross validation,"Use Bayes Bayesian network for US listed firms
+An advantage of these methods is that the methods can deal with missing values as they show
+Show improvements relative to a logistic regression. I speculate that the improvements would not be present if they dealt with extremes values (see the descriptive statistics in table 2)
+It is problematic if firms that do fail are not included in the years where they do not fail as controls",4
