@@ -11,6 +11,18 @@ output:
 options(scipen = 100, digits = 3)
 ```
 
+## My rating
+My rating is my subject score based on the following criteria:
+
+* Relevance if you are building bankruptcy prediction models
+* Large data samples (not just listed firms)
+* Non-financial firms
+* Different models, method etc. 
+* Different countries or data sets that are commonly used in literature
+* Credit scoring is not considered unless I find the paper relevant
+
+Details of the rating are explaind in "My review". An NA rating means that I have not yet read the paper/document but it is on my TODO list
+
 ```{r, echo=FALSE,message=FALSE, warning=TRUE, error=TRUE,results='asis'}
 # Read in data
 review_data <- read.csv("data/review_data.csv", header = T, sep = ",", quote = '"', 
@@ -55,7 +67,7 @@ if(FALSE){ # Set to FALSE if data should be loaded from output folder
   
   google_dat <- 
     google_dat[match(review_data$`Article name`, google_dat$Article.name), 
-               c("journal_url", "year", "n_citations")]
+               c("journal_url", "year", "n_citations", "abstract")]
 }
 
 google_dat[, c("year", "n_citations")] <- 
@@ -85,6 +97,8 @@ align_n_c_order <- c(
   "Article name" = "left", 
   "My rating (1: best, 5: worst)" = "right", 
   "Citations" = "right", 
+  "abstract" = "left",
+  "link" = "left",
   "My review" = "left", 
   "Outcome" = "left", 
   "Sample size (failure / non-failure)" = "left",
@@ -92,13 +106,13 @@ align_n_c_order <- c(
   "Data source" = "left", 
   "Sampling" = "left",
   "year" = "right", 
-  "Publisher" = "left",
-  "link" = "left")
+  "Publisher" = "left")
 
 split_cells <- c(
   "Article name" = 25, 
   "My rating (1: best, 5: worst)" = 20, 
   "Citations" = 10, 
+  "abstract" = 50,
   "My review" = 50, 
   "Outcome" = 50, 
   "Sample size (failure / non-failure)" = 20,
@@ -142,6 +156,6 @@ pander::pandoc.table(review_data,
 
 <script type="text/javascript">
 $(document).ready(function(){
-  $("body > div.container-fluid.main-container > table > colgroup > col:nth-child(12)").attr("width", "1%");
+  $("#my-rating > table > colgroup > col:nth-child(5)").attr("width", "1%");
 });
 </script>

@@ -53,8 +53,8 @@ Pair with non-bankrupt firms from the same industry, similar total assets and wh
 
 It is nice that they account for the longitudinal aspect of data 
 
-Getting at best 80% accuracy (in-sample?) with a small data set with neural networks and 36 variables seems too low when further considering that we are looking at listed firms. Hence, data should be rather "clean"/homogeneous
-Paired sample""hey compare different ways of ac",5
+Getting at best 80% accuracy (in-sample?) with a small data set with neural networks and 36 variables seems too low when further considering that we are looking at listed firms. Hence, data should be rather 'clean'/homogeneous
+Paired sample",5
 Additive Intensity Regression Models in Corporate Default Analysis,JOURNAL OF FINANCIAL ECONOMETRICS,AH,"US listed firms with Default indicators from  Moody’s Default Risk Service Database with financial data from  CRSP (Center for Research in Security Prices)
 
 Excludes 'All consecutive default events occurring within a 1-month horizon of any previously registered default ascribed to the same parent company' and financial firms
@@ -122,9 +122,7 @@ I gather some sort of sampling must have been done since ‘PN17 stands for Prac
 Probability-of-default curve calibration and the validation of internal rating systems,,SMR,"Polish firms from 2007 to 2012
 Defaults from Narodowy Bank Polski and National Court Register (KRS)
 Financial data from AMADEUS (Bureau van Dijk); Notoria OnLine
-Some selection is done on "total exposure", industry (Agriculture, forestry and fishing plus Financial and insurance activities) and type of firm ""olish firms from 2007 to 2012
-Defaults from Narodowy Bank Polski and National Court Register (KRS)
-Financial data from ",None,298 / 5091 financial statements,,"Goes through how to calibrate a [0, 1] score to probablities of default
+Some selection is done on 'total exposure' industry (Agriculture, forestry and fishing plus Financial and insurance activities) and type of firm ",None,298 / 5091 financial statements,,"Goes through how to calibrate a [0, 1] score to probablities of default
 They use scores from  the article 'Approach to the assessment of credit risk for non-financial
 corporations. Evidence from Poland'. This seems to be a logistic regression where the score is the lienar predictor
 It is not clear to me why you take the linear predictor from logistic regression, map it to [0,1] (not using the inverse logit function?) and then use the method they use
@@ -163,9 +161,8 @@ Medium Risk Companies: The Probability of Notching-Up,International Journal of E
 'The sample excludes firms with significant outlier in some of their explanatory variables so that all the observations in the 1st and the 100th percentile are dropped'
 'Default ... is defined as a payment being ninety days or more past due at least once since origination' with data from the Credit register at Crif Spa
 Includes financial statements with 'not less than 5 million euro of total revenues from sales and not more than 50 million euro' with at least 5 years of operations in Italy
-Excludes '... financial firms, public firms, farms and construction firms.'",None,"37,560 firm-year observations that span 9,390 individual' with 504 defaulting firms","78% accuracy in-sample between the "worst" rating class and the rest as far as I gather""8% accuracy in-sample between the "worst" rating cl""% accuracy in-sa","Performs forward stepwise selection with a logistic model for Italian firms. They then map the predicted default rate into 10 rating classes. Classes are then used to look at transitions between classes from year to year. I found the latter part less interesting from a default prediction perspective
-The handling of outliers seems questionable to me. They must exclude a lot of firms?
-The exclussion of financial statements below 5m. euro means that the method is not applicable for firms whos sales drop below the limit in the financial statement before they default",4
+Excludes '... financial firms, public firms, farms and construction firms.'",None,"37,560 firm-year observations that span 9,390 individual' with 504 defaulting firms",78% accuracy in-sample between the 'worst' rating class and the rest as far as I gather,"Performs forward stepwise selection with a logistic model for Italian firms. They then map the predicted default rate into 10 rating classes. Classes are then used to look at transitions between classes from year to year. I found the latter part less interesting from a default prediction perspective
+The handling of outliers seems questionable to me. They must exclude a lot of firms?",4
 A Global Model for Bankruptcy Prediction,PloS one,LOGI,"Data from 1990-2013 '440 non-financial, quoted companies belonging to three regions: Asia (Japan, South Korea, Singapore and Taiwan), Europe (Austria, Denmark, France, Germany, Ireland, Italy, Luxembourg, Holland, Norway, Portugal, Spain, Sweden, Switzerland and the United Kingdom) and America (Bermuda, Canada and the United States)' from compustat","50-50 split with match sampling on year, country and industry where the match is selected at random ",220 / 220 firms,AUC on hold-out sample of 80% to 93%,"Fits regional and a global logitistic model with financial data from 1, 2 and 3 years prior to the default
 I find some flaws:
 The study is nice in that it test for regional differences. Though, I see no reason for the sampling when they use logistic regression
@@ -196,4 +193,55 @@ Some removal of imposible values is performed - see page 13",None,532 / 90729 fi
 Notice that adding a year dummy to a discrete Cox regression is essentially semi parametric cox regression where the underlying time process is the calender time 
 Compares estimates from listed and non-listed firms that are modeled seperatly 
 Has a large sample of both firms
-Has some nice Kaplan-Meier Failure Curves for age strafied by private, public listed or public not listed",4
+Has some nice Kaplan-Meier Failure Curves for age strafied by private, public listed or public not listed",3
+Predicting corporate failure in Zambia: A case of manufacturing firms,IJAR,LOGI,,,,,"Logistic regression with firms from Zambia
+A very small sample
+Caveat: I only skimmed the article",5
+Bankruptcy prediction by generalized additive models,Applied Stochastic Models in Business and Industr,"GAM, NN, LOGI, LDA",'Norwegian limited liability firms in the period 1996–2001',None,'… approximately 100 000 firms each year only about 1% defaulted the next year',Up to 78% AUC on out-sample in time ,"Models defaults using generalized aditive models in Norway with a large set of firms
+Models different default horizonts
+Finds imporvments of using generalized additve models over linear discrimination, logistic regression and neural networks 
+A large sample is used
+Use change variables from previous year which may be a good idea. I am not sure whether it is a good idea to use the industry means for the first year of data
+Details about this comment would be useful:' In a preliminary analysis we removed variables that were not significant in any model'",3
+Variable selection and corporate bankruptcy forecasts,Journal of Banking & Finance,LOGI,"US (listed?) firms in the the year 1980-2009
+Data from Center for Research in Security Prices (CRSP) with annual financial information from COMPUSTAT.
+Use chapter 7 or chapter 11 as a default indicator",None,"17,570 firms and 1,571,115 firm-months with 1383 bankruptcy filings",1 year a-head out-sample forecast AUC of 84%,"Performs an logistic regression with Lasso (L1) penalty with data from the US. Find improvements in relative to the model in Campbell et al (2008)
+I do not think to conclusions should be drawn on which covariate are selected when multicollinearity is present. As far as I re-call, the selection properties of Lasso regression is ussually driven under the assumption of orthogonal design matricies for good reasons",3
+Forecasting financial failure using a Kohonen map: A comparative study to improve model stability over time,European Journal of Operational Research,"SMR, LOGI, LDA, CM, NN","French firms between 1991-2009 from the database Diane
+Only firms required to '… file their annual reports with the French commercial courts' are included
+Firms are selected from the retail industry 
+With total assets less than €750000 (in all periods?)
+Companies that are operating for at least 6 years",Random sampling is performed with equal split between benkerupt and non-bankerupt firms,Up to 1100 / 1100,One year a-head out-sample in time accurarcy of 80%-81%,"Try Kohonen maps in forecasting of bankeruptcy. As I gather, this implies a mapping into a 2D grid followed by an anlysis of firm trajectories on the map
+The idea seems to be a good visual tool although I am not convinced that the method is superior to other methods
+Selection of variables is done with some of the comparisson models with backward search 
+I don’t think the comparisson between the other models and the Koherent map is fair. There is 'way' more data avialable for the 1 year for these methods which seems not to be used (see section 3.5). This may explain why the cox model gets better result than the logistic regression
+It is not clear to me how firms that default in intermediate years of the estimations period is used
+The requirement of 6 consequetive years of data may be an issue",4
+Financial ratios as predictors of failure,Journal of accounting research,SMR,"US firms in the perio 1954-64
+Excludes firm of noncorporate form, privately held corporations, and nonindustrial firms
+'… bankrupt firms provided by Dun and Bradstre' or Moody's
+'the financial statements could not be more than six months old at the date of failure'","I assume that the failed firms must be sampled or selected from the entire population
+Paired sample based oon indstry and asset size",78 / 78 firms with one financial statement from each firm,,"Performs univariate analysis of US firms
+While the paper is highly cited the paper is also dated. I say there is little compared to other papers",4
+APPLICATION OF DYNAMIC FINANCIAL VARIABLES IN BANKRUPTCY PREDICTION,,DT,"Manualy gathered of Hungarian firms with data available over the 2001-2012
+Benkerupt firms are taken as those under liquidation or bankruptcy proceeding. The source is Hungarian Trade Register 
+'Companies which hadn’t been realizing sales for at least two consecutive years were also excluded from the experiment'
+See page 100 for further criteria",50-50 split where the sampling is not clear to me. I guess it is random given the comment on page 100,At most 1000 firms with 7592 financial statements,75%-80% accuracy with 10 fold cross validation,"This is a Ph.D. thesis for a study of  bankruptcy prediction
+It provides are good framework for formalizing the model building (see page 26) with a comprehensive literature review of each step. There is 20 pages of references which stress the latter point 
+Quite readable 
+One can skip the study though as:
+I find that this is one of the best introduction into bankeruptcy prediction although it is long
+I am not convinced that the dynamic variables introduced on page 92 is good idea. I assume they will be quite unstable for firms with little prior data (which motivaties the treatment of outliers later). They do not seem useful to when you look at the results at table 113
+Excluding 'Companies which hadn’t been realizing sales for at least two consecutive' may not a be a good idea
+The treatment of outliers seems questionable to me. Any covariate outsite +/- 2 standard deviations seems like an bad definition",1
+Aggregating multiple classification results using Choquet integral for financial distress early warning,Expert Systems With Applications,,,,,,,
+Financial distress prediction with classifier ensembles based on firm life cycle and Choquet integral,Expert Systems with Applications,,,,,,,
+Classifiers selection in ensembles using genetic algorithms for bankruptcy prediction,Expert Systems with Applications,,,,,,,
+Two-level classifier ensembles for credit risk assessment,Expert Systems with Applications,,,,,,,
+Development of a class of stable predictive variables: The case of bankruptcy prediction,Journal of Business Finance & Accounting,,,,,,,
+Clustering and visualization of bankruptcy trajectory using self-organizing map,Expert Systems with Applications,,,,,,,
+Predicting Financial Distress: Multi Scenarios Modeling Using Neural Network,International Journal of Economics and Finance,NN,,,,,"Fits a neural network with only 37 firms from the Egyptian stock exchange. 82 financial statements are excluded due to missing variables
+Firms a sampled though I could not figure out the details
+Caveat: I only skimmed the article",5
+(In sample?) AUC between 83%-91%,,"LOGI, CM",,,,,"Master thesis studying 627 high-yield bonds in the period of 2006-14. 126 of these default. Uses logistic regression and Cox regression with stepwise model selection
+Small sample",5

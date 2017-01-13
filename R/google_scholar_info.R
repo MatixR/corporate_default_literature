@@ -26,7 +26,7 @@ get_google_scholar_info <- with(new.env(), {
     })
     
     if(did_fail){
-      return(list(journal_url = NA, year = NA, n_citations = NA))
+      return(list(journal_url = NA, year = NA, n_citations = NA, abstract = NA))
     }
     
     # Extract the html nodes with the results
@@ -35,11 +35,11 @@ get_google_scholar_info <- with(new.env(), {
     
     # Only return something if we found exactly one result
     if(length(res_node) > 1){
-      warning("Found multiple matches for ", name, " in ", journal, ". Url is '", url_,  "'\n")
-      return(list(journal_url = NA, year = NA, n_citations = NA))
+      warning("Found multiple matches for ", name, " in ", journal, ". Url is '", url_,  "'. Taking the first\n")
+      res_node <- res_node[1]
     } else if(length(res_node) == 0){
       warning("Did not find any matches for ", name, " in ", journal, ". Url is '", url_, "'\n")
-      return(list(journal_url = NA, year = NA, n_citations = NA))
+      return(list(journal_url = NA, year = NA, n_citations = NA, abstract = NA))
     }
     
     # Get the journal url and number of citations and return
@@ -56,7 +56,11 @@ get_google_scholar_info <- with(new.env(), {
       res_node, xpath = "./div[contains(@class, 'gs_a')]/text()"))
     year <- as.numeric(str_extract(tail(year, 1), "\\d{4}"))
     
-    list(journal_url = journal_url, year = year, n_citations = n_citations)
+    abstract <- html_text(html_nodes(
+      res_node, xpath = "./div[contains(@class, 'gs_rs')]/text()"))
+    abstract <- paste0(abstract, collapse = " ")
+    
+    list(journal_url = journal_url, year = year, n_citations = n_citations, abstract = abstract)
   }
 })
 
