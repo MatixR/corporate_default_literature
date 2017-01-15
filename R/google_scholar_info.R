@@ -1,6 +1,7 @@
 get_google_scholar_info <- with(new.env(), {
   require(stringr)
   require(rvest)
+  require(httr)
   
   last_call <- Sys.time()
   
@@ -12,21 +13,29 @@ get_google_scholar_info <- with(new.env(), {
     
     # Dont want issues with google searches blooking us out
     # cat("\nBefore:", 1 - as.numeric(Sys.time()) + as.numeric(last_call))
-    Sys.sleep(max(1e-8, 1 + runif(1, max = 30) - as.numeric(Sys.time()) + as.numeric(last_call)))
+    Sys.sleep(max(1e-8, 1 + runif(1, max = 20) - as.numeric(Sys.time()) + as.numeric(last_call)))
     last_call <<- Sys.time()
     # cat("\nAfter: ", 1 - as.numeric(Sys.time()) + as.numeric(last_call))
     
     did_fail <- FALSE
     tryCatch({
-      site <- site <- read_html(GET(url_))
+      tmp <- GET(
+        "http://scholar.google.com", path = "scholar", query = list(
+          as_q = "",
+          as_epq = gsub("\\ ", "+", name),
+          as_publication = gsub("\\ ", "+", journal)
+        ))
+      if(tmp$status_code == 503)
+        stop("Got code 503. Google blocked us")
+      
+      site <- read_html(tmp)
     }, error = function(e){
-      warning("Failed with url ", url_, ". Errors is", "\n")
-      warning(str(e))
+      warning("Failed with url ", url_, ". Message was '", e$message, "'\n")
       did_fail <<- TRUE
     })
     
     if(did_fail){
-      return(list(journal_url = NA, year = NA, n_citations = NA, abstract = NA))
+      return(list(journal_url = NA, year = NA, n_citations = NA, abstract = NA, related_articles = NA))
     }
     
     # Extract the html nodes with the results
@@ -39,7 +48,7 @@ get_google_scholar_info <- with(new.env(), {
       res_node <- res_node[1]
     } else if(length(res_node) == 0){
       warning("Did not find any matches for ", name, " in ", journal, ". Url is '", url_, "'\n")
-      return(list(journal_url = NA, year = NA, n_citations = NA, abstract = NA))
+      return(list(journal_url = NA, year = NA, n_citations = NA, abstract = NA, related_articles = NA))
     }
     
     # Get the journal url and number of citations and return

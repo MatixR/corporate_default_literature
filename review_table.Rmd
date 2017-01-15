@@ -52,7 +52,7 @@ review_data$Models <- sapply(review_data$Models, function(x){
 })
 
 # Find further article information
-if(T){ # Set to FALSE if data should be loaded from output folder
+if(F){ # Set to FALSE if data should be loaded from output folder
   source("R/google_scholar_info.R")
   google_dat <- apply(
     review_data[, c("Article name", "Publisher")], 1, function(x)
