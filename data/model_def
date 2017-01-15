@@ -13,3 +13,6 @@ ACF,Accelerated Failure time
 CM,Cox Hazard model
 GAM,Generalized Additive models,
 RF,Random Forests
+MM,Mixed model
+FR,Frailty
+CO,Contagion

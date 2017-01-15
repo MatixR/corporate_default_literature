@@ -12,13 +12,13 @@ get_google_scholar_info <- with(new.env(), {
     
     # Dont want issues with google searches blooking us out
     # cat("\nBefore:", 1 - as.numeric(Sys.time()) + as.numeric(last_call))
-    Sys.sleep(max(1e-8, 1 + runif(1) - as.numeric(Sys.time()) + as.numeric(last_call)))
+    Sys.sleep(max(1e-8, 1 + runif(1, max = 30) - as.numeric(Sys.time()) + as.numeric(last_call)))
     last_call <<- Sys.time()
     # cat("\nAfter: ", 1 - as.numeric(Sys.time()) + as.numeric(last_call))
     
     did_fail <- FALSE
     tryCatch({
-      site <- site <- read_html(url_)
+      site <- site <- read_html(GET(url_))
     }, error = function(e){
       warning("Failed with url ", url_, ". Errors is", "\n")
       warning(str(e))
@@ -52,6 +52,14 @@ get_google_scholar_info <- with(new.env(), {
       n_citations <- 0 else
         n_citations <-  as.numeric(gsub("^Cited by ", "", n_citations))
     
+    related_articles <- html_text(html_nodes(
+      res_node, xpath = "./div[contains(@class, 'gs_fl')]/a[text() = 'Related articles']/@href"))
+    if(length(related_articles) == 1){
+      related_articles <- paste0("https://scholar.google.com", related_articles)
+    } else
+      related_articles <- NA
+      
+    
     year <- html_text(html_nodes(
       res_node, xpath = "./div[contains(@class, 'gs_a')]/text()"))
     year <- as.numeric(str_extract(tail(year, 1), "\\d{4}"))
@@ -60,7 +68,13 @@ get_google_scholar_info <- with(new.env(), {
       res_node, xpath = "./div[contains(@class, 'gs_rs')]/text()"))
     abstract <- paste0(abstract, collapse = " ")
     
-    list(journal_url = journal_url, year = year, n_citations = n_citations, abstract = abstract)
+    # We could also get the google "cite" info by something like
+    # paste0("https://scholar.google.com/scholar?q=info:", id, ":scholar.google.com/&output=cite&scirp=1&hl=en")
+    # The id has to be found <a> tag. Though, I figure google would not be too
+    # pleased with this
+    
+    list(journal_url = journal_url, year = year, n_citations = n_citations, 
+         abstract = abstract, related_articles = related_articles)
   }
 })
 

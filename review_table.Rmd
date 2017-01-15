@@ -1,7 +1,7 @@
 ---
 title: "Literature review of corporate default prediction "
 author: "Benjamin Christoffersen"
-date: "`r format(Sys.time(), '%d %B, %Y')`"
+date: "`r format(Sys.time(), 'Updated on %B %d, %Y')`"
 output: 
   function(...) rmarkdown::html_document(..., css=c("css/jquery.dataTables.min.css", "css/style.css")):
     toc: false
@@ -16,12 +16,17 @@ My rating is my subject score based on the following criteria:
 
 * Relevance if you are building bankruptcy prediction models
 * Large data samples (not just listed firms)
-* Non-financial firms
+* Non-financial firms since there is a general consensus in the literature that these firms should be modeled separately
 * Different models, method etc. 
 * Different countries or data sets that are commonly used in literature
-* Credit scoring is not considered unless I find the paper relevant
+* Credit scoring is not considered unless I find the paper relevant to prediction
 
-Details of the rating are explaind in "My review". An NA rating means that I have not yet read the paper/document but it is on my TODO list
+Details of the rating are explaind in "My review". An NA rating means that I have not yet read the paper/document but it is on my TODO list or that I have read the paper/document but not written a review yet
+
+## Further notes
+The word logistic regression will be used both for papers using probit models and logistic regression. The logic is that there is usually little difference in practice between the two
+
+TODO: write explanation for frailty versus contagion
 
 ## Review table
 
@@ -47,7 +52,7 @@ review_data$Models <- sapply(review_data$Models, function(x){
 })
 
 # Find further article information
-if(F){ # Set to FALSE if data should be loaded from output folder
+if(T){ # Set to FALSE if data should be loaded from output folder
   source("R/google_scholar_info.R")
   google_dat <- apply(
     review_data[, c("Article name", "Publisher")], 1, function(x)
@@ -69,7 +74,7 @@ if(F){ # Set to FALSE if data should be loaded from output folder
   
   google_dat <- 
     google_dat[match(review_data$`Article name`, google_dat$Article.name), 
-               c("journal_url", "year", "n_citations", "abstract")]
+               c("journal_url", "year", "n_citations", "abstract", "related_articles")]
 }
 
 google_dat[, c("year", "n_citations")] <- 
@@ -81,9 +86,15 @@ google_dat$journal_url <- ifelse(
   rep(NA, nrow(google_dat)), 
   paste0("<a target='_blank' href='", google_dat$journal_url, "' >Link</a>"))
 
+google_dat$related_articles <- ifelse(
+  is.na(google_dat$related_articles), 
+  rep(NA, nrow(google_dat)), 
+  paste0("<a target='_blank' href='", google_dat$related_articles, "' >Link</a>"))
+
 # format column names
-google_dat <- plyr::rename(google_dat, 
-                           c("journal_url" = "link", "n_citations" = "Citations"))
+google_dat <- plyr::rename(
+  google_dat, c("journal_url" = "link", "n_citations" = "Citations", 
+                "related_articles" = "Google Scholar"))
 
 review_data <- cbind(review_data, google_dat)
 
@@ -99,7 +110,9 @@ align_n_c_order <- c(
   "Article name" = "left", 
   "My rating (1: best, 5: worst)" = "right", 
   "Citations" = "right", 
+  "Google Scholar" = "right",
   "abstract" = "left",
+  "year" = "right", 
   "link" = "left",
   "My review" = "left", 
   "Outcome" = "left", 
@@ -107,7 +120,6 @@ align_n_c_order <- c(
   "Models" = "left", 
   "Data source/set" = "left", 
   "Sampling" = "left",
-  "year" = "right", 
   "Publisher" = "left")
 
 split_cells <- c(
@@ -123,7 +135,8 @@ split_cells <- c(
   "Sampling" = 50,
   "year" = 4, 
   "Publisher" = 20,
-  "link" = 50)
+  "link" = 50, 
+  "Google Scholar" = 50)
 
 review_data <- 
   review_data[, names(align_n_c_order)]
@@ -196,16 +209,17 @@ $(document).ready(function(){
       { "width": "18em", "targets": 0 },  // article name
       { "width": "9em", "type": "numeric_ignore_nan", "targets": 1 },   // rating
       { "width": "5em", "type": "numeric_ignore_nan", "targets": 2 },   // citations
-      { "width": "30em", "targets": 3 },  // abstact
-      { "width": "6em", "targets": 4 },   // link
-      { "width": "30em", "targets": 5 },  // review
-      { "width": "20em", "targets": 6 },  // outcome
-      { "width": "20em", "targets": 7 },  // sample size
-      { "width": "20em", "targets": 8 },  // models
-      { "width": "30em", "targets": 9 },  // data set
-      { "width": "20em", "targets": 10 }, // sampling
-      { "width": "5em", "targets": 11 },  // year
-      { "width": "10em", "targets": 12 }  // publisher
+      { "width": "5em", "type": "numeric_ignore_nan", "targets": 3 },   // google scholar
+      { "width": "30em", "targets": 4 },  // abstact
+      { "width": "5em", "targets": 5 },   // year
+      { "width": "6em", "targets": 6 },   // link
+      { "width": "30em", "targets": 7 },  // review
+      { "width": "20em", "targets": 8 },  // outcome
+      { "width": "20em", "targets": 9 },  // sample size
+      { "width": "20em", "targets": 10 }, // models
+      { "width": "30em", "targets": 11 }, // data set
+      { "width": "20em", "targets": 12 }, // sampling
+      { "width": "10em", "targets": 13 }  // publisher
     ]
   });
 });
