@@ -120,7 +120,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Literature review of corporate default prediction</h1>
 <h4 class="author"><em>Benjamin Christoffersen</em></h4>
-<h4 class="date"><em>Updated on January 15, 2017</em></h4>
+<h4 class="date"><em>Updated on January 16, 2017</em></h4>
 
 </div>
 
@@ -145,21 +145,21 @@ $(document).ready(function () {
 </div>
 <div id="review-table" class="section level2">
 <h2>Review table</h2>
-<table style="width:100%;">
+<table>
 <colgroup>
 <col width="3%"></col>
 <col width="2%"></col>
 <col width="1%"></col>
-<col width="16%"></col>
-<col width="7%"></col>
-<col width="1%"></col>
-<col width="27%"></col>
-<col width="7%"></col>
-<col width="7%"></col>
+<col width="25%"></col>
+<col width="6%"></col>
+<col width="0%"></col>
+<col width="24%"></col>
+<col width="6%"></col>
+<col width="6%"></col>
 <col width="3%"></col>
 <col width="3%"></col>
-<col width="7%"></col>
-<col width="7%"></col>
+<col width="6%"></col>
+<col width="6%"></col>
 <col width="2%"></col>
 </colgroup>
 <thead>
@@ -201,7 +201,7 @@ $(document).ready(function () {
 <td align="left">APPLICATION OF DYNAMIC FINANCIAL VARIABLES IN BANKRUPTCY PREDICTION</td>
 <td align="right">1</td>
 <td align="right">0</td>
-<td align="right">NA</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;APPLICATION+OF+DYNAMIC+FINANCIAL+VARIABLES+IN+BANKRUPTCY+PREDICTION&quot;&amp;as_publication=&amp;hl=en">Link</a></td>
 <td align="left">A csodelorejelzo modellek a vállalkozások jövobeli fizetoképességét próbálják elorejelezni objektív információk alapján statisztikai (adatbányászati) módszerek felhasználásával. E modellek jellemzoen a vállalatok pénzügyi kimutatásaiból (mérleg, eredménykimutatás)</td>
 <td align="right">2016</td>
 <td align="left"><a target="_blank" href="http://phd.lib.uni-corvinus.hu/932/">Link</a></td>
@@ -214,10 +214,26 @@ $(document).ready(function () {
 <td align="left"></td>
 </tr>
 <tr class="odd">
+<td align="left">In search of distress risk</td>
+<td align="right">2</td>
+<td align="right">1142</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?q=related:TW3hpl2Q1zkJ:scholar.google.com/&amp;hl=en&amp;oe=ASCII&amp;as_sdt=0,5">Link</a></td>
+<td align="left">ABSTRACT This paper explores the determinants of corporate failure and the pricing of financially distressed stocks whose failure probability, estimated from a dynamic logit model using accounting and market variables, is high. Since 1981, financially distressed stocks</td>
+<td align="right">2008</td>
+<td align="left"><a target="_blank" href="http://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2008.01416.x/full">Link</a></td>
+<td align="left">Fit a model logistic model like Shumway (2001) with many adjustments. The article is very accessible article. Some of the adjustments and changes are mentioned below. Large part of the article can be skipped if you only care about the details for their model <br> The following may be a good idea since the variable is used in the denomintor: ‘we add 10% of the difference between market and book equity to the book value of total assets, thereby increasing book values that are extremely small and probably mismeasured’ <br> This might be a bit more questionable: ‘Just under 2% of firm-months still have negative values for book equity even after this adjustment, and we replace these negative values with small positive values of $1 to ensure that the market-to-book ratios for these firms are in the right tail, not the left tail, of the distribution.’ <br> This may be a good idea: ‘each firms log price per share, truncated above at $15 (PRICE).’ <br> They add lagged profitablity and excess stock return with geometrically declining weights the lags. The lag is set to 2^(-1/3) which is kind of abiritraty in addiontion to the number of terms they include. See page 13 <br> Change the denominator in some of the ratios from total assets to book value <br> Add two more variables <br> The inclusion of the averages with geomtric weights and descission like the next phrase makes me wonder how much data dredging they have done:‘Exploratory analysis suggests that price per share is relevant below $15, and so we winsorize price per share at this level before taking the log.’ <br> Find minor effects of industry dummies add and some interactions. Though, it would be interesting to know at what level the dummies are at. See page 19 for details <br> The do more things in the article (e.g. trading strategies and comparison with Merton model) which is not included here</td>
+<td align="left">Only report in-sample and out-sample McFadden’s pseudo R-squared</td>
+<td align="left">1.7 million firm-months with 800 bankruptcy months and 1,600 failure months with the broader definition</td>
+<td align="left">Logistic regression</td>
+<td align="left">US (listed?) firms in the period 1963-1998 and 1963-2003 <br> Data from the Wall Street Journal Index, the SDC database, SEC filings, and the CCH <br> Capital Changes Reporter, CRSP and COMPUSTAT <br> Two default indicators are used: one which is chapter 7 or chatper 7 filling and another which also includes ‘financial reasons, or receives a D rating’</td>
+<td align="left">None</td>
+<td align="left">The Journal of Finance</td>
+</tr>
+<tr class="even">
 <td align="left">A Failure-Rate Model for the Danish Corporate Sector</td>
 <td align="right">2</td>
 <td align="right">8</td>
-<td align="right">NA</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;A+Failure-Rate+Model+for+the+Danish+Corporate+Sector&quot;&amp;as_publication=&amp;hl=en">Link</a></td>
 <td align="left">This paper presents an accounting-based model developed in Dan-marks Nationalbank to predict failure rates in the Danish corporate sector. The model serves as a tool in analysing the Danish corporate sector in relation to financial stability. The main purpose is to assess the banks’ credit risk on the corporate sector. By using logistic regression the model is estimated on 300,000 ac-counts of the Danish corporate sector published in the period …</td>
 <td align="right">2004</td>
 <td align="left"><a target="_blank" href="https://www.econstor.eu/handle/10419/82347">Link</a></td>
@@ -229,7 +245,7 @@ $(document).ready(function () {
 <td align="left">None</td>
 <td align="left"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Additive Intensity Regression Models in Corporate Default Analysis</td>
 <td align="right">2</td>
 <td align="right">4</td>
@@ -245,7 +261,7 @@ $(document).ready(function () {
 <td align="left">None</td>
 <td align="left">JOURNAL OF FINANCIAL ECONOMETRICS</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Ensemble boosted trees with synthetic features generation in application to bankruptcy prediction</td>
 <td align="right">2</td>
 <td align="right">3</td>
@@ -261,11 +277,11 @@ $(document).ready(function () {
 <td align="left">Failing firms are drawn from 2007-2013 <br> Non-failing firms are taken where ‘the availability of a minimum of three consecutive financial statements in the period 2000-2012’ <br> Firms do have multiple entries <br> Unclear if failing firms also appear with financial statements for the year where they do not default <br> Mix years / ignores longitudinal aspect <br> Unclear what is meant by the different ‘xthYear’ data sets (at least to me)</td>
 <td align="left">Expert Systems With Applications</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">PREDICTING CORPORATE BANKRUPTCY: AN EVALUATION OF ALTERNATIVE STATISTICAL FRAMEWORKS</td>
 <td align="right">2</td>
 <td align="right">0</td>
-<td align="right">NA</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;PREDICTING+CORPORATE+BANKRUPTCY:+AN+EVALUATION+OF+ALTERNATIVE+STATISTICAL+FRAMEWORKS&quot;&amp;as_publication=Journal+of+Business+Finance&amp;hl=en">Link</a></td>
 <td align="left">Abstract Corporate bankruptcy prediction has attracted significant research attention from business academics, regulators and financial economists over the past five decades. However, much of this literature has relied on quite simplistic classifiers such as logistic regression and linear discriminant analysis (LDA). Based on a large sample of US corporate bankruptcies, we examine the predictive performance of 16 classifiers, ranging from the …</td>
 <td align="right">2016</td>
 <td align="left"><a target="_blank" href="http://onlinelibrary.wiley.com/doi/10.1111/jbfa.12218/full">Link</a></td>
@@ -277,23 +293,23 @@ $(document).ready(function () {
 <td align="left">It is unclear to me if the controls are sampled. See page 11</td>
 <td align="left">Journal of Business Finance</td>
 </tr>
-<tr class="odd">
-<td align="left">In search of distress risk</td>
-<td align="right">2</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
-<td align="left">Fit a model logistic model like Shumway (2001) with many adjustments. The article is very accessible article. Some of the adjustments and changes are mentioned below. Large part of the article can be skipped if you only care about the details for their model <br> The following may be a good idea since the variable is used in the denomintor: ‘we add 10% of the difference between market and book equity to the book value of total assets, thereby increasing book values that are extremely small and probably mismeasured’ <br> This might be a bit more questionable: ‘Just under 2% of firm-months still have negative values for book equity even after this adjustment, and we replace these negative values with small positive values of $1 to ensure that the market-to-book ratios for these firms are in the right tail, not the left tail, of the distribution.’ <br> This may be a good idea: ‘each firms log price per share, truncated above at $15 (PRICE).’ <br> They add lagged profitablity and excess stock return with geometrically declining weights the lags. The lag is set to 2^(-1/3) which is kind of abiritraty in addiontion to the number of terms they include. See page 13 <br> Change the denominator in some of the ratios from total assets to book value <br> Add two more variables <br> The inclusion of the averages with geomtric weights and descission like the next phrase makes me wonder how much data dredging they have done:‘Exploratory analysis suggests that price per share is relevant below $15, and so we winsorize price per share at this level before taking the log.’ <br> Find minor effects of industry dummies add and some interactions. Though, it would be interesting to know at what level the dummies are at. See page 19 for details <br> The do more things in the article (e.g. trading strategies and comparison with Merton model) which is not included here</td>
-<td align="left">Only report in-sample and out-sample McFadden’s pseudo R-squared</td>
-<td align="left">1.7 million firm-months with 800 bankruptcy months and 1,600 failure months with the broader definition</td>
-<td align="left">Logistic regression</td>
-<td align="left">US (listed?) firms in the period 1963-1998 and 1963-2003 <br> Data from the Wall Street Journal Index, the SDC database, SEC filings, and the CCH <br> Capital Changes Reporter, CRSP and COMPUSTAT <br> Two default indicators are used: one which is chapter 7 or chatper 7 filling and another which also includes ‘financial reasons, or receives a D rating’</td>
-<td align="left">None</td>
-<td align="left">The Journal of Finance</td>
-</tr>
 <tr class="even">
+<td align="left">Bankruptcy prediction with industry effects</td>
+<td align="right">3</td>
+<td align="right">688</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?q=related:_S6hugIRoZUJ:scholar.google.com/&amp;hl=en&amp;oe=ASCII&amp;as_sdt=0,5">Link</a></td>
+<td align="left">Abstract This paper investigates the forecasting accuracy of bankruptcy hazard rate models for US companies over the time period 1962-1999 using both yearly and monthly observation intervals. The contribution of this paper is multiple-fold. One, using an expanded bankruptcy database we validate the superior forecasting performance of Shumway’s (2001) model as opposed to Altman (1968) and Zmijewski (1984). Two, we demonstrate the …</td>
+<td align="right">2004</td>
+<td align="left"><a target="_blank" href="http://rof.oxfordjournals.org/content/8/4/537.short">Link</a></td>
+<td align="left">Estimate a model like Shumway (2001) using US listed firms <br> They estimate a model with four level dummy for industries with intercept and slope interactions. Finds minor improvments in out-sample tests with their best performing model <br> It is not clear to me why they only use some dummy and covariate interactions and not others. I.e. why is there not an interaction term between say EXRET and industry? <br> It may worth to look at the following comment if you are goind to use industry variables ‘… there are a few well-known problems with the SIC codes as reported by both COMPUSTAT and CRSP (see …’ <br> In addition they also extend the data set of Shumway (2001) with firms listed on NASDAQ, test models with financial firms and test monthly forecast models <br> They find higher out-sample AUC with monthly forecast rather than yearly. I do not find this too surprising as I asume the task is easier given more recent data closer to the defaults</td>
+<td align="left">Out-sample AUC up to 91% for yearly forecasts</td>
+<td align="left">Up to 1461 bankruptcies and 8079 active firms. The latter being in a given year and the former over the whole sample</td>
+<td align="left">Logistic regression</td>
+<td align="left">US listed firms on NYSE, AMEX and NASDAQ from 1962 to 1999 <br> Data is from Wall Street Journal Index, The SDC Database, SEC filings, COMPUSTAT, SIC and the CCH Capital Changes Reporter <br> Defaults are defined as chapter 7 and 11 fillings</td>
+<td align="left">None</td>
+<td align="left">Review of Finance</td>
+</tr>
+<tr class="odd">
 <td align="left">Bankruptcy prediction using support vector machine with optimal choice of kernel function parameters</td>
 <td align="right">3</td>
 <td align="right">570</td>
@@ -309,7 +325,7 @@ $(document).ready(function () {
 <td align="left">All bankeruptcies and 944 random non-bankerupcies</td>
 <td align="left">Expert Systems with Applications</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Frailty correlated default</td>
 <td align="right">3</td>
 <td align="right">439</td>
@@ -325,7 +341,7 @@ $(document).ready(function () {
 <td align="left">None</td>
 <td align="left">The Journal of Finance</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">35 years of studies on business failure: an overview of the classic statistical methodologies and their related problems</td>
 <td align="right">3</td>
 <td align="right">323</td>
@@ -341,7 +357,7 @@ $(document).ready(function () {
 <td align="left"></td>
 <td align="left">The British Accounting Review</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Bankruptcy forecasting: An empirical comparison of AdaBoost and neural networks</td>
 <td align="right">3</td>
 <td align="right">160</td>
@@ -357,7 +373,7 @@ $(document).ready(function () {
 <td align="left">Random sampling with some sort of prior weight depending on covaraites. Details are not clear <br> Select data from 2001-2005 <br> Mix years / ignores longitudinal aspect</td>
 <td align="left">Decision Support Systems</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Correlation in corporate defaults: Contagion or conditional independence?</td>
 <td align="right">3</td>
 <td align="right">135</td>
@@ -373,7 +389,7 @@ $(document).ready(function () {
 <td align="left">None</td>
 <td align="left">Journal of Financial Intermediation</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Bankruptcy prediction by generalized additive models</td>
 <td align="right">3</td>
 <td align="right">68</td>
@@ -389,7 +405,7 @@ $(document).ready(function () {
 <td align="left">None</td>
 <td align="left">Applied Stochastic Models in Business and Industry</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Financial distress and bankruptcy prediction among listed companies using accounting, market and macroeconomic variables</td>
 <td align="right">3</td>
 <td align="right">68</td>
@@ -404,6 +420,22 @@ $(document).ready(function () {
 <td align="left">UK listed firm from 1980-2011 <br> Data from Thomson One Banker, Datastream, Worldscope, the Bank of England and London Share Price Database <br> ‘… a firm is classified as financially distressed,11 i) whenever its earnings before interest and taxes depreciation and amortisation (EBITDA) are lower than its financial expenses for two consecutive years; and ii) whenever the firms suffer from a negative growth in market value for two consecutive years … [or when a firm] suspended, in liquidation or voluntary liquidation, when its quotation has been suspended for more than three years, when the firm is being held by a receiver (in receivership), in administration or in administrative receivership, or when there has been a cancellation or suspension of the firm’ <br> Financial firms are excluded</td>
 <td align="left">None</td>
 <td align="left">International Review of Financial Analysis</td>
+</tr>
+<tr class="even">
+<td align="left">Bankruptcy Prediction in Norway: A Comparison Study</td>
+<td align="right">3</td>
+<td align="right">23</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?q=related:jMlrx3gjZu8J:scholar.google.com/&amp;hl=en&amp;oe=ASCII&amp;as_sdt=0,5">Link</a></td>
+<td align="left">In this article we develop statistical models for bankruptcy prediction of Norwegian firms in the limited liability sector using annual balance sheet information. We fit generalized linear, generalized linear mixed and Generalized Additive Models (GAM) in a discrete hazard setting. It is demonstrated that careful examination of the functional relationship between the explanatory variables and the probability of bankruptcy enhances the models’ forecasting …</td>
+<td align="right">2010</td>
+<td align="left"><a target="_blank" href="http://www.tandfonline.com/doi/abs/10.1080/13504850903299594">Link</a></td>
+<td align="left">Fit a logistic regression for Norwegian firms with and without mixed effects. Further fits a genralized additive model <br> Illustrates how a generalized addtive model can be used to construct features for logistic regression. Though, doing so yields almost similar results for the generalized addtive model as for the logistic model (as I would assume) <br> Chaning the industry dummies from from fixed to random in their mixed effects makes little difference for the out-sample AUC (as I would expect). I would find a frailty specification more interesting where the you had random industry effects that varied across time <br> Note the exclussion in the ‘Data source/set’. I am not sure it introduces biases. For instance, how many bankrupt firms where exlcuded due to missing data and how many firms where excluded due to zero values in some of the variables? My experince would sugest a lot</td>
+<td align="left">AUCs arround 90% for 1 year ahead out-sample forecasts</td>
+<td align="left">‘436;145 flrm-years corresponding to 98;421 unique flrms, and contains 2;270 bankruptcies’</td>
+<td align="left">Logistic regression <br> Generalized Additive models <br> Mixed model</td>
+<td align="left">Limited-liability firms in Norway in 1996-2000 <br> The following exlcussion are made: <br> - Firms with zero equity, short term debt or revenue from operations <br> - First that does not report financial statements the last year of existence including bankrupt firms <br> - Firms with values below 0.2%-quantile and above 99.8%-quantile <br> Further excludes (only) firms in the sectors salaried household work and internal organs and organizations</td>
+<td align="left">None</td>
+<td align="left">Applied Economics Letters</td>
 </tr>
 <tr class="odd">
 <td align="left">Variable selection and corporate bankruptcy forecasts</td>
@@ -441,7 +473,7 @@ $(document).ready(function () {
 <td align="left">Modelling The Credit Risk Of The Hungarian Sme Sector</td>
 <td align="right">3</td>
 <td align="right">0</td>
-<td align="right">NA</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;Modelling+The+Credit+Risk+Of+The+Hungarian+Sme+Sector&quot;&amp;as_publication=mnb&amp;hl=en">Link</a></td>
 <td align="left">In banking practice, quantifying the probability of default is one of the most important elements of the lending decision, therefore it is also vital from a financial stability perspective. The aim of our research was to model the probability of default as precisely as possible in the case of micro, small and medium-sized enterprises. By linking the data from the Central Credit Information System (KHR) and companies’ financial statements, a …</td>
 <td align="right">2016</td>
 <td align="left"><a target="_blank" href="https://ideas.repec.org/p/mnb/opaper/2016-123.html">Link</a></td>
@@ -457,7 +489,7 @@ $(document).ready(function () {
 <td align="left">The Research of SME Financial Crisis Warning Model Based on Neural Network</td>
 <td align="right">3</td>
 <td align="right">0</td>
-<td align="right">NA</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;The+Research+of+SME+Financial+Crisis+Warning+Model+Based+on+Neural+Network&quot;&amp;as_publication=&amp;hl=en">Link</a></td>
 <td align="left">Abstract SMEs (Small and medium-sized enterprises), as an important part of national economy in our country, play an irreplaceable role. With the development of the economy, SMEs are facing both opportunities and fierce competition. Compared with the mature companies, SMEs have their own features, such as the weakness of the ability of resisting risk, the lacking of capital, deficiency in the ability to raise funds and etc. Therefore, in the …</td>
 <td align="right">2016</td>
 <td align="left"><a target="_blank" href="http://www.dpi-proceedings.com/index.php/dtem/article/view/4142">Link</a></td>
@@ -473,7 +505,7 @@ $(document).ready(function () {
 <td align="left">Why Do Companies Fail</td>
 <td align="right">3</td>
 <td align="right">0</td>
-<td align="right">NA</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;Why+Do+Companies+Fail&quot;&amp;as_publication=&amp;hl=en">Link</a></td>
 <td align="left">Abstract We explore the determinants of corporate failure in Australia using a large panel of public and private non-financial companies. A novel finding of our research is that corporate failure depends on ’structural’company-level characteristics. For instance, public companies</td>
 <td align="right">NA</td>
 <td align="left"><a target="_blank" href="http://www.rba.gov.au/publications/rdp/2016/pdf/rdp2016-09.pdf">Link</a></td>
@@ -484,38 +516,6 @@ $(document).ready(function () {
 <td align="left">Australian firm both private, public listed and public non-listed <br> Data for listed firms is for firms on the Australian Stock Exchange from Morningstar <br> Data for unlisted firms is from Dun &amp; Bradstreet <br> Default indicator is from Australian Securities and Investments Commission <br> Some removal of imposible values is performed - see page 13</td>
 <td align="left">None</td>
 <td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Bankruptcy prediction with industry effects</td>
-<td align="right">3</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
-<td align="left">Estimate a model like Shumway (2001) using US listed firms <br> They estimate a model with four level dummy for industries with intercept and slope interactions. Finds minor improvments in out-sample tests with their best performing model <br> It is not clear to me why they only use some dummy and covariate interactions and not others. I.e. why is there not an interaction term between say EXRET and industry? <br> It may worth to look at the following comment if you are goind to use industry variables ‘… there are a few well-known problems with the SIC codes as reported by both COMPUSTAT and CRSP (see …’ <br> In addition they also extend the data set of Shumway (2001) with firms listed on NASDAQ, test models with financial firms and test monthly forecast models <br> They find higher out-sample AUC with monthly forecast rather than yearly. I do not find this too surprising as I asume the task is easier given more recent data closer to the defaults</td>
-<td align="left">Out-sample AUC up to 91% for yearly forecasts</td>
-<td align="left">Up to 1461 bankruptcies and 8079 active firms. The latter being in a given year and the former over the whole sample</td>
-<td align="left">Logistic regression</td>
-<td align="left">US listed firms on NYSE, AMEX and NASDAQ from 1962 to 1999 <br> Data is from Wall Street Journal Index, The SDC Database, SEC filings, COMPUSTAT, SIC and the CCH Capital Changes Reporter <br> Defaults are defined as chapter 7 and 11 fillings</td>
-<td align="left">None</td>
-<td align="left">Review of Finance</td>
-</tr>
-<tr class="odd">
-<td align="left">Bankruptcy Prediction in Norway: A Comparison Study</td>
-<td align="right">3</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
-<td align="left">Fit a logistic regression for Norwegian firms with and without mixed effects. Further fits a genralized additive model <br> Illustrates how a generalized addtive model can be used to construct features for logistic regression. Though, doing so yields almost similar results for the generalized addtive model as for the logistic model (as I would assume) <br> Chaning the industry dummies from from fixed to random in their mixed effects makes little difference for the out-sample AUC (as I would expect). I would find a frailty specification more interesting where the you had random industry effects that varied across time <br> Note the exclussion in the ‘Data source/set’. I am not sure it introduces biases. For instance, how many bankrupt firms where exlcuded due to missing data and how many firms where excluded due to zero values in some of the variables? My experince would sugest a lot</td>
-<td align="left">AUCs arround 90% for 1 year ahead out-sample forecasts</td>
-<td align="left">‘436;145 flrm-years corresponding to 98;421 unique flrms, and contains 2;270 bankruptcies’</td>
-<td align="left">Logistic regression <br> Generalized Additive models <br> Mixed model</td>
-<td align="left">Limited-liability firms in Norway in 1996-2000 <br> The following exlcussion are made: <br> - Firms with zero equity, short term debt or revenue from operations <br> - First that does not report financial statements the last year of existence including bankrupt firms <br> - Firms with values below 0.2%-quantile and above 99.8%-quantile <br> Further excludes (only) firms in the sectors salaried household work and internal organs and organizations</td>
-<td align="left">None</td>
-<td align="left">Applied Economics Letters</td>
 </tr>
 <tr class="even">
 <td align="left">Financial ratios as predictors of failure</td>
@@ -598,6 +598,22 @@ $(document).ready(function () {
 <td align="left">Journal of Econometrics</td>
 </tr>
 <tr class="odd">
+<td align="left">Some new models for financial distress prediction in the UK</td>
+<td align="right">4</td>
+<td align="right">25</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?q=related:448RzBkMiX8J:scholar.google.com/&amp;hl=en&amp;oe=ASCII&amp;as_sdt=0,5">Link</a></td>
+<td align="left">Abstract: In this paper we develop some new models for the prediction of failure in the UK that add to the literature by showing that “dynamic logit” models that incorporate market variables of the form developed by Chava and Jarrow (2004) and Campbell et al (2008) add considerable power to pure accounting-based models. Importantly, we extend the logic of Campbell et al (2008) by showing that incorporating macro-economic variables adds …</td>
+<td align="right">2010</td>
+<td align="left"><a target="_blank" href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1687166">Link</a></td>
+<td align="left">Model default of UK listed firms using logisitic regression. Use both macro economic variables and firm specefic variables <br> This does not sounds like the best approach to select variables:‘From the potential candidate list, an extensive univariate analysis and the testing of alternative logit models, we end up with the following list of variables’ <br> They should not compare the AUC of the model in table 5 with the full population versus the model in table 6 with the subset that only has market data. They do this when they write ‘… the area under the ROC curve also increase from 81.24% to 89.92% and 89.61% in models 1 and 2’ <br> They get only a slight improvment in AUC by including macro economic variables <br> They select five industry and add intercept and slopes for each industry. They ‘… conduct simple t-tests to check whether variables [industry slopes and intercepts] are found to be significant’ and exclude variables on the basis hereof. I figure this must be on the full sample which may inflate their perform metrics later <br> They finds improvments in in-sample AUC and decile ranking out-sample (in time)</td>
+<td align="left">In sample AUC of 90%</td>
+<td align="left">589 / 49,063 financial statements <br> Though the sample with market data must be smaller since they write:‘Missing price or returns data mean that the sample for this analysis is limited to 428 bankrupt firms.’</td>
+<td align="left">Logistic regression</td>
+<td align="left">UK publicly listed companies between 1978 and 2006 <br> Data is from London Share Price Database and Datastream <br> Failure is defined as any of these events:‘(1) Suspension or cancellation with share acquired later (2) Liquidation (usually valueless, but there may be liquidation payments) (3) Quotation suspended - if suspended for more than three years, this may lead to automatic cancellation (4) Voluntary liquidation, where value remains and was/is being distributed (5) Receiver appointed/liquidation. Probably valueless, but not yet certain (6) in Administration or administrative receivership (7) Cancelled and assumed valueless.’ <br> Financial firms are excluded</td>
+<td align="left">None</td>
+<td align="left">Xfi-Centre for Finance and Investment</td>
+</tr>
+<tr class="even">
 <td align="left">Forecasting financial failure using a Kohonen map: A comparative study to improve model stability over time</td>
 <td align="right">4</td>
 <td align="right">20</td>
@@ -613,11 +629,11 @@ $(document).ready(function () {
 <td align="left">Random sampling is performed with equal split between benkerupt and non-bankerupt firms</td>
 <td align="left">European Journal of Operational Research</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Distress Risk: An Accelerated Failure Time Survival Analysis Approach</td>
 <td align="right">4</td>
 <td align="right">0</td>
-<td align="right">NA</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;Distress+Risk:+An+Accelerated+Failure+Time+Survival+Analysis+Approach&quot;&amp;as_publication=&amp;hl=en">Link</a></td>
 <td align="left">Abstract This paper explores the performance of an accelerated failure time (AFT) survival model in predicting corporate bankruptcies. AFT models provide an alternative to the proportional hazard model that allows for non-monotonic hazard functions with respect to time and does not assume proportionality. We show that at a quarterly frequency, the AFT model outperforms comparative models from literature in terms of both in-sample and out- …</td>
 <td align="right">NA</td>
 <td align="left"><a target="_blank" href="https://acfr.aut.ac.nz/__data/assets/pdf_file/0019/56440/42830-J-Svec-Distress-Risk.pdf">Link</a></td>
@@ -629,11 +645,11 @@ $(document).ready(function () {
 <td align="left">None</td>
 <td align="left"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Medium Risk Companies: The Probability of Notching-Up</td>
 <td align="right">4</td>
 <td align="right">0</td>
-<td align="right">NA</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;Medium+Risk+Companies:+The+Probability+of+Notching-Up&quot;&amp;as_publication=International+Journal+of+Economics+and+Finance&amp;hl=en">Link</a></td>
 <td align="left">Abstract The probability of default and risk-rating class is studied for 9,390 Italian SMEs using a set of ordinary and yearly financial statements (not abbreviated) from 2007 to 2010. After constructing the rating model and then listing companies within ten classes of risk, this paper aims to support the resolution of an intricate topic: the identification of 713 firms included in the median classes of rating designed to evolve to better classes, and firms …</td>
 <td align="right">2016</td>
 <td align="left"><a target="_blank" href="http://www.ccsenet.org/journal/index.php/ijef/article/view/63487">Link</a></td>
@@ -645,11 +661,11 @@ $(document).ready(function () {
 <td align="left">None</td>
 <td align="left">International Journal of Economics and Finance</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">A Global Model for Bankruptcy Prediction</td>
 <td align="right">4</td>
 <td align="right">0</td>
-<td align="right">NA</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;A+Global+Model+for+Bankruptcy+Prediction&quot;&amp;as_publication=PloS+one&amp;hl=en">Link</a></td>
 <td align="left">Abstract The recent world financial crisis has increased the number of bankruptcies in numerous countries and has resulted in a new area of research which responds to the need to predict this phenomenon, not only at the level of individual countries, but also at a global level, offering explanations of the common characteristics shared by the affected companies. Nevertheless, few studies focus on the prediction of bankruptcies globally. In order to …</td>
 <td align="right">NA</td>
 <td align="left"><a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0166693">Link</a></td>
@@ -660,22 +676,6 @@ $(document).ready(function () {
 <td align="left">Data from 1990-2013 ‘440 non-financial, quoted companies belonging to three regions: Asia (Japan, South Korea, Singapore and Taiwan), Europe (Austria, Denmark, France, Germany, Ireland, Italy, Luxembourg, Holland, Norway, Portugal, Spain, Sweden, Switzerland and the United Kingdom) and America (Bermuda, Canada and the United States)’ from compustat</td>
 <td align="left">50-50 split with match sampling on year, country and industry where the match is selected at random</td>
 <td align="left">PloS one</td>
-</tr>
-<tr class="odd">
-<td align="left">Some new models for financial distress prediction in the UK</td>
-<td align="right">4</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
-<td align="left">Model default of UK listed firms using logisitic regression. Use both macro economic variables and firm specefic variables <br> This does not sounds like the best approach to select variables:‘From the potential candidate list, an extensive univariate analysis and the testing of alternative logit models, we end up with the following list of variables’ <br> They should not compare the AUC of the model in table 5 with the full population versus the model in table 6 with the subset that only has market data. They do this when they write ‘… the area under the ROC curve also increase from 81.24% to 89.92% and 89.61% in models 1 and 2’ <br> They get only a slight improvment in AUC by including macro economic variables <br> They select five industry and add intercept and slopes for each industry. They ‘… conduct simple t-tests to check whether variables [industry slopes and intercepts] are found to be significant’ and exclude variables on the basis hereof. I figure this must be on the full sample which may inflate their perform metrics later <br> They finds improvments in in-sample AUC and decile ranking out-sample (in time)</td>
-<td align="left">In sample AUC of 90%</td>
-<td align="left">589 / 49,063 financial statements <br> Though the sample with market data must be smaller since they write:‘Missing price or returns data mean that the sample for this analysis is limited to 428 bankrupt firms.’</td>
-<td align="left">Logistic regression</td>
-<td align="left">UK publicly listed companies between 1978 and 2006 <br> Data is from London Share Price Database and Datastream <br> Failure is defined as any of these events:‘(1) Suspension or cancellation with share acquired later (2) Liquidation (usually valueless, but there may be liquidation payments) (3) Quotation suspended - if suspended for more than three years, this may lead to automatic cancellation (4) Voluntary liquidation, where value remains and was/is being distributed (5) Receiver appointed/liquidation. Probably valueless, but not yet certain (6) in Administration or administrative receivership (7) Cancelled and assumed valueless.’ <br> Financial firms are excluded</td>
-<td align="left">None</td>
-<td align="left">Xfi-Centre for Finance and Investment</td>
 </tr>
 <tr class="even">
 <td align="left">Predicting Firm Financial Distress: A Mixed Logit Model</td>
@@ -745,7 +745,7 @@ $(document).ready(function () {
 <td align="left">Prediction of Financial Distress Companies on Bursa Malaysia Using Adaptive Neuro-Fuzzy Inference System</td>
 <td align="right">5</td>
 <td align="right">0</td>
-<td align="right">NA</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;Prediction+of+Financial+Distress+Companies+on+Bursa+Malaysia+Using+Adaptive+Neuro-Fuzzy+Inference+System&quot;&amp;as_publication=&amp;hl=en">Link</a></td>
 <td align="left">AbstractFinancial distress prediction has been a topic of great interest over decades, not only to managers, but also to the external stakeholders of a company. The aim of this study is to examine the ability of the adaptive neuro-fuzzy inference system (ANFIS) in predicting the financial distress of public listed companies in Malaysia. The analysis is based on a sample of companies classified as PN17 by Bursa Malaysia over the period 2010-2015. …</td>
 <td align="right">NA</td>
 <td align="left"><a target="_blank" href="http://academic-raub.com/wp-content/uploads/2016/11/P1013.pdf">Link</a></td>
@@ -761,7 +761,7 @@ $(document).ready(function () {
 <td align="left">Probability-of-default curve calibration and the validation of internal rating systems</td>
 <td align="right">5</td>
 <td align="right">0</td>
-<td align="right">NA</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;Probability-of-default+curve+calibration+and+the+validation+of+internal+rating+systems&quot;&amp;as_publication=&amp;hl=en">Link</a></td>
 <td align="left">Abstract The purpose of this article is to present calibration methods which give accurate estimations of default probabilities and validation techniques for evaluating calibration power. Applying both these aspects to real data produces accurate verification and conclusions. The empirical analysis was based on individual data from different sources (from the years 2007 to 2012), ie from Prudential Reporting, The National Court Register, …</td>
 <td align="right">NA</td>
 <td align="left"><a target="_blank" href="https://www.bis.org/ifc/events/ifc_8thconf/ifc_8thconf_4c4pap.pdf">Link</a></td>
@@ -793,7 +793,7 @@ $(document).ready(function () {
 <td align="left">FINANCIAL DISTRESS FORECASTING OF NON-FINANCIAL FIRMS: A CASE OF PAKISTAN</td>
 <td align="right">5</td>
 <td align="right">0</td>
-<td align="right">NA</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;FINANCIAL+DISTRESS+FORECASTING+OF+NON-FINANCIAL+FIRMS:+A+CASE+OF+PAKISTAN&quot;&amp;as_publication=&amp;hl=en">Link</a></td>
 <td align="left">ABSTRACT: This study objects to classify the monetary ratios to forecast bankruptcy in Pakistan, centered between 2001-2010 the data turn out to be the data of companies of non- financial firms. Forecasting financial distress is the vital area of finance, an extensive amount of academic and experiential work to be done to calculate financial distress. This study has a Zmijewski (1984) applicability that scrutinize on the forecasting model of financial disaster. …</td>
 <td align="right">NA</td>
 <td align="left"><a target="_blank" href="https://www.researchgate.net/profile/Agha_Jahanzeb2/publication/309802036_FINANCIAL_DISTRESS_FORECASTING_OF_NON-FINANCIAL_FIRMS_A_CASE_OF_PAKISTAN/links/5824039208ae7ea5be72249c.pdf">Link</a></td>
@@ -809,7 +809,7 @@ $(document).ready(function () {
 <td align="left">Characteristics of firm failure processes in an international context</td>
 <td align="right">5</td>
 <td align="right">0</td>
-<td align="right">NA</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;Characteristics+of+firm+failure+processes+in+an+international+context&quot;&amp;as_publication=&amp;hl=en">Link</a></td>
 <td align="left">Ettevõtete ebaõnnestumise protsesse on uuritud kaua aega, muuhulgas seoses teema püsiva praktilise aktuaalsusega. Dissertatsiooni eesmärgiks on luua finants-ja mittefinantsnäitajaid kasutades uut teadmust ettevõtete ebaõnnestumise protsesside kohta. Ebaõnnestumise protsessina käsitletakse dissertatsioonis pankrotini viivat teekonda, mille puhul vaadeldakse nii küsimusi miks “(ebaõnnestumise põhjused) kui ka kuidas “( …</td>
 <td align="right">2016</td>
 <td align="left"><a target="_blank" href="https://dspace.ut.ee/handle/10062/54368">Link</a></td>
@@ -825,7 +825,7 @@ $(document).ready(function () {
 <td align="left">Forecasting European Corporate Bankruptcy</td>
 <td align="right">5</td>
 <td align="right">0</td>
-<td align="right">NA</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;Forecasting+European+Corporate+Bankruptcy&quot;&amp;as_publication=&amp;hl=en">Link</a></td>
 <td align="left">Recent research on bankruptcy prediction models has provided mixed results on the predictive performance of several econometric techniques with various sets of predictors, which include macroeconomic and industry specific predictors. This study re-estimates four</td>
 <td align="right">2016</td>
 <td align="left"><a target="_blank" href="http://theses.ubn.ru.nl/handle/123456789/3533">Link</a></td>
@@ -841,7 +841,7 @@ $(document).ready(function () {
 <td align="left">Bankruptcy Prediction Using Memetic Algorithm</td>
 <td align="right">5</td>
 <td align="right">0</td>
-<td align="right">NA</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;Bankruptcy+Prediction+Using+Memetic+Algorithm&quot;&amp;as_publication=International+Workshop+on+Multi-disciplinary+Trends&amp;hl=en">Link</a></td>
 <td align="left">Abstract This paper proposes a new memetic algorithm using Cuckoo search algorithm and Particle Swarm Optimization algorithm. Training set is fed to the proposed method to get trained. The effectiveness of the proposed method is evaluated using three bankruptcy viz., Spanish banks, Turkish banks and US banks and three benchmark datasets namely, Iris, WBC and Wine datasets. We performed 10 Fold Cross Validation testing and observed …</td>
 <td align="right">2016</td>
 <td align="left"><a target="_blank" href="http://link.springer.com/chapter/10.1007/978-3-319-49397-8_13">Link</a></td>
@@ -857,7 +857,7 @@ $(document).ready(function () {
 <td align="left">Predicting corporate failure in Zambia: A case of manufacturing firms</td>
 <td align="right">5</td>
 <td align="right">0</td>
-<td align="right">NA</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;Predicting+corporate+failure+in+Zambia:+A+case+of+manufacturing+firms&quot;&amp;as_publication=IJAR&amp;hl=en">Link</a></td>
 <td align="left">Abstract The major objective this paper was to predict corporate failure of twelve manufacturing firms in Zambia using data from 2000 to 2005. The logistic model developed, used six financial ratios for predicting corporate failure. Out of the six ratios, asset utilization and profitability ratios were found to have significant strongest effect on corporate failure in Zambia. Analysis showed that those firms which managed their assets well and had good …</td>
 <td align="right">2016</td>
 <td align="left"><a target="_blank" href="http://www.allresearchjournal.com/archives/2016/vol2issue3/PartK/2-3-56.pdf">Link</a></td>
@@ -873,7 +873,7 @@ $(document).ready(function () {
 <td align="left">Predicting Financial Distress: Multi Scenarios Modeling Using Neural Network</td>
 <td align="right">5</td>
 <td align="right">0</td>
-<td align="right">NA</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;Predicting+Financial+Distress:+Multi+Scenarios+Modeling+Using+Neural+Network&quot;&amp;as_publication=International+Journal+of+Economics+and+Finance&amp;hl=en">Link</a></td>
 <td align="left">Abstract This paper aims to investigate the best scenario to predict financial distress in the Egyptian stock market using a neural network model. The sample consists of 37 company listed on the EGX100. The sample period is eight years from 2001 to 2008, so we can isolate the effects of global financial Depression in the end of 2008, and the effect of economic instability, which coincided with the Egyptian revolution in 2011 tell now. The results show …</td>
 <td align="right">2016</td>
 <td align="left"><a target="_blank" href="http://www.ccsenet.org/journal/index.php/ijef/article/view/62736">Link</a></td>
@@ -889,7 +889,7 @@ $(document).ready(function () {
 <td align="left">Default in the Nordic High-Yield Bond Market</td>
 <td align="right">5</td>
 <td align="right">0</td>
-<td align="right">NA</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;Default+in+the+Nordic+High-Yield+Bond+Market&quot;&amp;as_publication=&amp;hl=en">Link</a></td>
 <td align="left">In this thesis, we analyze the determining factors of default in the Nordic high-yield bond market. The study is carried out on 627 original issue bonds in the period 2006 to 2014. Binary logit models are used to identify the key determinants of default, and the estimated models can be used to predict default probabilities. Our results suggest that a combination of financial ratios, certain characteristics of the issued bond, an industry variable, the size of …</td>
 <td align="right">2016</td>
 <td align="left"><a target="_blank" href="https://brage.bibsys.no/xmlui/handle/11250/2403788">Link</a></td>
@@ -905,7 +905,7 @@ $(document).ready(function () {
 <td align="left">Predicting bankruptcy in European e-commerce sector</td>
 <td align="right">5</td>
 <td align="right">0</td>
-<td align="right">NA</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;Predicting+bankruptcy+in+European+e-commerce+sector&quot;&amp;as_publication=&amp;hl=en">Link</a></td>
 <td align="left">In the current competitive and uncertain e-commerce environment, businesses have the need to predict in advance their likelihood of falling into bankruptcy. The central focus of this paper is to statistically model through different approaches the bankruptcy probability of e- commerce companies in Europe. The authors examine the econometric techniques twostep cluster, logistic regression, discriminant analysis, data mining tree, and roc curves to …</td>
 <td align="right">2016</td>
 <td align="left"><a target="_blank" href="https://mpra.ub.uni-muenchen.de/id/eprint/74460">Link</a></td>
@@ -921,7 +921,7 @@ $(document).ready(function () {
 <td align="left">How useful are auditors going concern opinions as predictors of default?</td>
 <td align="right">5</td>
 <td align="right">0</td>
-<td align="right">NA</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?as_q=&amp;as_epq=&quot;How+useful+are+auditors+going+concern+opinions+as+predictors+of+default?&quot;&amp;as_publication=&amp;hl=en">Link</a></td>
 <td align="left">Abstract Previous studies show a large discrepancy between auditors’ going concern opinions (GCOs) and subsequent corporate defaults. This discrepancy is often attributed to GCOs having low information content and to auditors failing to provide timely warnings to investors. We examine whether GCOs are better predictors of subsequent defaults, including bankruptcies, than ex ante statistical estimates of probability of default (PD), based on …</td>
 <td align="right">2016</td>
 <td align="left"><a target="_blank" href="https://warrington.ufl.edu/accounting/docs/2016_Paper7.pdf">Link</a></td>
@@ -982,6 +982,86 @@ $(document).ready(function () {
 <td align="left">Journal of Business Finance &amp; Accounting</td>
 </tr>
 <tr class="odd">
+<td align="left">Have Financial Statements Become Less Informative? Evidence from the Ability of Financial Ratios to Predict Bankruptcy</td>
+<td align="right">NA</td>
+<td align="right">308</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?q=related:3d_OPB0jjxcJ:scholar.google.com/&amp;hl=en&amp;oe=ASCII&amp;as_sdt=0,5">Link</a></td>
+<td align="left">Abstract Using a hazard model, we examine secular changes in the ability of financial statement data to predict bankruptcy from 1962 to 2002. We identify three trends in financial reporting that could influence predictive ability with respect to bankruptcy: FASB standards, the perceived increase in discretionary financial reporting behavior, and the increase in unrecognized assets and obligations. A parsimonious three-variable model provides …</td>
+<td align="right">2005</td>
+<td align="left"><a target="_blank" href="http://link.springer.com/article/10.1007/s11142-004-6341-9">Link</a></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Review of Accounting studies</td>
+</tr>
+<tr class="even">
+<td align="left">Multiperiod corporate default prediction a forward intensity approach</td>
+<td align="right">NA</td>
+<td align="right">114</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?q=related:A2Iqvh5IcvAJ:scholar.google.com/&amp;hl=en&amp;oe=ASCII&amp;as_sdt=0,5">Link</a></td>
+<td align="left">A forward intensity model for the prediction of corporate defaults over different future periods is proposed. Maximum pseudo-likelihood analysis is then conducted on a large sample of the US industrial and financial firms spanning the period 1991-2011 on a monthly basis. Several commonly used factors and firm-specific attributes are shown to be useful for prediction at both short and long horizons. Our implementation also factors in momentum …</td>
+<td align="right">2012</td>
+<td align="left"><a target="_blank" href="http://www.sciencedirect.com/science/article/pii/S0304407612001145">Link</a></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Journal of Econometrics</td>
+</tr>
+<tr class="odd">
+<td align="left">Modeling the effect of macroeconomic factors on corporate default and credit rating transitions</td>
+<td align="right">NA</td>
+<td align="right">77</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?q=related:aOgxfNuwkTMJ:scholar.google.com/&amp;hl=en&amp;oe=ASCII&amp;as_sdt=0,5">Link</a></td>
+<td align="left">We explore how general economic conditions impact defaults and major credit rating changes by fitting reduced-form Cox intensity models with a broad range of macroeconomic and firm-specific ratings-related variables. For all corporate issuers in the period 1981-2002 we find both types of factors strongly influenced the risk of a credit event. However, while the effects of ratings-related factors were consistent with expectations and very robust under …</td>
+<td align="right">2012</td>
+<td align="left"><a target="_blank" href="http://www.sciencedirect.com/science/article/pii/S1059056011000670">Link</a></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">International Review of Economics &amp; Finance</td>
+</tr>
+<tr class="even">
+<td align="left">Self-exciting corporate defaults: contagion vs. frailty</td>
+<td align="right">NA</td>
+<td align="right">74</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?q=related:5VqjJ6v_cakJ:scholar.google.com/&amp;hl=en&amp;oe=ASCII&amp;as_sdt=0,5">Link</a></td>
+<td align="left">Abstract Why do corporate defaults cluster? This paper explores the role of contagion, by which the default of a firm has a direct impact on the conditional default rates of the surviving firms, channeled through the complex web of contractual relationships in the economy. We develop filtered maximum likelihood estimators and goodness-offit tests for point processes to measure the additional impact of contagion on default rates, over and beyond that due …</td>
+<td align="right">2008</td>
+<td align="left"><a target="_blank" href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.139.3694&amp;rep=rep1&amp;type=pdf">Link</a></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Manuscript, Stanford University</td>
+</tr>
+<tr class="odd">
+<td align="left">A re-evaluation of auditors’ opinions versus statistical models in bankruptcy prediction</td>
+<td align="right">NA</td>
+<td align="right">52</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?q=related:NLsyam2wUnkJ:scholar.google.com/&amp;hl=en&amp;oe=ASCII&amp;as_sdt=0,5">Link</a></td>
+<td align="left">Abstract Existent empirical evidence on the relative performance of auditors’ going concern opinions versus statistical models in predicting bankruptcy is mixed. This study attempts to add new reliable evidence on this important issue by conducting the comparison based upon an improved statistical model. The improved statistical model incorporates some new developments advocated by recent bankruptcy prediction research (eg, Shumway, 2001). …</td>
+<td align="right">2007</td>
+<td align="left"><a target="_blank" href="http://link.springer.com/article/10.1007/s11156-006-0003-x">Link</a></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Review of Quantitative Finance and Accounting</td>
+</tr>
+<tr class="even">
 <td align="left">Do differences in financial reporting attributes impair the predictive ability of financial ratios for bankruptcy</td>
 <td align="right">NA</td>
 <td align="right">48</td>
@@ -997,7 +1077,7 @@ $(document).ready(function () {
 <td align="left"></td>
 <td align="left">Review of Accounting Studies</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Two-level classifier ensembles for credit risk assessment</td>
 <td align="right">NA</td>
 <td align="right">40</td>
@@ -1012,6 +1092,22 @@ $(document).ready(function () {
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">Expert Systems with Applications</td>
+</tr>
+<tr class="even">
+<td align="left">Are hazard models superior to traditional bankruptcy prediction approaches? A comprehensive test</td>
+<td align="right">NA</td>
+<td align="right">38</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?q=related:bNkzfA392UUJ:scholar.google.com/&amp;hl=en&amp;oe=ASCII&amp;as_sdt=0,5">Link</a></td>
+<td align="left">Abstract In recent years hazard models, using both market and accounting information, have become state of the art in predicting firm bankruptcies. However, a comprehensive test comparing their performance against the traditional accounting-based approach or the contingent claims approach is missing in the literature. Using a complete database of UK Main listed firms between 1979 and 2009, our Receiver Operating Characteristics (ROC) …</td>
+<td align="right">2014</td>
+<td align="left"><a target="_blank" href="http://www.sciencedirect.com/science/article/pii/S0378426613004858">Link</a></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Journal of Banking &amp; Finance</td>
 </tr>
 <tr class="odd">
 <td align="left">Clustering and visualization of bankruptcy trajectory using self-organizing map</td>
@@ -1078,77 +1174,13 @@ $(document).ready(function () {
 <td align="left">Expert Systems with Applications</td>
 </tr>
 <tr class="odd">
-<td align="left">Modeling the effect of macroeconomic factors on corporate default and credit rating transitions</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">International Review of Economics &amp; Finance</td>
-</tr>
-<tr class="even">
 <td align="left">Default prediction with dynamic sectoral and macroeconomic frailties</td>
 <td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Journal of Banking &amp; Finance</td>
-</tr>
-<tr class="odd">
-<td align="left">Self-exciting corporate defaults: contagion vs. frailty</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Manuscript, Stanford University</td>
-</tr>
-<tr class="even">
-<td align="left">Multiperiod corporate default prediction a forward intensity approach</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Journal of Econometrics</td>
-</tr>
-<tr class="odd">
-<td align="left">Are hazard models superior to traditional bankruptcy prediction approaches? A comprehensive test</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
+<td align="right">1</td>
+<td align="right"><a target="_blank" href="https://scholar.google.com/scholar?q=related:1f2GticZ5n4J:scholar.google.com/&amp;hl=en&amp;oe=ASCII&amp;as_sdt=0,5">Link</a></td>
+<td align="left">Abstract This paper extends the macroeconomic frailty model to include sectoral frailty factors that capture default correlations among firms in a similar business. We estimate sectoral and macroeconomic frailty factors and their effects on default intensity using the data for Japanese firms from 1992 to 2010. We find strong evidence for the presence of sectoral frailty factors even after accounting for the effects of observable covariates and …</td>
+<td align="right">2014</td>
+<td align="left"><a target="_blank" href="http://www.sciencedirect.com/science/article/pii/S0378426613004573">Link</a></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
@@ -1158,22 +1190,6 @@ $(document).ready(function () {
 <td align="left">Journal of Banking &amp; Finance</td>
 </tr>
 <tr class="even">
-<td align="left">A re-evaluation of auditors’ opinions versus statistical models in bankruptcy prediction</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Review of Quantitative Finance and Accounting</td>
-</tr>
-<tr class="odd">
 <td align="left">Firms in Financial Distress, a Survival Model Analysis</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
@@ -1188,22 +1204,6 @@ $(document).ready(function () {
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">Australasian Finance &amp; Banking</td>
-</tr>
-<tr class="even">
-<td align="left">Have Financial Statements Become Less Informative? Evidence from the Ability of Financial Ratios to Predict Bankruptcy</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
-<td align="right">NA</td>
-<td align="left">NA</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Review of Accounting studies</td>
 </tr>
 </tbody>
 </table>

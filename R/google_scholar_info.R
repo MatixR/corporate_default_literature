@@ -66,7 +66,7 @@ get_google_scholar_info <- with(new.env(), {
     if(length(related_articles) == 1){
       related_articles <- paste0("https://scholar.google.com", related_articles)
     } else
-      related_articles <- NA
+      related_articles <- url_
       
     
     year <- html_text(html_nodes(
