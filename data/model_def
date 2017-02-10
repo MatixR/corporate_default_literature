@@ -3,6 +3,7 @@ NN,Neural Network
 AdaBoost,AdaBoost
 DT,Decision Tree
 B,Boosting
+BA,Bagging
 SVM,Support Vector machine
 LOGI,Logistic regression
 AH,Additive Intensity models

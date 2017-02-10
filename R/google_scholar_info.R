@@ -54,6 +54,8 @@ get_google_scholar_info <- with(new.env(), {
     # Get the journal url and number of citations and return
     journal_url <- html_text(html_nodes(
       res_node, xpath = "./h3[contains(@class, 'gs_rt')]/a/@href"))
+    if(length(journal_url) == 0)
+      journal_url <- NA
     
     n_citations <- html_text(html_nodes(
       res_node, xpath = "(./div[contains(@class, 'gs_fl')]/a)[1]/text()"))
@@ -90,3 +92,4 @@ get_google_scholar_info <- with(new.env(), {
 # get_google_scholar_info("Design and natural science research on information technology",
 #                         "Decision support systems")
             
+# get_google_scholar_info("Modelling The Credit Risk Of The Hungarian Sme Sector", "mnb")
