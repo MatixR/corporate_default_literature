@@ -237,7 +237,6 @@ Excluding 'Companies which hadn’t been realizing sales for at least two consec
 The treatment of outliers seems questionable to me. Any covariate outsite +/- 2 standard deviations seems like an bad definition",1
 Aggregating multiple classification results using Choquet integral for financial distress early warning,Expert Systems With Applications,,,,,,,
 Financial distress prediction with classifier ensembles based on firm life cycle and Choquet integral,Expert Systems with Applications,,,,,,,
-Classifiers selection in ensembles using genetic algorithms for bankruptcy prediction,Expert Systems with Applications,,,,,,,
 Two-level classifier ensembles for credit risk assessment,Expert Systems with Applications,,,,,,,
 Development of a class of stable predictive variables: The case of bankruptcy prediction,Journal of Business Finance & Accounting,,,,,,,
 Clustering and visualization of bankruptcy trajectory using self-organizing map,Expert Systems with Applications,,,,,,,
@@ -411,7 +410,11 @@ Later they add marked values like Shumway (2001) expect that they use returns in
 I hesitate to say they conclusion of robustness could not just be a fact of the chosen periods 
 I dont get why they focus on the last three deciles in their deciles ranking. Failures outsite even the first decile should be of concern given the sparse amount of failures. See table table 5 panel E versus table 8 panel G. This comment is related to phrases like:' The overall predictive power of the combined model remains essentially unchanged when accuracy is measured with respect to the bottom three deciles'",3
 Financial distress prediction using support vector machines: Ensemble vs. individual,Applied Soft Computing,,,,,,,
-"Predicting financial distress and corporate failure: A review from the state-of-the-art definitions, modeling, sampling, and featuring approaches",Knowledge-Based Systems,,,,,,,
+"Predicting financial distress and corporate failure: A review from the state-of-the-art definitions, modeling, sampling, and featuring approaches",Knowledge-Based Systems,RA,,,,,"Review articles using ""state-of-the-art"" methods and catogrise them with respect to financial distress definition, methods, sampling and feature selection
+The methods section is intersting in that it covers more 'new-age' classifiers like SVM, NN, fuzzy-network, ensambles etc. The introduction to the various method is limited and more focus is put on the articles
+There were not any many insides for me in the sampling section and feature section. It may be useful if you searching for a reference to articles that samples as you do  
+Some of the comments are qustionable or out right wrong like:' However, it [logistic] still requires that the independent variables have no linear functional relationship with each other, namely, no multi-collinearity
+problem' (which is true if the are very linearly dependent of course but by no means require complete linear independence)",4
 Neural network ensemble strategies for financial decision applications,Computers & Operations Research,,,,,,,
 Dynamics of firm financial evolution and bankruptcy prediction,Expert Systems with Applications,,,,,,,
 Ensemble with neural networks for bankruptcy prediction,Expert Systems with Applications,"NN, AdaBoost, BA","'The data set contains 1458 externally audited manufacturing firms, half of which went bankrupt during 2002–2005 while healthy firms were selected from active companies at the end of 2005'",It is not clear. I figure they must have used a skewed sample since they use binary results and given their Type I and II errors in table 6,Not clear. There is a total of 1458 firms,AUCs up to 76% using 10 fold cross validation,"Predict bankrupcty for Korean firms. Compares Neural Networks as is, with bagging and with AdaBoost. Finds improvments with both ensamble methods
@@ -445,3 +448,27 @@ A 75% AUC simply by sorting by total assets seems to me like there is a selectin
 They use (very) few classifiers. See table 4. I suspect this is as they want to use the genetic algorihtm after for 1000 rounds. Though, this beg the question what would happen if they had used more classifiers
 Ignores the longitudinal aspect of data by bagging all observations and only using one observation from each firm
 Skewed sampling with details omitted",5
+Bankruptcy prediction in banks and firms via statistical a intelligent techniques – a review,,,,,,,,
+"A comparative survey of artificial intelligence applications in finance artificial neural networks, expert systems and hybrid intelligent systems",,,,,,,,
+Hybrid and ensemblebased soft computing techniques in bankruptcy prediction a survey,,,,,,,,
+Machine learning in financial crisis prediction a survey,,,,,,,,
+A quadratic interval logit model for forecasting bankruptcy,,,,,,,,
+Predicting the survival or failure of click-and-mortar corporations: A knowledge discovery approach,,,,,,,,
+Forecasting financial condition of Chinese listed companies based on support vector machine,Expert Systems with Applications,,,,,,,
+Predicting business failure using support vector machines with straightforward wrapper: A re-sampling study,Expert Systems with Applications,,,,,,,
+From linear to non-linear kernel based classifiers for bankruptcy prediction,Neurocomputing,,,,,,,
+An Application of Support Vector Machine to Companies’ Financial Distress Prediction,,,,,,,,
+A selective ensemble based on expected probabilities for bankruptcy prediction,Expert systems with applications,,,,,,,
+"Integration of case-based forecasting, neural network, and discriminant analysis for bankruptcy prediction",Expert Systems with Applications,,,,,,,
+Predicting business failure using classification and regression tree: An empirical comparison with popular classical statistical methods and top classification mining methods,Expert Systems with Applications,,,,,,,
+The random subspace binary logit (RSBL) model for bankruptcy prediction,Knowledge-Based Systems,,,,,,,
+Principal component case-based reasoning ensemble for business failure prediction,Information & Management,,,,,,,
+Firm bankruptcy prediction: experimental comparison of isotonic separation and other classification approaches,IEEE Transactions on Systems,,,,,,,
+A genetic algorithm application in bankruptcy prediction modeling,Expert Systems with Applications,,,,,,,
+An application of support vector machines in bankruptcy prediction model,Expert Systems with Applications,,,,,,,
+SFFS-PC-NN optimized by genetic algorithm for dynamic prediction of financial distress with longitudinal data streams,Knowledge-Based Systems,,,,,,,
+Listed companies’ financial distress prediction based on weighted majority voting combination of multiple classifiers,Expert Systems with Applications,,,,,,,
+Dynamic financial distress prediction using instance selection for the disposal of concept drift,Expert Systems with Applications,,,,,,,
+Feature selection in bankruptcy prediction,Expert Systems with Applications,,,,,,,
+Financial distress prediction using support vector machines: Ensemble vs. individual,Applied Soft Computing,,,,,,,
+Concept Drift-Oriented Adaptive and Dynamic Support Vector Machine Ensemble With Time Window in Corporate Financial Risk Prediction,IEEE Transactions on Systems,,,,,,,
