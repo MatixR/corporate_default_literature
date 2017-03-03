@@ -51,6 +51,8 @@ review_data$Models <- sapply(review_data$Models, function(x){
     paste0(model_abb[ms_match, 2], collapse = "\n")
 })
 
+stopifnot(!any(duplicated(review_data$`Article name`)))
+
 # Find further article information
 google_search_expres <- expression({
   source("R/google_scholar_info.R")
@@ -77,6 +79,7 @@ google_search_expres <- expression({
 
 switch(
   "no_update",
+  
   update_all = {
     review_data_subset <- review_data
     
@@ -87,17 +90,23 @@ switch(
                 "output/google_data", row.names = F, col.names = T)
   },
   
-  update_new = {
+  update_new_or_missing = {
     cur_dat <- read.table("output/google_data", row.names = NULL, 
                           stringsAsFactors = F, header = T, allowEscapes = T)
     
     is_new <- which(!review_data$`Article name` %in% cur_dat$Article.name)
-    review_data_subset <- review_data[is_new, ]
+    is_all_missing <- which(apply(
+      cur_dat[, !colnames(cur_dat) %in% c("Article.name", "Publisher")],
+      1, function(x) all(is.na(x)))) 
+    
+    review_data_subset <- review_data[c(is_new, is_all_missing), ]
+    cur_dat <- cur_dat[-is_all_missing, ]
     
     eval(google_search_expres)
     
+    google_dat_after_eval <- google_dat
     tmp <- cbind(review_data_subset[, c("Article name", "Publisher")],
-                 google_dat)
+                 google_dat_after_eval)
     
     google_dat <- rbind(cur_dat, data.frame(tmp))
     
@@ -119,40 +128,6 @@ switch(
                  c("journal_url", "year", "n_citations", "abstract", "related_articles")]
     
   })
-
-if(F){ # Set to FALSE if data should be loaded from output folder
-  source("R/google_scholar_info.R")
-  
-  log_file <- file("output/google_data.log", open = "wt")
-  sink(log_file, type = "message")
-  options(warn = 1)
-  google_dat <- apply(
-    review_data[, c("Article name", "Publisher")], 1, function(x){
-      message("Procesing ", paste0(x, collapse = ", "), "...")
-      get_google_scholar_info(x[1], x[2])
-    })
-  sink(file = NULL, type = "message")
-  close(log_file)
-  
-  google_dat <- data.frame(matrix(unlist(google_dat), nrow = length(google_dat), 
-                                  byrow = T, dimnames = 
-                                    list(NULL, names(google_dat[[1]]))), 
-                           stringsAsFactors = F)
-  
-  if(all(is.na(google_dat)))
-    stop("Likely got 503 errors as google banned the ip for a few days")
-  
-  write.table(cbind(review_data[, c("Article name", "Publisher")],
-                    google_dat), 
-              "output/google_data", row.names = F, col.names = T)
-} else {
-  google_dat <- read.table("output/google_data", row.names = NULL, 
-                           stringsAsFactors = F, header = T, allowEscapes = T)
-  
-  google_dat <- 
-    google_dat[match(review_data$`Article name`, google_dat$Article.name), 
-               c("journal_url", "year", "n_citations", "abstract", "related_articles")]
-}
 
 google_dat[, c("year", "n_citations")] <- 
   sapply(google_dat[, c("year", "n_citations")], as.numeric)

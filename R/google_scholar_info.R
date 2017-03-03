@@ -13,7 +13,7 @@ get_google_scholar_info <- with(new.env(), {
     
     # Dont want issues with google searches blooking us out
     # cat("\nBefore:", 1 - as.numeric(Sys.time()) + as.numeric(last_call))
-    Sys.sleep(max(1e-8, 1 + runif(1, max = 20) - as.numeric(Sys.time()) + as.numeric(last_call)))
+    Sys.sleep(max(1e-8, 1 + runif(10, max = 20) - as.numeric(Sys.time()) + as.numeric(last_call)))
     last_call <<- Sys.time()
     # cat("\nAfter: ", 1 - as.numeric(Sys.time()) + as.numeric(last_call))
     
@@ -59,7 +59,9 @@ get_google_scholar_info <- with(new.env(), {
     
     n_citations <- html_text(html_nodes(
       res_node, xpath = "(./div[contains(@class, 'gs_fl')]/a)[1]/text()"))
-    if(grepl("^Cite$", n_citations) || grepl("^Related articles$", n_citations))
+    if(grepl("^Cite$", n_citations) || 
+       grepl("^Related articles$", n_citations) ||
+       grepl("^All [0-9]+ versions$", n_citations))
       n_citations <- 0 else
         n_citations <-  as.numeric(gsub("^Cited by ", "", n_citations))
     
@@ -93,3 +95,7 @@ get_google_scholar_info <- with(new.env(), {
 #                         "Decision support systems")
             
 # get_google_scholar_info("Modelling The Credit Risk Of The Hungarian Sme Sector", "mnb")
+
+# get_google_scholar_info("A Survival Approach to Prediction of Default Drivers for Indian Listed Companies", "")
+
+get_google_scholar_info("Does Corporate Governance Affect the Financial Distress of Indonesian Company? A Survival Analysis Using Cox Hazard Model with Time-Dependent Covariates", "")
