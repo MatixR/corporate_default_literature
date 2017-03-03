@@ -98,4 +98,4 @@ get_google_scholar_info <- with(new.env(), {
 
 # get_google_scholar_info("A Survival Approach to Prediction of Default Drivers for Indian Listed Companies", "")
 
-get_google_scholar_info("Does Corporate Governance Affect the Financial Distress of Indonesian Company? A Survival Analysis Using Cox Hazard Model with Time-Dependent Covariates", "")
+# get_google_scholar_info("Does Corporate Governance Affect the Financial Distress of Indonesian Company? A Survival Analysis Using Cox Hazard Model with Time-Dependent Covariates", "")
