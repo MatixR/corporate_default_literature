@@ -30,7 +30,7 @@ TODO: write explanation for frailty versus contagion
 
 ## Review table
 
-```{r, echo=FALSE,message=FALSE, warning=FALSE, error=TRUE, results='asis'}
+```{r load_data, echo = FALSE}
 # Read in data
 review_data <- read.csv("data/review_data.csv", header = T, sep = ",", quote = '"', 
                         stringsAsFactors = F, fileEncoding = "UTF-8-BOM")
@@ -38,7 +38,10 @@ actual_headers <- read.csv("data/review_data.csv", header = F, sep = ",", quote 
                            stringsAsFactors = F, nrows = 1, fileEncoding = "UTF-8-BOM")
 
 colnames(review_data) <- actual_headers
+```
 
+```{r format_data, echo = FALSE}
+#####
 # Replace the model abbrevations 
 model_abb <- read.table("data/model_def", sep = ",", header = F, stringsAsFactors = F)
 review_data$Models <- sapply(review_data$Models, function(x){
@@ -53,226 +56,244 @@ review_data$Models <- sapply(review_data$Models, function(x){
 
 stopifnot(!any(duplicated(review_data$`Article name`)))
 
-# Find further article information
-google_search_expres <- expression({
-  source("R/google_scholar_info.R")
+#####
+# Make url for google scholar search
+review_data$g_scholar <-  mapply(
+  title = review_data$`Article name`,
+  publisher = review_data$Publisher,
   
-  log_file <- file("output/google_data.log", open = "wt")
-  sink(log_file, type = "message")
-  options(warn = 1)
-  google_dat <- apply(
-    review_data_subset[, c("Article name", "Publisher")], 1, function(x){
-      message("Procesing ", paste0(x, collapse = ", "), "...")
-      get_google_scholar_info(x[1], x[2])
-    })
-  sink(file = NULL, type = "message")
-  close(log_file)
-  
-  google_dat <- data.frame(matrix(unlist(google_dat), nrow = length(google_dat), 
-                                  byrow = T, dimnames = 
-                                    list(NULL, names(google_dat[[1]]))), 
-                           stringsAsFactors = F)
-  
-  if(all(is.na(google_dat)))
-    stop("Likely got 503 errors as google banned the ip for a few days")
-})
-
-switch(
-  "no_update",
-  
-  update_all = {
-    review_data_subset <- review_data
-    
-    eval(google_search_expres)
-    
-    write.table(cbind(review_data[, c("Article name", "Publisher")],
-                      google_dat), 
-                "output/google_data", row.names = F, col.names = T)
-  },
-  
-  update_new_or_missing = {
-    cur_dat <- read.table("output/google_data", row.names = NULL, 
-                          stringsAsFactors = F, header = T, allowEscapes = T)
-    
-    is_new <- which(!review_data$`Article name` %in% cur_dat$Article.name)
-    is_all_missing <- which(apply(
-      cur_dat[, !colnames(cur_dat) %in% c("Article.name", "Publisher")],
-      1, function(x) all(is.na(x)))) 
-    
-    review_data_subset <- review_data[c(is_new, is_all_missing), ]
-    cur_dat <- cur_dat[-is_all_missing, ]
-    
-    eval(google_search_expres)
-    
-    google_dat_after_eval <- google_dat
-    tmp <- cbind(review_data_subset[, c("Article name", "Publisher")],
-                 google_dat_after_eval)
-    
-    google_dat <- rbind(cur_dat, data.frame(tmp))
-    
-    google_dat <- 
-      google_dat[match(review_data$`Article name`, google_dat$Article.name), 
-                 c("journal_url", "year", "n_citations", "abstract", "related_articles")]
-    
-    write.table(cbind(review_data[, c("Article name", "Publisher")],
-                      google_dat), 
-                "output/google_data", row.names = F, col.names = T)
-  },
-  
-  no_update = {
-    google_dat <- read.table("output/google_data", row.names = NULL, 
-                             stringsAsFactors = F, header = T, allowEscapes = T)
-  
-    google_dat <- 
-      google_dat[match(review_data$`Article name`, google_dat$Article.name), 
-                 c("journal_url", "year", "n_citations", "abstract", "related_articles")]
-    
+  function(title, publisher){
+    if(publisher != "")
+      publisher <- paste0(
+        '&as_publication="', gsub("\\ ", "+", publisher), '"')
+    paste0(
+      'https://scholar.google.com/scholar?as_q=&as_epq="',
+      gsub("\\ ", "+", title), '"',  publisher, "&hl=en")
   })
 
-google_dat[, c("year", "n_citations")] <- 
-  sapply(google_dat[, c("year", "n_citations")], as.numeric)
+#####
+# Order rows by my rating
+review_data <- review_data[order(review_data$`My rating (1: best, 5: worst)`), ]
 
-# Put urls into a <a> tag
-google_dat$journal_url <- ifelse(
-  is.na(google_dat$journal_url), 
-  rep(NA, nrow(google_dat)), 
-  paste0("<a target='_blank' href='", google_dat$journal_url, "' >Link</a>"))
+#####
+# Formating
 
-google_dat$related_articles <- ifelse(
-  is.na(google_dat$related_articles), 
-  rep(NA, nrow(google_dat)), 
-  paste0("<a target='_blank' href='", google_dat$related_articles, "' >Link</a>"))
-
-# format column names
-google_dat <- plyr::rename(
-  google_dat, c("journal_url" = "link", "n_citations" = "Citations", 
-                "related_articles" = "Google Scholar"))
-
-review_data <- cbind(review_data, google_dat)
-
-# Order rows by my train and number of citations
-review_data <- 
-  if(!all(is.na(review_data$Citations)))
-    review_data[order(review_data$`My rating (1: best, 5: worst)`, 
-                      -review_data$Citations), ] else
-                        review_data[order(review_data$`My rating (1: best, 5: worst)`), ]
-
-# Order columns and define alignment
-align_n_c_order <- c(
-  "Article name" = "left", 
-  "My rating (1: best, 5: worst)" = "right", 
-  "Citations" = "right", 
-  "Google Scholar" = "right",
-  "abstract" = "left",
-  "year" = "right", 
-  "link" = "left",
-  "My review" = "left", 
-  "Outcome" = "left", 
-  "Sample size (failure / non-failure)" = "left",
-  "Models" = "left", 
-  "Data source/set" = "left", 
-  "Sampling" = "left",
-  "Publisher" = "left")
-
-split_cells <- c(
-  "Article name" = 25, 
-  "My rating (1: best, 5: worst)" = 20, 
-  "Citations" = 10, 
-  "abstract" = 50,
-  "My review" = 50, 
-  "Outcome" = 50, 
-  "Sample size (failure / non-failure)" = 20,
-  "Models" = 25, 
-  "Data source/set" = 50, 
-  "Sampling" = 50,
-  "year" = 4, 
-  "Publisher" = 20,
-  "link" = 50, 
-  "Google Scholar" = 50)
-
-review_data <- 
-  review_data[, names(align_n_c_order)]
-row.names(review_data) <- NULL
-
-# Final formating of header 
-review_data <- plyr::rename(review_data, c(
-  "My rating (1: best, 5: worst)" = "My rating<br>(1: best, 5: worst)",
-  "Sample size (failure / non-failure)" = "Sample size<br>(failure / non-failure)"
-))
-
-# Replace line breaks with br tags
-is_char <- sapply(review_data, is.character)
-review_data[, is_char] <- 
-  sapply(review_data[, is_char], gsub, pattern = "\\s*\\n\\s*",
-         replacement = "\\ \\<br\\> \\")
-
+# replace linebreaks by br
 # We also correct for invalid dash entries
-review_data[, is_char] <- 
-  sapply(review_data[, is_char], gsub, pattern = "–",
-         replacement = "-")
+for(s in colnames(review_data)[sapply(review_data, is.character)]){
+  review_data[[s]] <- gsub("\\s*\\n\\s*", "\\ \\<br\\> \\",review_data[[s]])
+  review_data[[s]] <- gsub("–", "-", review_data[[s]])
+}
 
-# Print table
-pander::panderOptions('knitr.auto.asis', FALSE)
-pander::pandoc.table(review_data,
-                     keep.line.breaks = T, 
-                     justify = align_n_c_order, 
-                     split.table = Inf,
-                     split.cells = split_cells[names(align_n_c_order)],
-                     style = 'multiline')
+# Wrap links in "a" tags
+for(s in c("g_scholar"))
+  review_data[[s]] <- paste0("<a target='_blank' href='", review_data[[s]], "' >Link</a>")
 ```
 
-<script src="js/jquery.dataTables.min.js"></script>
+```{r make_data_tbl, echo=FALSE,results='asis'}
+#####
+# Change column order
+ord <- c("Article name", "Publisher", "Models", "My rating (1: best, 5: worst)", "My review", "g_scholar", "Data source/set", "Sampling", "Sample size (failure / non-failure)", "Outcome")
+stopifnot(all(ord %in% colnames(review_data)))
 
-<script type="text/javascript">
-// Sort function for NA from https://datatables.net/forums/discussion/7446/numeric-sort-with-na-in-some-cells
-$.fn.dataTableExt.oSort['numeric_ignore_nan-asc'] = function(x,y) {
-if (isNaN(x) && isNaN(y)) return ((x < y) ? 1 : ((x > y) ? -1 : 0));
+review_data <- review_data[, match(ord, colnames(review_data))]
 
-if (isNaN(x)) return 1;
-if (isNaN(y)) return -1;
+#####
+# Function to print 
+fname <- "tbl_file.html" 
+unlink(fname)
+f <- file(fname, open = "at")
 
-x = parseFloat( x );
-y = parseFloat( y );
-return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-};
+p <- function(x, lvl = 0, tag, file = f){
+  if(missing(tag)){
+    pb <- ""
+    pa <- ""
+  } else {
+    pb <- paste0("<", tag, ">")
+    pa <- paste0("</", tag, ">")
+  }
+  
+  cat(rep("\t", lvl), pb, x, pa, "\n", sep = "", file = file)
+}
 
-$.fn.dataTableExt.oSort['numeric_ignore_nan-desc'] = function(x,y) {
-if (isNaN(x) && isNaN(y)) return ((x < y) ? 1 : ((x > y) ? -1 : 0));
+# Table tag
+p("<!--html_preserve-->")
+p('<table id="review_tbl" class="display">')
 
-if (isNaN(x)) return 1;
-if (isNaN(y)) return -1;
+#####
+# Header
+p("<thead>", 1)
+p("<tr>", 2)
+cnames <- colnames(review_data)
+cnames_change <- c(
+  "My rating (1: best, 5: worst)" = "My rating<br>(1: best, 5: worst)",
+  "g_scholar" = "Google scholar query",
+  "Sample size (failure / non-failure)" = 
+    "Sample size<br>(failure / non-failure)")
+stopifnot(all(names(cnames_change) %in% cnames))
+cnames[match(names(cnames_change), cnames)] <- unname(cnames_change)
 
-x = parseFloat( x );
-y = parseFloat( y );
-return ((x < y) ? 1 : ((x > y) ? -1 : 0));
-};
+invisible(sapply(cnames, p, lvl = 3, tag = "th"))
+p("</tr>", 2)
+p("</thead>", 1)
 
-$(document).ready(function(){
-  $("#review-table > table > colgroup").remove();
-  $("#review-table > table").removeAttr('width');
-  $("#review-table > table").DataTable({
-    "scrollY": "800px",
-		"scrollX": true,
-		"autoWidth": false,
-		"pageLength": 4,
-		"lengthMenu": [ 4, 10, 50, 100 ],
-		"order": [[1, "asc" ], [2, "desc" ]],
-    "columnDefs": [
-      { "width": "18em", "targets": 0 },  // article name
-      { "width": "9em", "type": "numeric_ignore_nan", "targets": 1 },   // rating
-      { "width": "5em", "type": "numeric_ignore_nan", "targets": 2 },   // citations
-      { "width": "5em", "type": "numeric_ignore_nan", "targets": 3 },   // google scholar
-      { "width": "30em", "targets": 4 },  // abstact
-      { "width": "5em", "targets": 5 },   // year
-      { "width": "6em", "targets": 6 },   // link
-      { "width": "30em", "targets": 7 },  // review
-      { "width": "20em", "targets": 8 },  // outcome
-      { "width": "20em", "targets": 9 },  // sample size
-      { "width": "20em", "targets": 10 }, // models
-      { "width": "30em", "targets": 11 }, // data set
-      { "width": "20em", "targets": 12 }, // sampling
-      { "width": "10em", "targets": 13 }  // publisher
-    ]
-  });
-});
-</script>
+#####
+# Content 
+p("<tbody>", 1)
+invisible(apply(review_data, 1, function(x){
+  p("<tr>", 2)
+  sapply(x, p, lvl = 3, tag = "td")
+  p("</tr>", 2)
+}))
+p("</tbody>", 1)
+
+# Table tag
+p('</table>') 
+p("<!--/html_preserve-->")
+
+close(f)
+
+# Print content of file
+cat(readLines(fname), sep = "\n")
+
+#####
+# Make javascript to make table
+jname <- "table.js"
+unlink(jname)
+f <- file(jname, open = "at")
+
+p("<!--html_preserve-->")
+p("<script src='js/jquery.dataTables.min.js'></script>")
+p('<script type="text/javascript">')
+
+p('// Sort function for NA from https://datatables.net/forums/discussion/7446/numeric-sort-with-na-in-some-cells')
+p("$.fn.dataTableExt.oSort['numeric_ignore_nan-asc'] = function(x,y) {")
+p('if (isNaN(x) && isNaN(y)) return ((x < y) ? 1 : ((x > y) ? -1 : 0));', 1)
+p('if (isNaN(x)) return 1;', 1)
+p('if (isNaN(y)) return -1;', 1)
+p("x = parseFloat( x );", 1)
+p("y = parseFloat( y );", 1)
+p("return ((x < y) ? -1 : ((x > y) ? 1 : 0));", 1)
+p("};")
+
+p("$.fn.dataTableExt.oSort['numeric_ignore_nan-desc'] = function(x,y) {")
+p("if (isNaN(x) && isNaN(y)) return ((x < y) ? 1 : ((x > y) ? -1 : 0));", 1)
+p("if (isNaN(x)) return 1;", 1)
+p("if (isNaN(y)) return -1;", 1)
+p("x = parseFloat( x );", 1)
+p("y = parseFloat( y );", 1)
+p("return ((x < y) ? 1 : ((x > y) ? -1 : 0));", 1)
+p("};")
+
+p("$(document).ready(function() {")
+p("$('#review_tbl').DataTable( {", 1)
+p('"scrollY": "600px",', 2)
+p('"scrollX": true,', 2)
+p('"scrollCollapse": true,', 2)
+p(paste0(
+  '"order": [[', 
+  which(colnames(review_data) == "My rating (1: best, 5: worst)") - 1, 
+  ", 'asc']],"), 2)
+
+#####
+# Setup columnDefs
+columnDefs <- c(
+  "Article name" = '"className": "dt-body-left", "width": "18em"', 
+  "Publisher" = '"className": "dt-body-left", "width": "10em"', 
+  "Models" = '"className": "dt-body-left", "width": "20em"', 
+  "My rating (1: best, 5: worst)" = 
+    '"className": "dt-body-center", "width": "9em", "type": "numeric_ignore_nan"', 
+  "My review" = '"className": "dt-body-left", "width": "40em"', 
+  "g_scholar" = '"className": "dt-body-center", "width": "5em"', 
+  "Data source/set" = '"className": "dt-body-left", "width": "40em"', 
+  "Sampling" = '"className": "dt-body-left", "width": "20em"', 
+  "Sample size (failure / non-failure)" = 
+    '"className": "dt-body-left", "width": "20em"', 
+  "Outcome" = '"className": "dt-body-left", "width": "20em"')
+
+stopifnot(setequal(names(columnDefs), colnames(review_data)))
+columnDefs <- columnDefs[match(names(columnDefs), colnames(review_data))]
+columnDefs <- 
+  paste0('{ "targets": ', 0:(length(columnDefs) - 1), ", ",  columnDefs, ' }')
+columnDefs[-length(columnDefs)] <- 
+  paste0(columnDefs[-length(columnDefs)], ", ")
+
+p('"columnDefs": [', 2)
+invisible(sapply(columnDefs, p, 3))
+p(']', 2)
+
+
+p("});", 1)
+p("} );")
+
+p('</script>')
+p("<!--/html_preserve-->")
+
+close(f)
+
+# Print content of file
+cat(readLines(jname), sep = "\n")
+
+# # Order columns and define alignment
+# align_n_c_order <- c(
+#   "Article name" = "left", 
+#   "My rating (1: best, 5: worst)" = "right", 
+#   "Citations" = "right", 
+#   "Google Scholar" = "right",
+#   "abstract" = "left",
+#   "year" = "right", 
+#   "link" = "left",
+#   "My review" = "left", 
+#   "Outcome" = "left", 
+#   "Sample size (failure / non-failure)" = "left",
+#   "Models" = "left", 
+#   "Data source/set" = "left", 
+#   "Sampling" = "left",
+#   "Publisher" = "left")
+# 
+# split_cells <- c(
+#   "Article name" = 25, 
+#   "My rating (1: best, 5: worst)" = 20, 
+#   "Citations" = 10, 
+#   "abstract" = 50,
+#   "My review" = 50, 
+#   "Outcome" = 50, 
+#   "Sample size (failure / non-failure)" = 20,
+#   "Models" = 25, 
+#   "Data source/set" = 50, 
+#   "Sampling" = 50,
+#   "year" = 4, 
+#   "Publisher" = 20,
+#   "link" = 50, 
+#   "Google Scholar" = 50)
+# 
+# review_data <- 
+#   review_data[, names(align_n_c_order)]
+# row.names(review_data) <- NULL
+# 
+# # Final formating of header 
+# review_data <- plyr::rename(review_data, c(
+#   "My rating (1: best, 5: worst)" = "My rating<br>(1: best, 5: worst)",
+#   "Sample size (failure / non-failure)" = "Sample size<br>(failure / non-failure)"
+# ))
+# 
+# # Replace line breaks with br tags
+# is_char <- sapply(review_data, is.character)
+# review_data[, is_char] <- 
+#   sapply(review_data[, is_char], gsub, pattern = "\\s*\\n\\s*",
+#          replacement = "\\ \\<br\\> \\")
+# 
+# # We also correct for invalid dash entries
+# review_data[, is_char] <- 
+#   sapply(review_data[, is_char], gsub, pattern = "–",
+#          replacement = "-")
+# 
+# # Print table
+# pander::panderOptions('knitr.auto.asis', FALSE)
+# pander::pandoc.table(review_data,
+#                      keep.line.breaks = T, 
+#                      justify = align_n_c_order, 
+#                      split.table = Inf,
+#                      split.cells = split_cells[names(align_n_c_order)],
+#                      style = 'multiline')
+```
