@@ -32,26 +32,119 @@ TODO: write explanation for frailty versus contagion
 
 ```{r load_data, echo = FALSE}
 # Read in data
-review_data <- read.csv("data/review_data.csv", header = T, sep = ",", quote = '"', 
-                        stringsAsFactors = F, fileEncoding = "UTF-8-BOM")
-actual_headers <- read.csv("data/review_data.csv", header = F, sep = ",", quote = '"', 
-                           stringsAsFactors = F, nrows = 1, fileEncoding = "UTF-8-BOM")
-
+fname_data <- "data/review_data.csv"
+review_data <- read.csv(
+  fname_data, header = T, sep = ",", quote = '"', 
+  stringsAsFactors = F, fileEncoding = "UTF-8", na.strings = "")
+actual_headers <- read.csv(
+  fname_data, header = F, sep = ",", quote = '"', 
+  stringsAsFactors = F, nrows = 1, fileEncoding = "UTF-8")
 colnames(review_data) <- actual_headers
+
+fname_bib <- "data/ref.bib"
+RefManageR::BibOptions(check.entries = FALSE)
+bib <- RefManageR::ReadBib(fname_bib)
 ```
+
+```{r, echo = FALSE, eval = FALSE}
+#####
+# Define function to search on Crossref
+find_ref <- function(.title, journal = NA_character_){
+  .query <- .title
+  if(!is.na(journal))
+    .query <- paste(.query, journal)
+  cat("Looking for", sQuote(.query), "on Crossref...\n")
+  
+  try({
+    res <- RefManageR::ReadCrossRef(.query, limit = 5)
+    
+    cat("Results are:\n")
+    for(i in rev(seq_along(res))){
+      cat("(", i, ") ", sep = "")
+      tryCatch(
+        print(res[[i]], .opts = list(style = "text", bib.style = "authoryear")),
+        error = function(...)
+          print(res[[i]], .opts = list(style = "Bibtex")))
+      cat("\n")
+    }
+    
+    cat("Select the one that match with", sQuote(.query), "\n")
+    .pick <- as.integer(readline("Enter value that match (-1 for no match): "))
+    
+    out <- if(.pick %in% seq_len(length(res))){
+      res <- res[[.pick]]
+      cat("Adding:\n")
+      print(res, .opts = list(style = "Bibtex"))
+      list(
+        Year = res$year, Journal = res$journal, Url = res$url, doi = res$doi,
+        bibentry = res, Authors = paste0(res$author, collapse = ", "),
+        Publisher = res$publisher)
+    } else {
+      cat("No valid value. No action taken\n")
+      NULL
+    }
+    cat("\n")
+    
+    return(out)
+  }, TRUE)
+  
+  cat("Failed. Error messages is:\n")
+  print(.Last.value)
+  
+  NULL
+}
+
+save_exp <- expression({
+  write.csv(
+          review_data, file = fname_data,
+          quote = TRUE, row.names = FALSE, fileEncoding = "UTF-8", na = "")
+  RefManageR::WriteBib(bib, fname_bib)
+})
+
+n_new <- 0
+for(i in 1:nrow(review_data)){
+  if(is.na(review_data$doi[i]) || review_data$doi[i] == ""){
+    out <- find_ref(review_data$`Article name`[i], review_data$Journal[i])
+    
+    if(!is.null(out)){
+      bib <- c(bib, out$bibentry)
+      
+      out <- out[!names(out) %in% "bibentry"]
+      stopifnot(all(names(out) %in% colnames(review_data)))
+      for(n in names(out)){
+        if((is.na(review_data[i, n]) || 
+            is.na(review_data[i, n]) == "") && 
+           !is.null(out[[n]]))
+          review_data[i, n] <- out[[n]]
+      }
+      
+      review_data[i, "Key"] <- names(bib)[length(bib)]
+      
+      n_new <- n_new + 1
+      if(n_new %% 5 == 0)
+        eval(save_exp, envir = environment())
+    }
+  }
+}
+eval(save_exp, envir = environment())
+```
+
 
 ```{r format_data, echo = FALSE}
 #####
 # Replace the model abbrevations 
 model_abb <- read.table("data/model_def", sep = ",", header = F, stringsAsFactors = F)
 review_data$Models <- sapply(review_data$Models, function(x){
-    ms <- unlist(strsplit(x, ", "))
-    ms_match <- match(ms, model_abb[, 1])
-    if(any(is.na(ms_match))){
-        stop("Could not find ", paste0(
-            "'", ms[is.na(ms_match)], "'", collapse = " "))
-    }
-    paste0(model_abb[ms_match, 2], collapse = "\n")
+  if(is.na(x))
+    return("")
+  
+  ms <- unlist(strsplit(x, ", "))
+  ms_match <- match(ms, model_abb[, 1])
+  if(any(is.na(ms_match))){
+      stop("Could not find ", paste0(
+          "'", ms[is.na(ms_match)], "'", collapse = " "))
+  }
+  paste0(model_abb[ms_match, 2], collapse = "\n")
 })
 
 stopifnot(!any(duplicated(review_data$`Article name`)))
@@ -60,12 +153,13 @@ stopifnot(!any(duplicated(review_data$`Article name`)))
 # Make url for google scholar search
 review_data$g_scholar <-  mapply(
   title = review_data$`Article name`,
-  publisher = review_data$Publisher,
+  publisher = review_data$Journal,
   
   function(title, publisher){
-    if(publisher != "")
-      publisher <- paste0(
-        '&as_publication="', gsub("\\ ", "+", publisher), '"')
+    publisher <- 
+      if(!is.na(publisher))
+        paste0(
+          '&as_publication="', gsub("\\ ", "+", publisher), '"') else ""
     paste0(
       'https://scholar.google.com/scholar?as_q=&as_epq="',
       gsub("\\ ", "+", title), '"',  publisher, "&hl=en")
@@ -73,7 +167,9 @@ review_data$g_scholar <-  mapply(
 
 #####
 # Order rows by my rating
-review_data <- review_data[order(review_data$`My rating (1: best, 5: worst)`), ]
+review_data <- review_data[order(
+  review_data$`My rating (1: best, 5: worst)`, 
+  -review_data$Year), ]
 
 #####
 # Formating
@@ -86,20 +182,34 @@ for(s in colnames(review_data)[sapply(review_data, is.character)]){
 }
 
 # Wrap links in "a" tags
-for(s in c("g_scholar"))
-  review_data[[s]] <- paste0("<a target='_blank' href='", review_data[[s]], "' >Link</a>")
+for(s in c("g_scholar", "Url")){
+  review_data[[s]] <- 
+    ifelse(is.na(review_data[[s]]), 
+           rep("", nrow(review_data)), 
+           paste0("<a target='_blank' href='", review_data[[s]], "' >Link</a>"))
+}
 ```
 
 ```{r make_data_tbl, echo=FALSE,results='asis'}
 #####
 # Change column order
-ord <- c("Article name", "Publisher", "Models", "My rating (1: best, 5: worst)", "My review", "g_scholar", "Data source/set", "Sampling", "Sample size (failure / non-failure)", "Outcome")
+review_data <- review_data[, !colnames(review_data) %in% "Publisher"]
+ord <- c("Authors", "Year", "Article name",  "Journal", "Models", "My rating (1: best, 5: worst)", "My review", "g_scholar", "Data source/set", "Sampling", "Sample size (failure / non-failure)", "Outcome", "Url", "doi", "Key")
 stopifnot(all(ord %in% colnames(review_data)))
 
 review_data <- review_data[, match(ord, colnames(review_data))]
 
 #####
 # Function to print 
+cat <- function(
+  ..., file = "", sep = " ", fill = FALSE, labels = NULL, append = FALSE){
+  x <- list(...)
+  x <- x[!is.na(x)]
+  
+  do.call(base::cat, c(x, file = file, sep = sep, fill = fill, labels = labels, 
+                       append = append))
+}
+
 fname <- "tbl_file.html" 
 unlink(fname)
 f <- file(fname, open = "at")
@@ -129,7 +239,10 @@ cnames_change <- c(
   "My rating (1: best, 5: worst)" = "My rating<br>(1: best, 5: worst)",
   "g_scholar" = "Google scholar query",
   "Sample size (failure / non-failure)" = 
-    "Sample size<br>(failure / non-failure)")
+    "Sample size<br>(failure / non-failure)",
+  "Url" = "Crossref Url",
+  "doi" = "Crossref doi",
+  "Key" = "Bibkey")
 stopifnot(all(names(cnames_change) %in% cnames))
 cnames[match(names(cnames_change), cnames)] <- unname(cnames_change)
 
@@ -193,26 +306,35 @@ p('"scrollCollapse": true,', 2)
 p(paste0(
   '"order": [[', 
   which(colnames(review_data) == "My rating (1: best, 5: worst)") - 1, 
-  ", 'asc']],"), 2)
+  ", 'asc'], [",
+  which(colnames(review_data) == "Year") - 1,
+  ", 'desc']],"), 2)
 
 #####
 # Setup columnDefs
 columnDefs <- c(
   "Article name" = '"className": "dt-body-left", "width": "18em"', 
-  "Publisher" = '"className": "dt-body-left", "width": "10em"', 
+  "Authors" = '"className": "dt-body-left", "width": "15em"',
+  "Journal" = '"className": "dt-body-left", "width": "10em"', 
   "Models" = '"className": "dt-body-left", "width": "20em"', 
   "My rating (1: best, 5: worst)" = 
     '"className": "dt-body-center", "width": "9em", "type": "numeric_ignore_nan"', 
   "My review" = '"className": "dt-body-left", "width": "40em"', 
   "g_scholar" = '"className": "dt-body-center", "width": "5em"', 
+  "Url" = '"className": "dt-body-center", "width": "5em"',
   "Data source/set" = '"className": "dt-body-left", "width": "40em"', 
   "Sampling" = '"className": "dt-body-left", "width": "20em"', 
   "Sample size (failure / non-failure)" = 
     '"className": "dt-body-left", "width": "20em"', 
-  "Outcome" = '"className": "dt-body-left", "width": "20em"')
+  "Year" = '"className": "dt-body-right", "width": "5em", "type": "numeric_ignore_nan"',
+  "Outcome" = '"className": "dt-body-left", "width": "20em"',
+
+  "doi" = '"className": "dt-body-left", "width": "10em"',
+  "Key" = '"className": "dt-body-left", "width": "1em"'
+  )
 
 stopifnot(setequal(names(columnDefs), colnames(review_data)))
-columnDefs <- columnDefs[match(names(columnDefs), colnames(review_data))]
+columnDefs <- columnDefs[match(colnames(review_data), names(columnDefs))]
 columnDefs <- 
   paste0('{ "targets": ', 0:(length(columnDefs) - 1), ", ",  columnDefs, ' }')
 columnDefs[-length(columnDefs)] <- 
@@ -233,67 +355,4 @@ close(f)
 
 # Print content of file
 cat(readLines(jname), sep = "\n")
-
-# # Order columns and define alignment
-# align_n_c_order <- c(
-#   "Article name" = "left", 
-#   "My rating (1: best, 5: worst)" = "right", 
-#   "Citations" = "right", 
-#   "Google Scholar" = "right",
-#   "abstract" = "left",
-#   "year" = "right", 
-#   "link" = "left",
-#   "My review" = "left", 
-#   "Outcome" = "left", 
-#   "Sample size (failure / non-failure)" = "left",
-#   "Models" = "left", 
-#   "Data source/set" = "left", 
-#   "Sampling" = "left",
-#   "Publisher" = "left")
-# 
-# split_cells <- c(
-#   "Article name" = 25, 
-#   "My rating (1: best, 5: worst)" = 20, 
-#   "Citations" = 10, 
-#   "abstract" = 50,
-#   "My review" = 50, 
-#   "Outcome" = 50, 
-#   "Sample size (failure / non-failure)" = 20,
-#   "Models" = 25, 
-#   "Data source/set" = 50, 
-#   "Sampling" = 50,
-#   "year" = 4, 
-#   "Publisher" = 20,
-#   "link" = 50, 
-#   "Google Scholar" = 50)
-# 
-# review_data <- 
-#   review_data[, names(align_n_c_order)]
-# row.names(review_data) <- NULL
-# 
-# # Final formating of header 
-# review_data <- plyr::rename(review_data, c(
-#   "My rating (1: best, 5: worst)" = "My rating<br>(1: best, 5: worst)",
-#   "Sample size (failure / non-failure)" = "Sample size<br>(failure / non-failure)"
-# ))
-# 
-# # Replace line breaks with br tags
-# is_char <- sapply(review_data, is.character)
-# review_data[, is_char] <- 
-#   sapply(review_data[, is_char], gsub, pattern = "\\s*\\n\\s*",
-#          replacement = "\\ \\<br\\> \\")
-# 
-# # We also correct for invalid dash entries
-# review_data[, is_char] <- 
-#   sapply(review_data[, is_char], gsub, pattern = "–",
-#          replacement = "-")
-# 
-# # Print table
-# pander::panderOptions('knitr.auto.asis', FALSE)
-# pander::pandoc.table(review_data,
-#                      keep.line.breaks = T, 
-#                      justify = align_n_c_order, 
-#                      split.table = Inf,
-#                      split.cells = split_cells[names(align_n_c_order)],
-#                      style = 'multiline')
 ```

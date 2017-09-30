@@ -23,18 +23,23 @@ $(document).ready(function() {
 		"scrollY": "600px",
 		"scrollX": true,
 		"scrollCollapse": true,
-		"order": [[3, 'asc']],
+		"order": [[5, 'asc'], [1, 'desc']],
 		"columnDefs": [
-			{ "targets": 0, "className": "dt-body-left", "width": "18em" }, 
-			{ "targets": 1, "className": "dt-body-left", "width": "10em" }, 
-			{ "targets": 2, "className": "dt-body-left", "width": "20em" }, 
-			{ "targets": 3, "className": "dt-body-center", "width": "9em", "type": "numeric_ignore_nan" }, 
-			{ "targets": 4, "className": "dt-body-left", "width": "40em" }, 
-			{ "targets": 5, "className": "dt-body-center", "width": "5em" }, 
+			{ "targets": 0, "className": "dt-body-left", "width": "15em" }, 
+			{ "targets": 1, "className": "dt-body-right", "width": "5em", "type": "numeric_ignore_nan" }, 
+			{ "targets": 2, "className": "dt-body-left", "width": "18em" }, 
+			{ "targets": 3, "className": "dt-body-left", "width": "10em" }, 
+			{ "targets": 4, "className": "dt-body-left", "width": "20em" }, 
+			{ "targets": 5, "className": "dt-body-center", "width": "9em", "type": "numeric_ignore_nan" }, 
 			{ "targets": 6, "className": "dt-body-left", "width": "40em" }, 
-			{ "targets": 7, "className": "dt-body-left", "width": "20em" }, 
-			{ "targets": 8, "className": "dt-body-left", "width": "20em" }, 
-			{ "targets": 9, "className": "dt-body-left", "width": "20em" }
+			{ "targets": 7, "className": "dt-body-center", "width": "5em" }, 
+			{ "targets": 8, "className": "dt-body-left", "width": "40em" }, 
+			{ "targets": 9, "className": "dt-body-left", "width": "20em" }, 
+			{ "targets": 10, "className": "dt-body-left", "width": "20em" }, 
+			{ "targets": 11, "className": "dt-body-left", "width": "20em" }, 
+			{ "targets": 12, "className": "dt-body-center", "width": "5em" }, 
+			{ "targets": 13, "className": "dt-body-left", "width": "10em" }, 
+			{ "targets": 14, "className": "dt-body-left", "width": "1em" }
 		]
 	});
 } );

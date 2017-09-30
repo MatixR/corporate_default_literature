@@ -1,28 +1,28 @@
-﻿Article name,Publisher,Models,Data source/set,Sampling,Sample size (failure / non-failure),Outcome,My review,"My rating (1: best, 5: worst)"
-Bankruptcy forecasting: An empirical comparison of AdaBoost and neural networks,Decision Support Systems,"LDA, NN, AdaBoost",Spanish firms from the SABI database of Bureau Van Dijk,"Random sampling with some sort of prior weight depending on covaraites. Details are not clear
+"Article name","Journal","Models","Data source/set","Sampling","Sample size (failure / non-failure)","Outcome","My review","My rating (1: best, 5: worst)","Year","doi","Url","Key","Authors","Publisher"
+"Bankruptcy forecasting: An empirical comparison of AdaBoost and neural networks","Decision Support Systems","LDA, NN, AdaBoost","Spanish firms from the SABI database of Bureau Van Dijk","Random sampling with some sort of prior weight depending on covaraites. Details are not clear
 Select data from 2001-2005
-Mix years / ignores longitudinal aspect",590 / 590 (firms),8.9% accurarcy on hold-out for class assigment  with AdaBoost,"Introduces AdaBoost and shows how it can ba applied
+Mix years / ignores longitudinal aspect","590 / 590 (firms)","8.9% accurarcy on hold-out for class assigment  with AdaBoost","Introduces AdaBoost and shows how it can ba applied
 Compare with Neural Networks. I have too little knowledge about Neural Networks to judge their modeling
 
 Missing details about sampling
-The 0-1 classifier may fail on real data set where failures are rare when trained on this data",3
-Data mining method for listed companies’ financial distress prediction,Knowledge-Based Systems,DT,"Chinece firms from China
+The 0-1 classifier may fail on real data set where failures are rare when trained on this data",3,"2008","10.1016/j.dss.2007.12.002","https://doi.org/10.1016/j.dss.2007.12.002","Alfaro_2008","Esteban Alfaro, Noelia Garc\'\ia, Mat\'\ias GÃ¡mez, David Elizondo","Elsevier {BV}"
+"Data mining method for listed companies? financial distress prediction","Knowledge-Based Systems","DT","Chinece firms from China
 Stock Market and Accounting Research Database
 Default indicator is 'specially treated (ST) by China Securities Supervision and Management Committee'","Paired firms between 2000 and 2005
 Mix years / ignores longitudinal aspect
 Details about parring is not clear
 In addition they: '... eliminate outliers, companies with financial ratios deviating from the mean value as much as three times of standard deviation are excluded'
-",92 / 106 (firms),95% accurarcy with cross validation with what they coin 'Resubstitution',"Does some sort of random forest, bagging with decision trees amd/or descision tree. It is not clear to me
+","92 / 106 (firms)","95% accurarcy with cross validation with what they coin 'Resubstitution'","Does some sort of random forest, bagging with decision trees amd/or descision tree. It is not clear to me
 
 A lot of details are missing. It is not clear to me what the different tree/forest models are
 Very small sample with 35 covaraites
-Hard to say anything good about their sampling",5
-Ensemble boosted trees with synthetic features generation in application to bankruptcy prediction,Expert Systems With Applications,"DT, B, AdaBoost",Polish  manufacturing sector with data from the Emerging Markets Information Service,"Failing firms are drawn from 2007–2013
-Non-failing firms are taken where 'the availability of a minimum of three consecutive financial statements in the period 2000–2012'
+Hard to say anything good about their sampling",5,"2008","10.1016/j.knosys.2006.11.003","https://doi.org/10.1016/j.knosys.2006.11.003","Sun_2008","Jie Sun, Hui Li","Elsevier {BV}"
+"Ensemble boosted trees with synthetic features generation in application to bankruptcy prediction","Expert Systems With Applications","DT, B, AdaBoost","Polish  manufacturing sector with data from the Emerging Markets Information Service","Failing firms are drawn from 2007?2013
+Non-failing firms are taken where 'the availability of a minimum of three consecutive financial statements in the period 2000?2012'
 Firms do have multiple entries
 Unclear if failing firms also appear with financial statements for the year where they do not default. It seems not from this remark: 'more than 10,000 still operating ones, in this sample the company, which declared bankruptcy is excluded (more than 65 thousand financial statements)'
 Mix years / ignores longitudinal aspect
-Unclear what is meant by the different 'xthYear' data sets (at least to me)",Up to 515 / 10173 (financial statements),Up to  95.9% AUC with cross validation,"Applies Extreme Gradient Boosting as the first as far as I am aware in this context. Further, they construct features with a quite simple method that do seem to work 
+Unclear what is meant by the different 'xthYear' data sets (at least to me)","Up to 515 / 10173 (financial statements)","Up to  95.9% AUC with cross validation","Applies Extreme Gradient Boosting as the first as far as I am aware in this context. Further, they construct features with a quite simple method that do seem to work 
 
 Credit for:
 Large data set
@@ -32,8 +32,8 @@ Making the data set avilable (see http://bit.ly/2id2zk8)
 I am not sure how exactly the sampling is done
 Sad that the longitudinal aspect is ignored
 Little emphasis have been put on the other models they compare with. I have gotten +80% cross validation AUC with both Logit models and SVM with one days work with the data set
-I guess the following implies that they tested various parameter to get the best average AUC 10 fold cross validation:' quality of various settings of training parameters using 10 folds cross validation methodology'. I speculate that this can inflate the figures they show for models where the hyper parameter have a huge impact ",2
-Bankruptcy prediction using support vector machine with optimal choice of kernel function parameters,Expert Systems with Applications,"SVM, LOGI, NN, LDA","Data is from 'Korea’s largest credit guarantee organization' with 'all of the non-bankruptcy cases are from medium-sized heavy industry firms in 2002 and the corresponding bankruptcy cases are also from the same industry. In general, however, the number of bankruptcy cases is smaller than that of non-bankruptcy cases; hence, we collected additional bankruptcy cases from the years of 2000, 2001, and 2002'",All bankeruptcies and 944 random non-bankerupcies,944 / 944 (firms),83% accuracy with hold-out (though C-cost and kernal parameter is trained on the whole data),"The main focus of the article is to use support vector machines in this context
+I guess the following implies that they tested various parameter to get the best average AUC 10 fold cross validation:' quality of various settings of training parameters using 10 folds cross validation methodology'. I speculate that this can inflate the figures they show for models where the hyper parameter have a huge impact ",2,"2016","10.1016/j.eswa.2016.04.001","https://doi.org/10.1016/j.eswa.2016.04.001","Zi_ba_2016","Maciej ZiÄ™ba, Sebastian K. Tomczak, Jakub M. Tomczak","Elsevier {BV}"
+"Bankruptcy prediction using support vector machine with optimal choice of kernel function parameters","Expert Systems with Applications","SVM, LOGI, NN, LDA","Data is from 'Korea?s largest credit guarantee organization' with 'all of the non-bankruptcy cases are from medium-sized heavy industry firms in 2002 and the corresponding bankruptcy cases are also from the same industry. In general, however, the number of bankruptcy cases is smaller than that of non-bankruptcy cases; hence, we collected additional bankruptcy cases from the years of 2000, 2001, and 2002'","All bankeruptcies and 944 random non-bankerupcies","944 / 944 (firms)","83% accuracy with hold-out (though C-cost and kernal parameter is trained on the whole data)","The main focus of the article is to use support vector machines in this context
 
 Credit for: 
 Comparing different kernals function
@@ -42,45 +42,45 @@ Nice introduction of support vector machines using the standard library libsvm
 Nice illustration of SVM in 2D with principle components
 
 Sad that the longitudinal aspect is ignored
-Not directly applicable to real life data with the 50%-50% sample",3
-A Combination Use of Bagging and Random Subspace with Memory Mechanism for Dynamic Financial Distress Prediction,,"NN, B","'Chinese listed companies is collected from CCER Economic and Financial Database'
+Not directly applicable to real life data with the 50%-50% sample",3,"2005","10.1016/j.eswa.2004.12.008","https://doi.org/10.1016/j.eswa.2004.12.008","MIN_2005","J MIN, Y LEE","Elsevier {BV}"
+"A Combination Use of Bagging and Random Subspace with Memory Mechanism for Dynamic Financial Distress Prediction",,"NN, B","'Chinese listed companies is collected from CCER Economic and Financial Database'
 Defaults are defined as those where 'China Securities Supervision and Management
 Committee (CSSMC) carried out a 'Special Treatment (ST)' to warn the listed companies with negative net' profits in consecutive 2 years
 
 Uses financial data from firms 3 years prior with 'ST'
 ","All bankeruptcies in 2001-14
 
-Pair with non-bankrupt firms from the same industry, similar total assets and who do not have a 'ST' in the next 5 years ",Up to 122 financial statements in one year. I gather it must be 50-50 split due to the pair sample,At best 80% accuracy (in-sample?),"They compare different ways of accountning for time-varying effects with neural networks. In essence, they use data in slidding window for their best model. Further, they apply an ensamble method where variables in each fit is random 
+Pair with non-bankrupt firms from the same industry, similar total assets and who do not have a 'ST' in the next 5 years ","Up to 122 financial statements in one year. I gather it must be 50-50 split due to the pair sample","At best 80% accuracy (in-sample?)","They compare different ways of accountning for time-varying effects with neural networks. In essence, they use data in slidding window for their best model. Further, they apply an ensamble method where variables in each fit is random 
 
 It is nice that they account for the longitudinal aspect of data 
 
 Getting at best 80% accuracy (in-sample?) with a small data set with neural networks and 36 variables seems too low when further considering that we are looking at listed firms. Hence, data should be rather 'clean'/homogeneous
-Paired sample",5
-Additive Intensity Regression Models in Corporate Default Analysis,JOURNAL OF FINANCIAL ECONOMETRICS,AH,"US listed firms with Default indicators from  Moody’s Default Risk Service Database with financial data from  CRSP (Center for Research in Security Prices)
+Paired sample",5,"2016","10.1109/ieem.2016.7798055","https://doi.org/10.1109/ieem.2016.7798055","Wu_2016","Chong Wu, Jiaming Liu","{IEEE}"
+"Additive Intensity Regression Models in Corporate Default Analysis","JOURNAL OF FINANCIAL ECONOMETRICS","AH","US listed firms with Default indicators from  Moody?s Default Risk Service Database with financial data from  CRSP (Center for Research in Security Prices)
 
 Excludes 'All consecutive default events occurring within a 1-month horizon of any previously registered default ascribed to the same parent company' and financial firms
 
-Use data from  January 1, 1982 to January 1, 2006",None,370 / 2557 firms with multiple financial statements from each firm ,None,"Uses additive intensity (Aalen) models from the timereg package in R. The study is descriptive and shows that the coeffecient in typical models used (e.g. Shumway (2001)) in default prediction may be time-varying. The model baseline hazard with macro economic variables
+Use data from  January 1, 1982 to January 1, 2006","None","370 / 2557 firms with multiple financial statements from each firm ","None","Uses additive intensity (Aalen) models from the timereg package in R. The study is descriptive and shows that the coeffecient in typical models used (e.g. Shumway (2001)) in default prediction may be time-varying. The model baseline hazard with macro economic variables
 
 Cons:
-Descriptive study that cannot be used for prediction",2
-Forecasting Bankruptcy More Accurately: A Simple Hazard Model,The Journal of Business,LOGI,"US listed firms with accounting data from  Compustat Industrial File and the CRSP Daily Stock Return File. Defaults data 'from the Wall Street Journal Index, the Capital Changes Reporter, and the Compustat Research File. I also searched for firms whose stock was delisted from the NYSE or AMEX in the Directory of Obsolete Securities (Financial Stock Guide Service [1993]) and Nexis. All firms that filed for any type of bankruptcy within 5 years of delisting are considered bankrupt'
+Descriptive study that cannot be used for prediction",2,"2013","10.1093/jjfinec/nbs018","https://doi.org/10.1093/jjfinec/nbs018","Lando_2013","D. Lando, M. Medhat, M. S. Nielsen, S. F. Nielsen","Oxford University Press ({OUP})"
+"Forecasting Bankruptcy More Accurately: A Simple Hazard Model","The Journal of Business","LOGI","US listed firms with accounting data from  Compustat Industrial File and the CRSP Daily Stock Return File. Defaults data 'from the Wall Street Journal Index, the Capital Changes Reporter, and the Compustat Research File. I also searched for firms whose stock was delisted from the NYSE or AMEX in the Directory of Obsolete Securities (Financial Stock Guide Service [1993]) and Nexis. All firms that filed for any type of bankruptcy within 5 years of delisting are considered bankrupt'
 
-Include firms that began trading before 1962 or after 1992 and financial firms are excluded ",None,At most 33621 financial statements and 291 bankruptcies,Report decile ranking for out-sample-test (in time) that are hard to summarize in a table cell,"Showed how to fit a variable with logistic regression where one takes the longitudinal aspect of each firm into account. Further, illustrates how not doing this can imply bias with a small example thus implying a huge crituque of previous studies. Compares a model with previous used models. Lags accounting variables. Lastly, one of the first to the best of my knowledge who does out-sample test by using data from the following year 
+Include firms that began trading before 1962 or after 1992 and financial firms are excluded ","None","At most 33621 financial statements and 291 bankruptcies","Report decile ranking for out-sample-test (in time) that are hard to summarize in a table cell","Showed how to fit a variable with logistic regression where one takes the longitudinal aspect of each firm into account. Further, illustrates how not doing this can imply bias with a small example thus implying a huge crituque of previous studies. Compares a model with previous used models. Lags accounting variables. Lastly, one of the first to the best of my knowledge who does out-sample test by using data from the following year 
 
-Changed the literature and is one prime papers",1
-A Comparison of Corporate Bankruptcy Models in Australia: The Merton vs. Accounting-based Models,,LOGI,"'Companies listed on the Australian Stock Exchange (ASX) during 1990-2003. Bankruptcy data is collected from two sources: The website of www.delisted.com.au and Delisted Companies (1900-2003) by Financial Analysis Publications'
+Changed the literature and is one prime papers",1,"2001","10.1086/209665","https://doi.org/10.1086/209665","Shumway_2001","Tyler Shumway","University of Chicago Press"
+"A Comparison of Corporate Bankruptcy Models in Australia: The Merton vs. Accounting-based Models","Asia-Pacific Journal of Risk and Insurance","LOGI","'Companies listed on the Australian Stock Exchange (ASX) during 1990-2003. Bankruptcy data is collected from two sources: The website of www.delisted.com.au and Delisted Companies (1900-2003) by Financial Analysis Publications'
 
 The default indicator is in 'the strict legal sense' of administration, receivership, or liquidation
 
 Covariates are from Aspect Fin Analysis and/or Aspect Dat Analysis and Thomson Financial Datastream
 
-Financial firms are excluded",None,93 / 1144 firms with multiple financial statements from each firm ,Report expected cost measure of classification errors (ECM) with an cut-off value to get 0-1 variable with different cost values. Also reports deciles like Shumway (2001),"Compares the variables from Altman (1968), Zmijewski (1984), and Shumway (2001) in logic model with the Merton model. Further, they make a combination and find the best performance
+Financial firms are excluded","None","93 / 1144 firms with multiple financial statements from each firm ","Report expected cost measure of classification errors (ECM) with an cut-off value to get 0-1 variable with different cost values. Also reports deciles like Shumway (2001)","Compares the variables from Altman (1968), Zmijewski (1984), and Shumway (2001) in logic model with the Merton model. Further, they make a combination and find the best performance
 
 Nice with a study for Australian. Interesting that they find that the Merton model out-performs the other
 
-It is unclear to me whether the reported Forecasting Accuracy is in-sample or out-sample",3
-A Failure-Rate Model for the Danish Corporate Sector,,LOGI,"'Danish public limited liability companies (A/S) and private limited liability companies (ApS)' with accounting data from KOB A/S 
+It is unclear to me whether the reported Forecasting Accuracy is in-sample or out-sample",3,"2009","10.2202/2153-3792.1042","https://doi.org/10.2202/2153-3792.1042","Tanthanongsakkun_2009","Suparatana Tanthanongsakkun, David Pitt, Sirimon Treepongkaruna","Walter de Gruyter {GmbH}"
+"A Failure-Rate Model for the Danish Corporate Sector",,"LOGI","'Danish public limited liability companies (A/S) and private limited liability companies (ApS)' with accounting data from KOB A/S 
 
 Estimation sample covers the period 1995-99
 
@@ -89,15 +89,15 @@ Default is defined as:
 The company has been dissolved, dissolved by the courts, or is subject to compulsory dissolution by the court
 The company is subject to a compulsory deed of arrangement with creditors or is subject to a compulsory scheme of arrangement with creditors'
 
-Holding companies consolidated accounts and company with less than 50000 DKK is excluded",None,"'approximately 300,000 annual accounts of which almost 8,000 from failed companies'",(In sample?) AUC of 82.5,"Uses logistic regresion with a few new / non-commenly used covaraites
+Holding companies consolidated accounts and company with less than 50000 DKK is excluded","None","'approximately 300,000 annual accounts of which almost 8,000 from failed companies'","(In sample?) AUC of 82.5","Uses logistic regresion with a few new / non-commenly used covaraites
 
 Use a large sample of firms
 
 Finds that: 
 Critical auditor comment is quite significant
 Some differences with a sector by sector model
-Firms size (in terms of number of employees) have impact on the ability to predict in sample and on estimates",3
-Modelling The Credit Risk Of The Hungarian Sme Sector,,LOGI,"Hungarian firms with financial statements which was submitted to the Hungarian Natonal Tax and Customs Administraton
+Firms size (in terms of number of employees) have impact on the ability to predict in sample and on estimates",3,,,,,,
+"Modelling The Credit Risk Of The Hungarian Sme Sector",,"LOGI","Hungarian firms with financial statements which was submitted to the Hungarian Natonal Tax and Customs Administraton
 
 Default data is from Central Credit Informaton System (KHR) which gather informaton about all loan and loan-type contracts
 
@@ -105,7 +105,7 @@ Default data is from Central Credit Informaton System (KHR) which gather informa
 
 Default is defined as '[the firm] were in default with at least 10 per cent of their contracts' within a year where a contract is considered to have defaulted if '30-day defaults [are] ongoing for at least 60 days' 
 
-Data from 2007 to 2014",None,Up to 2629468 financial statements and 173664 firms,Out sample (in time) AUCs between 69%-81%,"Model firm failure for micro, small and medium-sized enterprises with logistic models
+Data from 2007 to 2014","None","Up to 2629468 financial statements and 173664 firms","Out sample (in time) AUCs between 69%-81%","Model firm failure for micro, small and medium-sized enterprises with logistic models
 Categorize firms in terms of sales figures and employees
 Use macro economics variables
 As rightly mentioned, the banks may introduce a selection bias with which firms that are in the sample as the consider firms are only those with loans
@@ -116,27 +116,27 @@ Cons:
 Including a dummy variable for all the years from age 1, 2, 3, ..., 24 a category for +25 seems alarming to me
 The continuous dropping of variable (including age factor levels) based on arguments like: '... we did not include the liquidity positon of microenterprises, since we are not convinced that greater liquidity would directly increase the credit risk of a company'
 Comparing estimates signs and magnitudes with different specification of the linear predictor due to the previous comment
-",3
-Prediction of Financial Distress Companies on Bursa Malaysia Using Adaptive Neuro-Fuzzy Inference System,,SMR,"'distressed and nondistressed companies were collected for five years prior tobeing listed under the PN17 categories by the Bursa Malaysia. For example, for a company which was announced as distressed in 2015, the variables were computed for the year 2014 (year 1), 2013 (year 2), 2012 (year 3), 2010 (year 4) and2009 (year 5). The name of companies listed under PN17 was obtained from the Media Releases and Companies Announcements from the Bursa Malaysia website, while thefinancial data were collected from the Thomson Reuters Datastream'",None?,20 / 44 where there is a 50%-50% split to in training,accuracy rate of 86% though it is not clear to me whether this is in or out sample,"While the Adaptive Neuro-Fuzzy Inference System may be useful getting 86% on a small data set with a parsimonious model relative to the sample size is not convincing to me
-I gather some sort of sampling must have been done since ‘PN17 stands for Practice Note 17/2005 and is issued by Bursa Malaysia; relating to companies that are in financial distress’ (web source)
-",5
-Probability-of-default curve calibration and the validation of internal rating systems,,SMR,"Polish firms from 2007 to 2012
+",3,,,,,,
+"Prediction of Financial Distress Companies on Bursa Malaysia Using Adaptive Neuro-Fuzzy Inference System",,"SMR","'distressed and nondistressed companies were collected for five years prior tobeing listed under the PN17 categories by the Bursa Malaysia. For example, for a company which was announced as distressed in 2015, the variables were computed for the year 2014 (year 1), 2013 (year 2), 2012 (year 3), 2010 (year 4) and2009 (year 5). The name of companies listed under PN17 was obtained from the Media Releases and Companies Announcements from the Bursa Malaysia website, while thefinancial data were collected from the Thomson Reuters Datastream'","None?","20 / 44 where there is a 50%-50% split to in training","accuracy rate of 86% though it is not clear to me whether this is in or out sample","While the Adaptive Neuro-Fuzzy Inference System may be useful getting 86% on a small data set with a parsimonious model relative to the sample size is not convincing to me
+I gather some sort of sampling must have been done since ?PN17 stands for Practice Note 17/2005 and is issued by Bursa Malaysia; relating to companies that are in financial distress? (web source)
+",5,,,,,,
+"Probability-of-default curve calibration and the validation of internal rating systems",,"SMR","Polish firms from 2007 to 2012
 Defaults from Narodowy Bank Polski and National Court Register (KRS)
 Financial data from AMADEUS (Bureau van Dijk); Notoria OnLine
-Some selection is done on 'total exposure' industry (Agriculture, forestry and fishing plus Financial and insurance activities) and type of firm ",None,298 / 5091 financial statements,,"Goes through how to calibrate a [0, 1] score to probablities of default
+Some selection is done on 'total exposure' industry (Agriculture, forestry and fishing plus Financial and insurance activities) and type of firm ","None","298 / 5091 financial statements",,"Goes through how to calibrate a [0, 1] score to probablities of default
 They use scores from  the article 'Approach to the assessment of credit risk for non-financial
 corporations. Evidence from Poland'. This seems to be a logistic regression where the score is the lienar predictor
 It is not clear to me why you take the linear predictor from logistic regression, map it to [0,1] (not using the inverse logit function?) and then use the method they use
-It is not clear to me why you would pull together the industries they do",5
-Approach to the assessment of credit risk for non-financial corporations. Poland Evidence,,LOGI,See 'Probability-of-default curve calibration and the validation of internal rating systems',See 'Probability-of-default curve calibration and the validation of internal rating systems',See 'Probability-of-default curve calibration and the validation of internal rating systems',,"See 'Probability-of-default curve calibration and the validation of internal rating systems'
-I only quickly scanned this but what I saw did not seem resonable / worth reading given my review of the above article",5
-FINANCIAL DISTRESS FORECASTING OF NON-FINANCIAL FIRMS: A CASE OF PAKISTAN,,LOGI,,,,,"Applies Zmijewski (1984) logistic model to companies in Pakistian in 2001 to 2010
+It is not clear to me why you would pull together the industries they do",5,,,,,,
+"Approach to the assessment of credit risk for non-financial corporations. Poland Evidence",,"LOGI","See 'Probability-of-default curve calibration and the validation of internal rating systems'","See 'Probability-of-default curve calibration and the validation of internal rating systems'","See 'Probability-of-default curve calibration and the validation of internal rating systems'",,"See 'Probability-of-default curve calibration and the validation of internal rating systems'
+I only quickly scanned this but what I saw did not seem resonable / worth reading given my review of the above article",5,,,,,,
+"FINANCIAL DISTRESS FORECASTING OF NON-FINANCIAL FIRMS: A CASE OF PAKISTAN",,"LOGI",,,,,"Applies Zmijewski (1984) logistic model to companies in Pakistian in 2001 to 2010
 The english is bad and the only interest would be that the model is applied to the particular data set as far as I see
-Caveat: I only skimmed the article",5
-Characteristics of firm failure processes in an international context,,LOGI,"Study 1: Finnish and Estonian 
+Caveat: I only skimmed the article",5,,,,,,
+"Characteristics of firm failure processes in an international context",,"LOGI","Study 1: Finnish and Estonian 
 Study 2 and 3: European manufacturing firms
 Sutdy 4: Estonia
-See page 46 and 52 for details",Not stated / I could not find comments about sampling,"Study 1: 70 firms
+See page 46 and 52 for details","Not stated / I could not find comments about sampling","Study 1: 70 firms
 Study 2 and 3: 1216 firms
 Study 4: 1281 firms
 Guess multiple finanical records / period is used in e.g. logistic regression",,"This is a thesis that summarizes four previous studies. The goal of the studies seems/is descripitve. A large focus is put on the trajectory of failures
@@ -145,222 +145,222 @@ Use change in accoutning variables. Might be good idea though I figure these sho
 Study 2 and 3 may be interesting
 I would argue that 1200-ish firms is not a large sample which the authors claim
 Seems like we have a lot of variables given the figures on page 48 and when you look at the study designs on page 56 plus the sample sizes
-Caveat: I have not read beyond page 57",5
-The Research of SME Financial Crisis Warning Model Based on Neural Network,,NN,"Chinece 'SMEs listed in the stock markets in Shanghai and Shenzhen from 2011 to 2015'
+Caveat: I have not read beyond page 57",5,,,,,,
+"The Research of SME Financial Crisis Warning Model Based on Neural Network","{DEStech} Transactions on Economics and Management","NN","Chinece 'SMEs listed in the stock markets in Shanghai and Shenzhen from 2011 to 2015'
 
-Distress is defined as being marked signed ST which means two consecutive years of loss",They 'selected' which may imply some sort of sampling,"748 firms of which 70% is a traning set, 15% is a testing set and 15% is an examining set",Accuracy 83% to 95% presumably on a hold-out set ,"Fit a neaural network to predict the chinece firms that have two consecutive years of losses
+Distress is defined as being marked signed ST which means two consecutive years of loss","They 'selected' which may imply some sort of sampling","748 firms of which 70% is a traning set, 15% is a testing set and 15% is an examining set","Accuracy 83% to 95% presumably on a hold-out set ","Fit a neaural network to predict the chinece firms that have two consecutive years of losses
 Details about sampling is not presented
 All observations may be bagged including the hold-out which may imply that the longitudinal aspect is ignored
-",3
-Distress Risk: An Accelerated Failure Time Survival Analysis Approach,,"ACF, LOGI, LDA","US listed firms between 1980 and 2014 obtained from the Compustat/CRSP
+",3,"2016","10.12783/dtem/iceme-ebm2016/4142","https://doi.org/10.12783/dtem/iceme-ebm2016/4142","ZHU_2016","Mao-Ran ZHU, Wei FANG, Yuan SONG","{DEStech} Publications"
+"Distress Risk: An Accelerated Failure Time Survival Analysis Approach",,"ACF, LOGI, LDA","US listed firms between 1980 and 2014 obtained from the Compustat/CRSP
 Excludes financial firms
-Failure is defined as 'delisted firms that underwent bankruptcy or liquidation according to both the Compustat and CRSP classification'",None,"'… 546 bankruptcy observations, 8,664 other exit firms and an average of 3,874 active firms for each year over the 1980-2014 period, a total of 544250 quarterly firm observations'",Similar results to Shumway (2001),"They apply an Accelerated Failure time model (particularly a log-logistic distribution). The starting time is when the firm is listed as is applied to the similar data set as Shumway (2001)
+Failure is defined as 'delisted firms that underwent bankruptcy or liquidation according to both the Compustat and CRSP classification'","None","'? 546 bankruptcy observations, 8,664 other exit firms and an average of 3,874 active firms for each year over the 1980-2014 period, a total of 544250 quarterly firm observations'","Similar results to Shumway (2001)","They apply an Accelerated Failure time model (particularly a log-logistic distribution). The starting time is when the firm is listed as is applied to the similar data set as Shumway (2001)
 Find only minor improvments to the models in Shumway (2001) and  Campbell et al. (2008) in terms of in-sample AUC and out-sample decile rankings
 A note here is that in my experience the age of the firms does not matter much. Hence, the previous finding is expected
-Draws conclusions on fits where some coeffecients are large in absolute terms (see table 6). I guess it is a result of multicollinearity ",4
-Medium Risk Companies: The Probability of Notching-Up,International Journal of Economics and Finance,LOGI,"Italian firms from 2007-10
+Draws conclusions on fits where some coeffecients are large in absolute terms (see table 6). I guess it is a result of multicollinearity ",4,,,,,,
+"Medium Risk Companies: The Probability of Notching-Up","International Journal of Economics and Finance","LOGI","Italian firms from 2007-10
 'The sample excludes firms with significant outlier in some of their explanatory variables so that all the observations in the 1st and the 100th percentile are dropped'
 'Default ... is defined as a payment being ninety days or more past due at least once since origination' with data from the Credit register at Crif Spa
 Includes financial statements with 'not less than 5 million euro of total revenues from sales and not more than 50 million euro' with at least 5 years of operations in Italy
-Excludes '... financial firms, public firms, farms and construction firms.'",None,"37,560 firm-year observations that span 9,390 individual' with 504 defaulting firms",78% accuracy in-sample between the 'worst' rating class and the rest as far as I gather,"Performs forward stepwise selection with a logistic model for Italian firms. They then map the predicted default rate into 10 rating classes. Classes are then used to look at transitions between classes from year to year. I found the latter part less interesting from a default prediction perspective
-The handling of outliers seems questionable to me. They must exclude a lot of firms?",4
-A Global Model for Bankruptcy Prediction,PloS one,LOGI,"Data from 1990-2013 '440 non-financial, quoted companies belonging to three regions: Asia (Japan, South Korea, Singapore and Taiwan), Europe (Austria, Denmark, France, Germany, Ireland, Italy, Luxembourg, Holland, Norway, Portugal, Spain, Sweden, Switzerland and the United Kingdom) and America (Bermuda, Canada and the United States)' from compustat","50-50 split with match sampling on year, country and industry where the match is selected at random ",220 / 220 firms,AUC on hold-out sample of 80% to 93%,"Fits regional and a global logitistic model with financial data from 1, 2 and 3 years prior to the default
+Excludes '... financial firms, public firms, farms and construction firms.'","None","37,560 firm-year observations that span 9,390 individual' with 504 defaulting firms","78% accuracy in-sample between the 'worst' rating class and the rest as far as I gather","Performs forward stepwise selection with a logistic model for Italian firms. They then map the predicted default rate into 10 rating classes. Classes are then used to look at transitions between classes from year to year. I found the latter part less interesting from a default prediction perspective
+The handling of outliers seems questionable to me. They must exclude a lot of firms?",4,"2016","10.5539/ijef.v8n12p63","https://doi.org/10.5539/ijef.v8n12p63","Muscettola_2016","Marco Muscettola","Canadian Center of Science and Education"
+"A Global Model for Bankruptcy Prediction","PloS one","LOGI","Data from 1990-2013 '440 non-financial, quoted companies belonging to three regions: Asia (Japan, South Korea, Singapore and Taiwan), Europe (Austria, Denmark, France, Germany, Ireland, Italy, Luxembourg, Holland, Norway, Portugal, Spain, Sweden, Switzerland and the United Kingdom) and America (Bermuda, Canada and the United States)' from compustat","50-50 split with match sampling on year, country and industry where the match is selected at random ","220 / 220 firms","AUC on hold-out sample of 80% to 93%","Fits regional and a global logitistic model with financial data from 1, 2 and 3 years prior to the default
 I find some flaws:
 The study is nice in that it test for regional differences. Though, I see no reason for the sampling when they use logistic regression
 Small samples with with 10 variables
 Infers that there is regional differences based on different selected variables in the regional model where the model is selected that minimize an information criteria (Hannan-Quinn criteria) which I guess is seleted with stepwise selection or similar
 Matched sampling
-Bag all observations across years",4
-Forecasting European Corporate Bankruptcy,,"LOGI, LDA","Firms from Belgium, France, Greece, Italy, the Netherlands, Portugal, or Spain in the ORBIS, a database of Bureau van Dijk
+Bag all observations across years",4,"2016","10.1371/journal.pone.0166693","https://doi.org/10.1371/journal.pone.0166693","Alaminos_2016","David Alaminos, Agust\'\in del Castillo, Manuel Ãngel FernÃ¡ndez","Public Library of Science ({PLoS})"
+"Forecasting European Corporate Bankruptcy",,"LOGI, LDA","Firms from Belgium, France, Greece, Italy, the Netherlands, Portugal, or Spain in the ORBIS, a database of Bureau van Dijk
 Data is from 2004-13 excluding 2010
-From one of these industry: ‘Construction’, ‘Machinery, equipment, furniture, recycling’, ‘Metals & metal products’, ‘Other services’, or ‘Wholesale & retail trade’
+From one of these industry: ?Construction?, ?Machinery, equipment, furniture, recycling?, ?Metals & metal products?, ?Other services?, or ?Wholesale & retail trade?
 See page 34 for further criterias
-",A 10-1 ratio which I guess is random. Though ' A minimum of 200 healthy firms' in each year. See page 34 for further details,1991 firms in their 2004-06 sample,AUC ranging from 34% to 92% on hold-out samples,"Compares linear discrimation analysis, logistic regression and probit models for European firms
+","A 10-1 ratio which I guess is random. Though ' A minimum of 200 healthy firms' in each year. See page 34 for further details","1991 firms in their 2004-06 sample","AUC ranging from 34% to 92% on hold-out samples","Compares linear discrimation analysis, logistic regression and probit models for European firms
 Compares inter and intra industry models
 Estimates the model over three periods
 Scale ratio by inverse of industry ratios
 Includes macro economic variables
 I am not convinced that their yearly strafied sampling of a 10:1 ratio is a good way to do it
 The absolotue value of the estimated coeffecients seems quite large. I guess it is a cause of multicollinearity
-The authors lost me with their 31 tables and 4 page conclussion ",5
-Bankruptcy Prediction Using Memetic Algorithm,International Workshop on Multi-disciplinary Trends,SMR,,,,,"Use a 'new memetic algorithm using Cuckoo search algorithm and Particle Swarm optimization algorithm' to train classifiers of sets of data of banks
+The authors lost me with their 31 tables and 4 page conclussion ",5,,,,,,
+"Bankruptcy Prediction Using Memetic Algorithm","International Workshop on Multi-disciplinary Trends","SMR",,,,,"Use a 'new memetic algorithm using Cuckoo search algorithm and Particle Swarm optimization algorithm' to train classifiers of sets of data of banks
 It is not clear what data they are using and how it is sample
-They do not get a consistent better result with accurarcy relative to a decision tree",5
-Why Do Companies Fail,,CM,"Australian firm both private, public listed and public non-listed
+They do not get a consistent better result with accurarcy relative to a decision tree",5,"2016","10.1007/978-3-319-49397-8_13","https://doi.org/10.1007/978-3-319-49397-8_13","Naveen_2016","Nekuri Naveen, Mamillapalli Chilaka Rao","Springer International Publishing"
+"Why Do Companies Fail",,"CM","Australian firm both private, public listed and public non-listed
 Data for listed firms is for firms on the Australian Stock Exchange from Morningstar
 Data for unlisted firms is from Dun & Bradstreet
 Default indicator is from Australian Securities and Investments Commission
-Some removal of imposible values is performed - see page 13",None,532 / 90729 financial statements with 23326 unique firms,AUCs of 73% (in sample?),"Estimates a discrete cox regression (that is use the cloglog function in binary regression). The underlying time variable is set to the log of age of the firm times a constant from what I gather. Age is 'measured as the natural log of the number of years since the company registered with Default indicator is from Australian Securities and Investments Commission'
+Some removal of imposible values is performed - see page 13","None","532 / 90729 financial statements with 23326 unique firms","AUCs of 73% (in sample?)","Estimates a discrete cox regression (that is use the cloglog function in binary regression). The underlying time variable is set to the log of age of the firm times a constant from what I gather. Age is 'measured as the natural log of the number of years since the company registered with Default indicator is from Australian Securities and Investments Commission'
 Notice that adding a year dummy to a discrete Cox regression is essentially semi parametric cox regression where the underlying time process is the calender time 
 Compares estimates from listed and non-listed firms that are modeled seperatly 
 Has a large sample of both firms
-Has some nice Kaplan-Meier Failure Curves for age strafied by private, public listed or public not listed",3
-Predicting corporate failure in Zambia: A case of manufacturing firms,IJAR,LOGI,,,,,"Logistic regression with firms from Zambia
+Has some nice Kaplan-Meier Failure Curves for age strafied by private, public listed or public not listed",3,,,,,,
+"Predicting corporate failure in Zambia: A case of manufacturing firms","IJAR","LOGI",,,,,"Logistic regression with firms from Zambia
 A very small sample
-Caveat: I only skimmed the article",5
-Bankruptcy prediction by generalized additive models,Applied Stochastic Models in Business and Industry,"GAM, NN, LOGI, LDA",'Norwegian limited liability firms in the period 1996–2001',None,'… approximately 100 000 firms each year only about 1% defaulted the next year',Up to 78% AUC on out-sample in time ,"Models defaults using generalized aditive models in Norway with a large set of firms
+Caveat: I only skimmed the article",5,,,,,,
+"Bankruptcy prediction by generalized additive models","Applied Stochastic Models in Business and Industry","GAM, NN, LOGI, LDA","'Norwegian limited liability firms in the period 1996?2001'","None","'? approximately 100 000 firms each year only about 1% defaulted the next year'","Up to 78% AUC on out-sample in time ","Models defaults using generalized aditive models in Norway with a large set of firms
 Models different default horizonts
 Finds imporvments of using generalized additve models over linear discrimination, logistic regression and neural networks 
 A large sample is used
 Use change variables from previous year which may be a good idea. I am not sure whether it is a good idea to use the industry means for the first year of data
-Details about this comment would be useful:' In a preliminary analysis we removed variables that were not significant in any model'",3
-Variable selection and corporate bankruptcy forecasts,Journal of Banking & Finance,LOGI,"US (listed?) firms in the the year 1980-2009
+Details about this comment would be useful:' In a preliminary analysis we removed variables that were not significant in any model'",3,"2006","10.1002/asmb.658","https://doi.org/10.1002/asmb.658","Berg_2006","Daniel Berg","Wiley-Blackwell"
+"Variable selection and corporate bankruptcy forecasts","Journal of Banking & Finance","LOGI","US (listed?) firms in the the year 1980-2009
 Data from Center for Research in Security Prices (CRSP) with annual financial information from COMPUSTAT.
-Use chapter 7 or chapter 11 as a default indicator",None,"17,570 firms and 1,571,115 firm-months with 1383 bankruptcy filings",1 year a-head out-sample forecast AUC of 84%,"Performs an logistic regression with Lasso (L1) penalty with data from the US. Find improvements in relative to the model in Campbell et al (2008)
-I do not think to conclusions should be drawn on which covariate are selected when multicollinearity is present. As far as I re-call, the selection properties of Lasso regression is ussually driven under the assumption of orthogonal design matricies for good reasons",3
-Forecasting financial failure using a Kohonen map: A comparative study to improve model stability over time,European Journal of Operational Research,"SMR, LOGI, LDA, CM, NN","French firms between 1991-2009 from the database Diane
-Only firms required to '… file their annual reports with the French commercial courts' are included
+Use chapter 7 or chapter 11 as a default indicator","None","17,570 firms and 1,571,115 firm-months with 1383 bankruptcy filings","1 year a-head out-sample forecast AUC of 84%","Performs an logistic regression with Lasso (L1) penalty with data from the US. Find improvements in relative to the model in Campbell et al (2008)
+I do not think to conclusions should be drawn on which covariate are selected when multicollinearity is present. As far as I re-call, the selection properties of Lasso regression is ussually driven under the assumption of orthogonal design matricies for good reasons",3,"2015","10.1016/j.jbankfin.2014.12.003","https://doi.org/10.1016/j.jbankfin.2014.12.003","Tian_2015","Shaonan Tian, Yan Yu, Hui Guo","Elsevier {BV}"
+"Forecasting financial failure using a Kohonen map: A comparative study to improve model stability over time","European Journal of Operational Research","SMR, LOGI, LDA, CM, NN","French firms between 1991-2009 from the database Diane
+Only firms required to '? file their annual reports with the French commercial courts' are included
 Firms are selected from the retail industry 
-With total assets less than €750000 (in all periods?)
-Companies that are operating for at least 6 years",Random sampling is performed with equal split between benkerupt and non-bankerupt firms,Up to 1100 / 1100,One year a-head out-sample in time accurarcy of 80%-81%,"Try Kohonen maps in forecasting of bankeruptcy. As I gather, this implies a mapping into a 2D grid followed by an anlysis of firm trajectories on the map
+With total assets less than ?750000 (in all periods?)
+Companies that are operating for at least 6 years","Random sampling is performed with equal split between benkerupt and non-bankerupt firms","Up to 1100 / 1100","One year a-head out-sample in time accurarcy of 80%-81%","Try Kohonen maps in forecasting of bankeruptcy. As I gather, this implies a mapping into a 2D grid followed by an anlysis of firm trajectories on the map
 The idea seems to be a good visual tool although I am not convinced that the method is superior to other methods
 Selection of variables is done with some of the comparisson models with backward search 
-I don’t think the comparisson between the other models and the Koherent map is fair. There is 'way' more data avialable for the 1 year for these methods which seems not to be used (see section 3.5). This may explain why the cox model gets better result than the logistic regression
+I don?t think the comparisson between the other models and the Koherent map is fair. There is 'way' more data avialable for the 1 year for these methods which seems not to be used (see section 3.5). This may explain why the cox model gets better result than the logistic regression
 It is not clear to me how firms that default in intermediate years of the estimations period is used
-The requirement of 6 consequetive years of data may be an issue",4
-Financial ratios as predictors of failure,Journal of accounting research,SMR,"US firms in the perio 1954-64
+The requirement of 6 consequetive years of data may be an issue",4,"2012","10.1016/j.ejor.2012.04.006","https://doi.org/10.1016/j.ejor.2012.04.006","du_Jardin_2012","Philippe du Jardin, Eric SÃ©verin","Elsevier {BV}"
+"Financial ratios as predictors of failure","Journal of accounting research","SMR","US firms in the perio 1954-64
 Excludes firm of noncorporate form, privately held corporations, and nonindustrial firms
-'… bankrupt firms provided by Dun and Bradstre' or Moody's
+'? bankrupt firms provided by Dun and Bradstre' or Moody's
 'the financial statements could not be more than six months old at the date of failure'","I assume that the failed firms must be sampled or selected from the entire population
-Paired sample based oon indstry and asset size",78 / 78 firms with one financial statement from each firm,,"Performs univariate analysis of US firms
-While the paper is highly cited the paper is also dated. I say there is little compared to other papers",4
-APPLICATION OF DYNAMIC FINANCIAL VARIABLES IN BANKRUPTCY PREDICTION,,DT,"Manualy gathered of Hungarian firms with data available over the 2001-2012
+Paired sample based oon indstry and asset size","78 / 78 firms with one financial statement from each firm",,"Performs univariate analysis of US firms
+While the paper is highly cited the paper is also dated. I say there is little compared to other papers",4,"1966","10.2307/2490171","https://doi.org/10.2307/2490171","Beaver_1966","William H. Beaver","{JSTOR}"
+"APPLICATION OF DYNAMIC FINANCIAL VARIABLES IN BANKRUPTCY PREDICTION",,"DT","Manualy gathered of Hungarian firms with data available over the 2001-2012
 Benkerupt firms are taken as those under liquidation or bankruptcy proceeding. The source is Hungarian Trade Register 
-'Companies which hadn’t been realizing sales for at least two consecutive years were also excluded from the experiment'
-See page 100 for further criteria",50-50 split where the sampling is not clear to me. I guess it is random given the comment on page 100,At most 1000 firms with 7592 financial statements,75%-80% accuracy with 10 fold cross validation,"This is a Ph.D. thesis for a study of  bankruptcy prediction
+'Companies which hadn?t been realizing sales for at least two consecutive years were also excluded from the experiment'
+See page 100 for further criteria","50-50 split where the sampling is not clear to me. I guess it is random given the comment on page 100","At most 1000 firms with 7592 financial statements","75%-80% accuracy with 10 fold cross validation","This is a Ph.D. thesis for a study of  bankruptcy prediction
 It provides are good framework for formalizing the model building (see page 26) with a comprehensive literature review of each step. There is 20 pages of references which stress the latter point 
 Quite readable 
 One can skip the study though as:
 I find that this is one of the best introduction into bankeruptcy prediction although it is long
 I am not convinced that the dynamic variables introduced on page 92 is good idea. I assume they will be quite unstable for firms with little prior data (which motivaties the treatment of outliers later). They do not seem useful to when you look at the results at table 113
-Excluding 'Companies which hadn’t been realizing sales for at least two consecutive' may not a be a good idea
-The treatment of outliers seems questionable to me. Any covariate outsite +/- 2 standard deviations seems like an bad definition",1
-Aggregating multiple classification results using Choquet integral for financial distress early warning,Expert Systems With Applications,,,,,,,
-Financial distress prediction with classifier ensembles based on firm life cycle and Choquet integral,Expert Systems with Applications,,,,,,,
-Two-level classifier ensembles for credit risk assessment,Expert Systems with Applications,,,,,,,
-Development of a class of stable predictive variables: The case of bankruptcy prediction,Journal of Business Finance & Accounting,,,,,,,
-Clustering and visualization of bankruptcy trajectory using self-organizing map,Expert Systems with Applications,,,,,,,
-Predicting Financial Distress: Multi Scenarios Modeling Using Neural Network,International Journal of Economics and Finance,NN,,,,,"Fits a neural network with only 37 firms from the Egyptian stock exchange. 82 financial statements are excluded due to missing variables
+Excluding 'Companies which hadn?t been realizing sales for at least two consecutive' may not a be a good idea
+The treatment of outliers seems questionable to me. Any covariate outsite +/- 2 standard deviations seems like an bad definition",1,,,,,,
+"Aggregating multiple classification results using Choquet integral for financial distress early warning","Expert Systems With Applications",,,,,,,,"2012","10.1016/j.eswa.2011.08.067","https://doi.org/10.1016/j.eswa.2011.08.067","Cao_2012","Yu Cao","Elsevier {BV}"
+"Financial distress prediction with classifier ensembles based on firm life cycle and Choquet integral","Expert Systems with Applications",,,,,,,,,,,,,
+"Two-level classifier ensembles for credit risk assessment","Expert Systems with Applications",,,,,,,,"2012","10.1016/j.eswa.2012.03.033","https://doi.org/10.1016/j.eswa.2012.03.033","Marqu_s_2012","A.I. MarquÃ©s, V. Garc\'\ia, J.S. SÃ¡nchez","Elsevier {BV}"
+"Development of a class of stable predictive variables: The case of bankruptcy prediction","Journal of Business Finance & Accounting",,,,,,,,"1990","10.1111/j.1468-5957.1990.tb00548.x","https://doi.org/10.1111/j.1468-5957.1990.tb00548.x","Platt_1990","Harlan D. Platt, Marjorie B. Platt","Wiley-Blackwell"
+"Clustering and visualization of bankruptcy trajectory using self-organizing map","Expert Systems with Applications",,,,,,,,"2013","10.1016/j.eswa.2012.07.047","https://doi.org/10.1016/j.eswa.2012.07.047","Chen_2013","Ning Chen, Bernardete Ribeiro, Armando Vieira, An Chen","Elsevier {BV}"
+"Predicting Financial Distress: Multi Scenarios Modeling Using Neural Network","International Journal of Economics and Finance","NN",,,,,"Fits a neural network with only 37 firms from the Egyptian stock exchange. 82 financial statements are excluded due to missing variables
 Firms a sampled though I could not figure out the details
-Caveat: I only skimmed the article",5
-Default in the Nordic High-Yield Bond Market,,"LOGI, CM",,,,(In sample?) AUC between 83%-91%,"Master thesis studying 627 high-yield bonds in the period of 2006-14. 126 of these default. Uses logistic regression and Cox regression with stepwise model selection
-Small sample",5
-Predicting bankruptcy in European e-commerce sector,,"LOGI, DT, CL",,,,,"Small sample of 124 companies of European E commerce retailers. Data spans up to 2014. Applies different method to predict the outcome
+Caveat: I only skimmed the article",5,"2016","10.5539/ijef.v8n11p159","https://doi.org/10.5539/ijef.v8n11p159","Gameel_2016","Mohamed Sameh Gameel, Khairy El-Geziry","Canadian Center of Science and Education"
+"Default in the Nordic High-Yield Bond Market",,"LOGI, CM",,,,"(In sample?) AUC between 83%-91%","Master thesis studying 627 high-yield bonds in the period of 2006-14. 126 of these default. Uses logistic regression and Cox regression with stepwise model selection
+Small sample",5,,,,,,
+"Predicting bankruptcy in European e-commerce sector",,"LOGI, DT, CL",,,,,"Small sample of 124 companies of European E commerce retailers. Data spans up to 2014. Applies different method to predict the outcome
 An almost 48%-52% sample is made. I cannot find details about the sampling
-I see no reason to sample with the methods they use",5
-How useful are auditors going concern opinions as predictors of default?,,LOGI,"US companies in 2000-12
+I see no reason to sample with the methods they use",5,,,,,,
+"How useful are auditors going concern opinions as predictors of default?","{SSRN} Electronic Journal ","LOGI","US companies in 2000-12
 Default data is from 'the database of the Credit Research Initiative (CRI)'
 Accounting data is from  Compustat North America with audit data from  Audit Analytics
 Excludes financial firms
-Use a hard and soft defintion of failure (see page 15)",None as far as I gather,16929 observations which I guess is financial statements,AUC of 87%-89% using cross validation,"Compares logistic models on US data where one include a binary variable from the Credit Initiative predicted probability of default (see page 34) and the other includes a indicator for going concern opinions (GCOs)
+Use a hard and soft defintion of failure (see page 15)","None as far as I gather","16929 observations which I guess is financial statements","AUC of 87%-89% using cross validation","Compares logistic models on US data where one include a binary variable from the Credit Initiative predicted probability of default (see page 34) and the other includes a indicator for going concern opinions (GCOs)
 It is not clear to me why you make this comparisson and include the binary variable they do. Why not test the Credit Initiative model directly?
-It may be that they only use firms who do eventually default? I guess so from page 17 with the notion of distressed firm-years and the section on page 26",5
-PREDICTING CORPORATE BANKRUPTCY: AN EVALUATION OF ALTERNATIVE STATISTICAL FRAMEWORKS,Journal of Business Finance,"B, LOGI, SVM, RF, SVM, AdaBoost, NN","US public company
-Default data is from 'Standard’s and Poor Capital IQ service.'
+It may be that they only use firms who do eventually default? I guess so from page 17 with the notion of distressed firm-years and the section on page 26",5,"2016","10.2139/ssrn.2910604","https://doi.org/10.2139/ssrn.2910604","Gutierrez_2016","Elizabeth F. Gutierrez, Jake Krupa, Miguel Minutti-Meza, Maria Vulcheva","Elsevier {BV}"
+"PREDICTING CORPORATE BANKRUPTCY: AN EVALUATION OF ALTERNATIVE STATISTICAL FRAMEWORKS","Journal of Business Finance","B, LOGI, SVM, RF, SVM, AdaBoost, NN","US public company
+Default data is from 'Standard?s and Poor Capital IQ service.'
 'collected up to three years of financial variables on all bankrupt firms prior to the year of bankruptcy'
-They 'code previous years [in plural] of a bankrupt firm as bankrupt. For instance, if a company failed in 2013, and three preceding years of financial data exists on that firm, all years are coded as ‘0’ or bankrupt.'
+They 'code previous years [in plural] of a bankrupt firm as bankrupt. For instance, if a company failed in 2013, and three preceding years of financial data exists on that firm, all years are coded as ?0? or bankrupt.'
 Chapter 11 filling is used as the definition of failure
-It is not clear to me how the accounting data is selected for the non-failing firms. See page 11 ('We extracted the same data for the non-failed control sample')",It is unclear to me if the controls are sampled. See page 11,"'3,960 firm year observations for the bankrupt sample; and 26,169 firm year observations for the ... non-failed group'",AUC from 74%-93% computed with cross validation,"A study that compares a varity of methods on US pulically listed firms
+It is not clear to me how the accounting data is selected for the non-failing firms. See page 11 ('We extracted the same data for the non-failed control sample')","It is unclear to me if the controls are sampled. See page 11","'3,960 firm year observations for the bankrupt sample; and 26,169 firm year observations for the ... non-failed group'","AUC from 74%-93% computed with cross validation","A study that compares a varity of methods on US pulically listed firms
 Seems to suggest that the ensamble methods are preferable
 Box cox transform variables. Seems only to matter for the models that do depend on monotonic transformation as expected
 Tries with missing value imputation using an SVM method. The performance does not change 
 Lags details of sampling of non-failing firms and the
 I am not convienced that the marking all three prior years as failure is a good idea - especially if they do let the defaulting firms be control in any other periods
-Note that they addresss the prevoius point on page 28 under the header 'Look-ahead bias. ' Further, you loose a lot of data this way. The failing firms would have been active healthy firms for while before defaulting",2
-"More than a Dummy: The Probability of Failure, Survival and Acquisition of Firms in Financial Distress",European Management Review,LOGI,"US firms listed on NYSE,AMEX, and NASDAQ exchanges in the period 1980-93
+Note that they addresss the prevoius point on page 28 under the header 'Look-ahead bias. ' Further, you loose a lot of data this way. The failing firms would have been active healthy firms for while before defaulting",2,"2016","10.1111/jbfa.12218","https://doi.org/10.1111/jbfa.12218","Jones_2016","Stewart Jones, David Johnstone, Roy Wilson","Wiley-Blackwell"
+"More than a Dummy: The Probability of Failure, Survival and Acquisition of Firms in Financial Distress","European Management Review","LOGI","US firms listed on NYSE,AMEX, and NASDAQ exchanges in the period 1980-93
 Compustat is used for financial statements
 LEXIS/NEXIS database is used for exit type
 Randomly selected sixteen three-digit SIC code industries 
 'an early warning signal' was present in the period 1980 to 1988. They used the Alman Z-score for this purpose
 Imputes industry median or zeros for missing values. See page 5",,,,"While I do find multi exit models interesting (which they model) I have no idea why they only define 'survivers' as those who goes below a certain Altman Z-score. Why not extend the idea Shumway (2001) into a multinomial model?
-Either their ROC curves turns mirrored or their performance is horriable (see page 14)... ",5
-A comparison of alternative bankruptcy prediction models,Journal of Contemporary Accounting & Economics,LOGI,"US firms listed on NYSE and AMEX between 1980-2006
+Either their ROC curves turns mirrored or their performance is horriable (see page 14)... ",5,"2012","10.1111/j.1740-4762.2011.01024.x","https://doi.org/10.1111/j.1740-4762.2011.01024.x","_STEBRO_2012","THOMAS \AASTEBRO, JOACHIM K. WINTER","Wiley-Blackwell"
+"A comparison of alternative bankruptcy prediction models","Journal of Contemporary Accounting & Economics","LOGI","US firms listed on NYSE and AMEX between 1980-2006
 Data is from New Generation Research (www.bankruptcydata.com), Compustat and CRSP
 Use chapter 11 as the default outcome
-Excludes firms with missing values and financial firms and those with SIC greater than 5999",None,"887 bankruptcies and 49,724 non-bankrupt firm-years",AUC of 93% though see the my review ,"Test previous model specification for logit models on similar data sets in the US
+Excludes firms with missing values and financial firms and those with SIC greater than 5999","None","887 bankruptcies and 49,724 non-bankrupt firm-years","AUC of 93% though see the my review ","Test previous model specification for logit models on similar data sets in the US
 Adds a variable for the 'number of separate business segments in each of our sample firms'
 Adds a lagged version of some of the variables
 I would assumet that this action would make their result artifically high. Firms that exit for other reason could likely be similar to firms that default:' We exclude firms that are delisted from CRSP or deleted from Compustat for reasons other than bankruptcy or liquidation'
-This is just stupid. Of course the test gets better in sample as the firms that fail are likely similar a few years prior. Though, you would not know this berfore hand. This comment is for '[our is model] equivalent ... Shumway[s] (2001) [model], except that we only include one firm-year observation for each bankrupt firm but all firm-year observations for the surviving firm. This refinement significantly improves model performance.'",4
-Using Bayesian networks for bankruptcy prediction: Some methodological issues,European Journal of Operational Research,"SVM, LOGI","Firms traded on publicly NASDAQ
-'bankrupt firms are identified through Compustat and Lexis–Nexis Bankruptcy Report'
+This is just stupid. Of course the test gets better in sample as the firms that fail are likely similar a few years prior. Though, you would not know this berfore hand. This comment is for '[our is model] equivalent ... Shumway[s] (2001) [model], except that we only include one firm-year observation for each bankrupt firm but all firm-year observations for the surviving firm. This refinement significantly improves model performance.'",4,"2010","10.1016/j.jcae.2010.04.002","https://doi.org/10.1016/j.jcae.2010.04.002","Wu_2010","Y. Wu, C. Gaunt, S. Gray","Elsevier {BV}"
+"Using Bayesian networks for bankruptcy prediction: Some methodological issues","European Journal of Operational Research","SVM, LOGI","Firms traded on publicly NASDAQ
+'bankrupt firms are identified through Compustat and Lexis?Nexis Bankruptcy Report'
 It seems that bankerupt firms are only included as with their latest financial statement (see page 742)
-A few firms with missing values are deleted with all missing variables","'... we randomly select 500 firms from the identified active-firm-pool for each sample year. Once a non-bankrupt firm is selected for a year, it is excluded from selection in later years'",890 / 6932 financial statements,Around 81% accurarcy using cross validation,"Use Bayes Bayesian network for US listed firms
+A few firms with missing values are deleted with all missing variables","'... we randomly select 500 firms from the identified active-firm-pool for each sample year. Once a non-bankrupt firm is selected for a year, it is excluded from selection in later years'","890 / 6932 financial statements","Around 81% accurarcy using cross validation","Use Bayes Bayesian network for US listed firms
 An advantage of these methods is that the methods can deal with missing values as they show
 Show improvements relative to a logistic regression. I speculate that the improvements would not be present if they dealt with extremes values (see the descriptive statistics in table 2)
-It is problematic if firms that do fail are not included in the years where they do not fail as controls",4
-Predicting Firm Financial Distress: A Mixed Logit Model,The Accounting Review,"LOGI, MM","Australian firms listed on pay Australian Stock Exchange 
+It is problematic if firms that do fail are not included in the years where they do not fail as controls",4,"2007","10.1016/j.ejor.2006.04.019","https://doi.org/10.1016/j.ejor.2006.04.019","Sun_2007","Lili Sun, Prakash P. Shenoy","Elsevier {BV}"
+"Predicting Firm Financial Distress: A Mixed Logit Model","The Accounting Review","LOGI, MM","Australian firms listed on pay Australian Stock Exchange 
 Training data from 1996-2000 and testing data from 2001-03
 Use 2 level ordinal default indicator. See page 1020
 It is not clear to me whether firms that default at one point in the model are also used as control for some periods where they do not default
-Data is from Aspect Financial Pty Ltd's Financial Analysis Database (2003) and DatAnalysis Database (2003), Huntley's Delisted Company Database (1993-1999), ASX Market Comparative Analysis (2003b) and Australian Securities and Investment Commission",'[they] use a sample of failed and nonfailed firms that approximates actual fail rates',"2,838 firm years in the nonfailed state 0; 78 firms years in state 1; and 116 years in state 2' where state 0 is survived and state 1-2 are the ordinal distress outcome",See page 1032-1034. It is not clear to me what is being presented. It seems like an accuracy on a hold-out sample of close to 100% for on year ahead forcast,"Use mixed logistic regression models with random slopes. Finds significant varinace estimates for some of the slopes
+Data is from Aspect Financial Pty Ltd's Financial Analysis Database (2003) and DatAnalysis Database (2003), Huntley's Delisted Company Database (1993-1999), ASX Market Comparative Analysis (2003b) and Australian Securities and Investment Commission","'[they] use a sample of failed and nonfailed firms that approximates actual fail rates'","2,838 firm years in the nonfailed state 0; 78 firms years in state 1; and 116 years in state 2' where state 0 is survived and state 1-2 are the ordinal distress outcome","See page 1032-1034. It is not clear to me what is being presented. It seems like an accuracy on a hold-out sample of close to 100% for on year ahead forcast","Use mixed logistic regression models with random slopes. Finds significant varinace estimates for some of the slopes
 Use an 3 level ordinal variable for firms survival, distress or ' for bankruptcy followed by the appointment of liquidator insolvency administrators, or receivers'. See page 1020. This may be a good idea
 I do not get why they compare the multinomial ordinal model with the mixed logit model. Why not use a standard logitistic model versus a mixed logitistic model?
 I find that it hard to figure out what they are doing at various states through out the article. Mixed logistic regression and multinomial models can be described easier then how they do it
-It seems to me that their out-sample test figure is whether the models gets the overall fractions right - not whether they get the label right. I so no reason why this would be a good measurement of performance. See page 1033",5
-35 years of studies on business failure: an overview of the classic statistical methodologies and their related problems,The British Accounting Review,RA,,,,,"Provides a review of the litterature prior to 2004. The models are limited to Linear discrimination models, Logistic regression and risk index models
+It seems to me that their out-sample test figure is whether the models gets the overall fractions right - not whether they get the label right. I so no reason why this would be a good measurement of performance. See page 1033",5,"2004","10.2308/accr.2004.79.4.1011","https://doi.org/10.2308/accr.2004.79.4.1011","Jones_2004","Stewart Jones, David A. Hensher","American Accounting Association"
+"35 years of studies on business failure: an overview of the classic statistical methodologies and their related problems","The British Accounting Review","RA",,,,,"Provides a review of the litterature prior to 2004. The models are limited to Linear discrimination models, Logistic regression and risk index models
 Particulary they discuss:
 (1) the arbitrary definition of failure. I find this part useful for a good summary of the issues of defining defaults
 (2) non-stationarity and data instability. This is a key point to me that seems to be overlooked in the litterature even Today
 (3) sampling selectivity. The section is ok with some good points
 (4) the arbitrary choice of the optimisation criteria. The key point here is the critque Shumway (2001) about static versus dynamic models
-The rest of the article post page 79 is less interesting to me. The only exceptions is the section 'The use of annual account information' which goes through some of the issues with accounting data",3
-Exploring the Sources of Default Clustering,,"SMR, FR, CO","US data for firms between 1970-2012 with debt rated by Moody’s
-Default data from Moody’s Default Risk Service. See page 10 for default defintion. It includes more than chapter 10, 11 and 7
+The rest of the article post page 79 is less interesting to me. The only exceptions is the section 'The use of annual account information' which goes through some of the issues with accounting data",3,"2006","10.1016/j.bar.2005.09.001","https://doi.org/10.1016/j.bar.2005.09.001","Balcaen_2006","Sofie Balcaen, Hubert Ooghe","Elsevier {BV}"
+"Exploring the Sources of Default Clustering","{SSRN} Electronic Journal","SMR, FR, CO","US data for firms between 1970-2012 with debt rated by Moody?s
+Default data from Moody?s Default Risk Service. See page 10 for default defintion. It includes more than chapter 10, 11 and 7
 Macro economic data from Federal
-Reserve Banks of New York and Saint Louis",None,,,"Model counts of yearly defaults for US firms using a poisson model with both frailty and contagion
+Reserve Banks of New York and Saint Louis","None",,,"Model counts of yearly defaults for US firms using a poisson model with both frailty and contagion
 The frailty variable the mean-reverting Cox-Ingersoll-Ross. Contagion is modeled by self-exciting specification of Hawkes process which depends on the dates with at least one default and face values of defaulted debt
 The paper may suggest that both contagion and frailty are important in a firm specific model. Though, result may differ when you go from aggregate count to firm specific models
-I disagree with their conclussion that '... while firm-specific default risk factors may contain significant information about idiosyncratic default risk, they only contain little information about the systematic default risk not captured by our macroeconomic variables'. The conclusion is based on 'monthly time series of cross sectional averages' which I would assume far from compare to a firm specific model",5
-Frailty correlated default,The Journal of Finance,"CM, FR","US firms between 1979 and March 2004. I assume that the it is listed firms given the data sources below
-Data from Bloomberg, Compustat, CRSP Moody’s, the Directory of Obsolete Securities and the SDC database",None,"402,434 firm-months with 496 default with 2,793 companies",,"Models US firms from from 1979 to 2004 with a cox model with constant baseline, a frailty component and with both firm speicific and macro economics variables
-Models are estimated with with an EM algorithm using MCMC with a Gibss sampler. The shared frailty variable is an  Ornstein–Uhlenbeck process
+I disagree with their conclussion that '... while firm-specific default risk factors may contain significant information about idiosyncratic default risk, they only contain little information about the systematic default risk not captured by our macroeconomic variables'. The conclusion is based on 'monthly time series of cross sectional averages' which I would assume far from compare to a firm specific model",5,"2008","10.2139/ssrn.1127792","https://doi.org/10.2139/ssrn.1127792","Giesecke_2008","Kay Giesecke, Shahriar Azizpour, Gustavo Schwenkler","Elsevier {BV}"
+"Frailty correlated default","The Journal of Finance","CM, FR","US firms between 1979 and March 2004. I assume that the it is listed firms given the data sources below
+Data from Bloomberg, Compustat, CRSP Moody?s, the Directory of Obsolete Securities and the SDC database","None","402,434 firm-months with 496 default with 2,793 companies",,"Models US firms from from 1979 to 2004 with a cox model with constant baseline, a frailty component and with both firm speicific and macro economics variables
+Models are estimated with with an EM algorithm using MCMC with a Gibss sampler. The shared frailty variable is an  Ornstein?Uhlenbeck process
 The adding the frailty makes little difference in the estimates. As the authors write: 'Allowing for frailty does not add significantly to firm-by-firm default prediction'
 The results may suggest that profolio managers could underestimate the risk if they do account for the frailty component (see figure 5 on page 2107)
-The authors also try a firm specific factor. They conclude that '... estimation does not pin down the variance of Zi [the firm specific frailty] to any reasonable precision with our limited set of data'",3
-Common Failings: How Corporate Defaults Are Correlated,THE JOURNAL OF FINANCE,"CM, CO","US firms between 1979 and March 2004. I assume that the it is listed firms given the data sources below
-Data from Bloomberg, Compustat, CRSP Moody’s and U.S. Federal Reserve Board of Governor
-Excludes financial firms",None," 2,770 firms with 495 defaults and 392,404 firm-months",,"Models US firms from from 1979 to 2004 with a cox model with constant baseline with both macro economic and firm specific varables
+The authors also try a firm specific factor. They conclude that '... estimation does not pin down the variance of Zi [the firm specific frailty] to any reasonable precision with our limited set of data'",3,"2009","10.1111/j.1540-6261.2009.01495.x","https://doi.org/10.1111/j.1540-6261.2009.01495.x","DUFFIE_2009","DARRELL DUFFIE, ANDREAS ECKNER, GUILLAUME HOREL, LEANDRO SAITA","Wiley-Blackwell"
+"Common Failings: How Corporate Defaults Are Correlated","THE JOURNAL OF FINANCE","CM, CO","US firms between 1979 and March 2004. I assume that the it is listed firms given the data sources below
+Data from Bloomberg, Compustat, CRSP Moody?s and U.S. Federal Reserve Board of Governor
+Excludes financial firms","None"," 2,770 firms with 495 defaults and 392,404 firm-months",,"Models US firms from from 1979 to 2004 with a cox model with constant baseline with both macro economic and firm specific varables
 Test whether there is clustering that would not accour if the model is true. They reject most of their tests which could imply that some sort of clustering should be accounted for in estimation. This can be by means of missing covariates, fraitly variables or contagion
-Though, I will recommend that you see the paper 'Correlation in corporate defaults: Contagion or conditional independence? ' before this one",4
-"Financial distress and bankruptcy prediction among listed companies using accounting, market and macroeconomic variables",International Review of Financial Analysis,"LOGI, NN","UK listed firm from 1980–2011
+Though, I will recommend that you see the paper 'Correlation in corporate defaults: Contagion or conditional independence? ' before this one",4,"2007","10.1111/j.1540-6261.2007.01202.x","https://doi.org/10.1111/j.1540-6261.2007.01202.x","DAS_2007","SANJIV R. DAS, DARRELL DUFFIE, NIKUNJ KAPADIA, LEANDRO SAITA","Wiley-Blackwell"
+"Financial distress and bankruptcy prediction among listed companies using accounting, market and macroeconomic variables","International Review of Financial Analysis","LOGI, NN","UK listed firm from 1980?2011
 Data from Thomson One Banker, Datastream, Worldscope, the Bank of England and London Share Price Database
 '... a firm is classified as financially distressed,11 i) whenever its earnings before interest and taxes depreciation and amortisation (EBITDA) are lower than its financial expenses for two consecutive years; and ii) whenever the firms suffer from a negative growth in market value for two consecutive years ... [or when a firm] suspended, in liquidation or voluntary liquidation, when its quotation has been suspended for more than three years, when the firm is being held by a receiver (in receivership), in administration or in administrative receivership, or when there has been a cancellation or suspension of the firm'
-Financial firms are excluded",None,"'23,218 company year observations for a total of 3020 non-financial publicly quoted  companies… [and] … 1254 firm-years classified as financially distressed; '",In sample AUC 92%,"Model financial distress using both firm specific and macro ecnomic variables in a logit mode
+Financial firms are excluded","None","'23,218 company year observations for a total of 3020 non-financial publicly quoted  companies? [and] ? 1254 firm-years classified as financially distressed; '","In sample AUC 92%","Model financial distress using both firm specific and macro ecnomic variables in a logit mode
 Finds that adding market variables with accountning variables makes a difference. Adding macro economic variables does not seem to have an impact
 They have 130 macro variables to start with. Thus details of the following procedure would be nice:' The data was subject to a rigorous cleaning and testing process and a novel approach for dealing with outlying observations was adopted. Using both univariate and multivariate (logit) procedures considerable experimentation was undertaken to arrive at the final choice of regressors.'
 The former comment is further driven by the fact that they only use in-sample performance tests
 Compares with a neural network which outperforms in terms of in sample AUC
 Use the inverse tangent function for ratios which may or may not be smart
 The article could have less than 10 page - not the 26 
-Be aware of their defintion of financial distress (see the 'Data' column)",3
-Correlation in corporate defaults: Contagion or conditional independence? ,Journal of Financial Intermediation,"CM, CO","All US industrial firms with a debt issue registered in Moody’s DRSD and with data in CRSP and CompuStat in the period of January 1982 to December 2005
-Excludes default within same coorporate family by ''... disregard[ing] all consecutive default events that occur within a 1-month horizon of any previously registered default ascribed to the same parent company' ",None,"'… 370 defaults, with an average of 1142 and a minimum of 1007 firms in the model at any time'",,"Fails to reject a test of  which may indicate contagion shown in a previous article on US data with cox model with constant baseline. Further, the authors does not find a sigificant effect of adding a Hawkess process to model contagation which has previously been used in other papers. The difference is that the authors add both macro economic and firm specific variable
+Be aware of their defintion of financial distress (see the 'Data' column)",3,"2013","10.1016/j.irfa.2013.02.013","https://doi.org/10.1016/j.irfa.2013.02.013","Hernandez_Tinoco_2013","Mario Hernandez Tinoco, Nick Wilson","Elsevier {BV}"
+"Correlation in corporate defaults: Contagion or conditional independence? ","Journal of Financial Intermediation","CM, CO","All US industrial firms with a debt issue registered in Moody?s DRSD and with data in CRSP and CompuStat in the period of January 1982 to December 2005
+Excludes default within same coorporate family by ''... disregard[ing] all consecutive default events that occur within a 1-month horizon of any previously registered default ascribed to the same parent company' ","None","'? 370 defaults, with an average of 1142 and a minimum of 1007 firms in the model at any time'",,"Fails to reject a test of  which may indicate contagion shown in a previous article on US data with cox model with constant baseline. Further, the authors does not find a sigificant effect of adding a Hawkess process to model contagation which has previously been used in other papers. The difference is that the authors add both macro economic and firm specific variable
 Excludes default within same coorporate family  may be a good idea
-Caveat: My advisor is one of the authors",3
-Modeling frailty-correlated defaults using many macroeconomic covariates,Journal of Econometrics,"SMR, FR","US data from 1970 to 2009
-Data from the Federal Reserve Economic Database FRED and Moody’s default data",None,,,"Model defaults counts in industry sections using binomial models with logstic link function. The models includes a shared fraility variable across sections. The frailty variable follows a stationary autoregressive process of order one
+Caveat: My advisor is one of the authors",3,"2010","10.1016/j.jfi.2010.03.002","https://doi.org/10.1016/j.jfi.2010.03.002","Lando_2010","David Lando, Mads Stenbo Nielsen","Elsevier {BV}"
+"Modeling frailty-correlated defaults using many macroeconomic covariates","Journal of Econometrics","SMR, FR","US data from 1970 to 2009
+Data from the Federal Reserve Economic Database FRED and Moody?s default data","None",,,"Model defaults counts in industry sections using binomial models with logstic link function. The models includes a shared fraility variable across sections. The frailty variable follows a stationary autoregressive process of order one
 More than 100 macro economic variables are included. Principal component is used to reduce the dimension. Principle components and an EM algorithm is also used to impute missing macro economic variables
 The model is estimated using an approxiamte state space method
 Finds a significant effect of the frailty variable
-The paper may imply that frailty should be accounted for in individual firm models. Though, this is speculation from my site",4
-Do differences in financial reporting attributes impair the predictive ability of financial ratios for bankruptcy,Review of Accounting Studies,,,,,,,
-Modeling the effect of macroeconomic factors on corporate default and credit rating transitions,International Review of Economics & Finance,,,,,,,
-Some new models for financial distress prediction in the UK,,LOGI,"UK publicly listed companies between 1978 and 2006
+The paper may imply that frailty should be accounted for in individual firm models. Though, this is speculation from my site",4,"2011","10.1016/j.jeconom.2011.02.003","https://doi.org/10.1016/j.jeconom.2011.02.003","Koopman_2011","Siem Jan Koopman, AndrÃ© Lucas, Bernd Schwaab","Elsevier {BV}"
+"Do differences in financial reporting attributes impair the predictive ability of financial ratios for bankruptcy","Review of Accounting Studies",,,,,,,,"2012","10.1007/s11142-012-9186-7","https://doi.org/10.1007/s11142-012-9186-7","Beaver_2012","William H. Beaver, Maria Correia, Maureen F. McNichols","Springer Nature"
+"Modeling the effect of macroeconomic factors on corporate default and credit rating transitions","International Review of Economics & Finance",,,,,,,,"2012","10.1016/j.iref.2011.05.004","https://doi.org/10.1016/j.iref.2011.05.004","Figlewski_2012","Stephen Figlewski, Halina Frydman, Weijian Liang","Elsevier {BV}"
+"Some new models for financial distress prediction in the UK",,"LOGI","UK publicly listed companies between 1978 and 2006
 Data is from London Share Price Database and Datastream
 Failure is defined as any of these events:' (1) Suspension or cancellation with share acquired later (2) Liquidation (usually valueless, but there may be liquidation payments) (3) Quotation suspended - if suspended for more than three years, this may lead to automatic cancellation (4) Voluntary liquidation, where value remains and was/is being distributed (5) Receiver appointed/liquidation. Probably valueless, but not yet certain (6) in Administration or administrative receivership (7) Cancelled and assumed valueless.'
-Financial firms are excluded",None,"589 / 49,063  financial statements
-Though the sample with market data must be smaller since they write:' Missing price or returns data mean that the sample for this analysis is limited to 428 bankrupt firms. '",In sample AUC of 90%,"Model default of UK listed firms using logisitic regression. Use both macro economic variables and firm specefic variables
+Financial firms are excluded","None","589 / 49,063  financial statements
+Though the sample with market data must be smaller since they write:' Missing price or returns data mean that the sample for this analysis is limited to 428 bankrupt firms. '","In sample AUC of 90%","Model default of UK listed firms using logisitic regression. Use both macro economic variables and firm specefic variables
 This does not sounds like the best approach to select variables:' From the potential candidate list, an extensive univariate analysis and the testing of alternative logit models, we end up with the following list of variables'
 They should not compare the AUC of the model in table 5 with the full population versus the model in table 6 with the subset that only has market data. They do this when they write '... the area under the ROC curve also increase from 81.24% to 89.92% and 89.61% in models 1 and 2'
 They get only a slight improvment in AUC by including macro economic variables
 They select five industry and add intercept and slopes for each industry. They '... conduct simple t-tests to check whether variables [industry slopes and intercepts] are found to be significant' and exclude variables on the basis hereof. I figure this must be on the full sample which may inflate their perform metrics later
-They finds improvments in in-sample AUC and decile ranking out-sample (in time)",4
-Default prediction with dynamic sectoral and macroeconomic frailties,Journal of Banking & Finance,,,,,,,
-Self-exciting corporate defaults: contagion vs. frailty,"Manuscript, Stanford University","SMR, CO, FR","US firms from 1970 to 2006
-Defaults from Moody’s Default Risk Service
-Firms issues are included if it '… is not a sovereign and has a senior rating'
-Their default definition seems broad to me (see page 6 under data). For example '51% of the defaults are due to missed interest payments'",None,"6048 firms in 2006
+They finds improvments in in-sample AUC and decile ranking out-sample (in time)",4,,,,,,
+"Default prediction with dynamic sectoral and macroeconomic frailties","Journal of Banking & Finance",,,,,,,,"2014","10.1016/j.jbankfin.2013.11.036","https://doi.org/10.1016/j.jbankfin.2013.11.036","Chen_2014","Peimin Chen, Chunchi Wu","Elsevier {BV}"
+"Self-exciting corporate defaults: contagion vs. frailty","Manuscript, Stanford University","SMR, CO, FR","US firms from 1970 to 2006
+Defaults from Moody?s Default Risk Service
+Firms issues are included if it '? is not a sovereign and has a senior rating'
+Their default definition seems broad to me (see page 6 under data). For example '51% of the defaults are due to missed interest payments'","None","6048 firms in 2006
 1374 defaults through out the period",,"Models aggreagate defaults count for US firms. The models includes both frailty and contagion. The intensity is a CIR process (which gives the frailty) with a term added for the counts of defaults (which gives the contagion). Different functions of the number of events is used for the contagion effect
 They use two macro economic variables in addition in the modelling (3 month Treasury bill yield and the trailing 1 year return on the S&P 500 index). I guess a CIR process for the treasury bill and geomatric brownian motions for the S&P returns is an ok choice for the models for these 
 I am not sure whether or not their test or estimation methods are a good idea. I would have to read up on counting process to evaluate this
@@ -370,120 +370,120 @@ I would hesitate to conclude that this also applies for firms specefic models ra
 Some notes that may be useful when reading: 
 - Zero-factor model: Hawkess process
 - One-factor model: CIR process with contagion effect
-- One-factor w/ covariates: replace the Brownian motion with one of the covariates",4
-Multiperiod corporate default prediction a forward intensity approach,Journal of Econometrics,SMR,"Compustat and CRSP data 
+- One-factor w/ covariates: replace the Brownian motion with one of the covariates",4,,,,,,
+"Multiperiod corporate default prediction a forward intensity approach","Journal of Econometrics","SMR","Compustat and CRSP data 
 Firms from 1991 to 2011 from NYSE, AMEX and Nasdaq with common stocks 
-Default indicators from Credit Research Initiative",None,"12,268 companies w/ 1,104,963 firm-month",85.16% AUC out-sample in time,"Estimates a piecewise exponential for competing risk problem. The itensities are combined exit and default given exit. Yields an easy to evaluate pseudo likelihood. There is a parameter for each month in the itensity 
+Default indicators from Credit Research Initiative","None","12,268 companies w/ 1,104,963 firm-month","85.16% AUC out-sample in time","Estimates a piecewise exponential for competing risk problem. The itensities are combined exit and default given exit. Yields an easy to evaluate pseudo likelihood. There is a parameter for each month in the itensity 
 Shows considerable better outsample performance compared to: Duffie, D., Saita, L., Wang, K., 2007. Multi-period corporate default prediction with stochastic covariates
 Seems interesting. The performance is quite good
-I would have to look at the details on the pseudo likelihood setup",2
-In search of distress risk,The Journal of Finance,LOGI,"US (listed?) firms in the period 1963-1998 and 1963-2003
+I would have to look at the details on the pseudo likelihood setup",2,"2012","10.1016/j.jeconom.2012.05.002","https://doi.org/10.1016/j.jeconom.2012.05.002","Duan_2012","Jin-Chuan Duan, Jie Sun, Tao Wang","Elsevier {BV}"
+"In search of distress risk","The Journal of Finance","LOGI","US (listed?) firms in the period 1963-1998 and 1963-2003
 Data from the Wall Street Journal Index, the SDC database, SEC filings, and the CCH
 Capital Changes Reporter, CRSP and COMPUSTAT
-Two default indicators are used: one which is chapter 7 or chatper 7 filling and another which also includes ' financial reasons, or receives a D rating'",None,"1.7 million firm-months with 800 bankruptcy months and 1,600 failure months with the broader definition",Only report in-sample and out-sample McFadden's pseudo R-squared,"Fit a model logistic model like Shumway (2001) with many adjustments. The article is very accessible article. Some of the adjustments and changes are mentioned below. Large part of the article can be skipped if you only care about the details for their model
+Two default indicators are used: one which is chapter 7 or chatper 7 filling and another which also includes ' financial reasons, or receives a D rating'","None","1.7 million firm-months with 800 bankruptcy months and 1,600 failure months with the broader definition","Only report in-sample and out-sample McFadden's pseudo R-squared","Fit a model logistic model like Shumway (2001) with many adjustments. The article is very accessible article. Some of the adjustments and changes are mentioned below. Large part of the article can be skipped if you only care about the details for their model
 The following may be a good idea since the variable is used in the denomintor: 'we add 10% of the difference between market and book equity to the book value of total assets, thereby increasing book values that are extremely small and probably mismeasured'
 This might be a bit more questionable: 'Just under 2% of firm-months still have negative values for book equity even after this adjustment, and we replace these negative values with small positive values of $1 to ensure that the market-to-book ratios for these firms are in the right tail, not the left tail, of the distribution.'
-This may be a good idea: 'each firm’s log price per share, truncated above at $15 (PRICE).'
+This may be a good idea: 'each firm?s log price per share, truncated above at $15 (PRICE).'
 They add lagged profitablity and excess stock return with  geometrically declining weights the lags. The lag is set to 2^(-1/3) which is kind of abiritraty in addiontion to the number of terms they include. See page 13
 Change the denominator in some of the ratios from total assets to book value
 Add two more variables
 The inclusion of the averages with geomtric weights and descission like the next phrase makes me wonder how much data dredging they have done:' Exploratory analysis suggests that price per share is relevant below $15, and so we winsorize price per share at this level before taking the log.'
 Find minor effects of industry dummies add and some interactions. Though, it would be interesting to know at what level the dummies are at. See page 19 for details
-The do more things in the article (e.g. trading strategies and comparison with Merton model) which is not included here",2
-Bankruptcy prediction with industry effects,Review of Finance,LOGI,"US listed firms on NYSE, AMEX and NASDAQ from 1962 to 1999 
+The do more things in the article (e.g. trading strategies and comparison with Merton model) which is not included here",2,"2008","10.1111/j.1540-6261.2008.01416.x","https://doi.org/10.1111/j.1540-6261.2008.01416.x","CAMPBELL_2008","JOHN Y. CAMPBELL, JENS HILSCHER, JAN SZILAGYI","Wiley-Blackwell"
+"Bankruptcy prediction with industry effects","Review of Finance","LOGI","US listed firms on NYSE, AMEX and NASDAQ from 1962 to 1999 
 Data is from Wall Street Journal Index, The SDC Database, SEC filings, COMPUSTAT, SIC and the CCH Capital Changes Reporter
-Defaults are defined as chapter 7 and 11 fillings",None,Up to 1461 bankruptcies and 8079 active firms. The latter being in a given year and the former over the whole sample,Out-sample AUC up to 91% for yearly forecasts,"Estimate a model like Shumway (2001) using US listed firms 
+Defaults are defined as chapter 7 and 11 fillings","None","Up to 1461 bankruptcies and 8079 active firms. The latter being in a given year and the former over the whole sample","Out-sample AUC up to 91% for yearly forecasts","Estimate a model like Shumway (2001) using US listed firms 
 They estimate a model with four level dummy for industries with intercept and slope interactions. Finds minor improvments in out-sample tests with their best performing model
 It is not clear to me why they only use some dummy and covariate interactions and not others. I.e. why is there not an interaction term between say EXRET and industry?
 It may worth to look at the following comment if you are goind to use industry variables '... there are a few well-known problems with the SIC codes as reported by both COMPUSTAT and CRSP (see ...'
 In addition they also extend the data set of Shumway (2001) with firms listed on NASDAQ, test models with financial firms and test monthly forecast models
-They find higher out-sample AUC with monthly forecast rather than yearly. I do not find this too surprising as I asume the task is easier given more recent data closer to the defaults",3
-Are hazard models superior to traditional bankruptcy prediction approaches? A comprehensive test,Journal of Banking & Finance,,,,,,,
-A re-evaluation of auditors' opinions versus statistical models in bankruptcy prediction,Review of Quantitative Finance and Accounting,LOGI,"US-listed firms on NASDAQ, AMEX and NYSE from 1991 to 2001
+They find higher out-sample AUC with monthly forecast rather than yearly. I do not find this too surprising as I asume the task is easier given more recent data closer to the defaults",3,"2004","10.1093/rof/8.4.537","https://doi.org/10.1093/rof/8.4.537","Chava_2004:1","S. Chava, R. A. Jarrow","Oxford University Press ({OUP})"
+"Are hazard models superior to traditional bankruptcy prediction approaches? A comprehensive test","Journal of Banking & Finance",,,,,,,,"2014","10.1016/j.jbankfin.2013.12.013","https://doi.org/10.1016/j.jbankfin.2013.12.013","Bauer_2014","Julian Bauer, Vineet Agarwal","Elsevier {BV}"
+"A re-evaluation of auditors' opinions versus statistical models in bankruptcy prediction","Review of Quantitative Finance and Accounting","LOGI","US-listed firms on NASDAQ, AMEX and NYSE from 1991 to 2001
 Defaults are from Compustat and Lexis-Nexis Bankruptcy Report databases
-Financial data from Compustat and 'Auditors’ going concern opinions are obtained by anually reading auditors’ reports' 
+Financial data from Compustat and 'Auditors? going concern opinions are obtained by anually reading auditors? reports' 
 
-Firms are excluded from the financial industry group (SIC 6000–6999) or utility (SIC 4900–4999) industries
+Firms are excluded from the financial industry group (SIC 6000?6999) or utility (SIC 4900?4999) industries
 
-Firms are excluded who do not have a 10-K and 20-k filed prior (as far as I gather though they later write that only collect these for the test sample so I am not sure how this is done)","From what I gather, the non-bankrupt firms are sampled. I figure so from this comment:' Nonbankrupt firms with complete information randomly selected in the periods of 1991–2002'",587 / 3183 firms with  22231 nonbankruptcy firm-years,Bootstraps Estimated Misclassification Cost (EMC) for a grid of different relative costs,"Fits a hazard model like Shumway (2001)
+Firms are excluded who do not have a 10-K and 20-k filed prior (as far as I gather though they later write that only collect these for the test sample so I am not sure how this is done)","From what I gather, the non-bankrupt firms are sampled. I figure so from this comment:' Nonbankrupt firms with complete information randomly selected in the periods of 1991?2002'","587 / 3183 firms with  22231 nonbankruptcy firm-years","Bootstraps Estimated Misclassification Cost (EMC) for a grid of different relative costs","Fits a hazard model like Shumway (2001)
 It seems like a lot observations are excluded who does not have a 10-K filed prior
-I don’t see why they exclude the utility firms and sample the non-bankerupt firms. The articles is from 2006 so estimating the logit a model for the full sample should be durable
+I don?t see why they exclude the utility firms and sample the non-bankerupt firms. The articles is from 2006 so estimating the logit a model for the full sample should be durable
 I guess including Current Assets/Total Assets and Cash/Total Assets could lead to multicollinearity issues
 Uses lagged year default rates based on two digits SIC codes. May be a good idea though I figure som of the two digits SIC codes groups will be sparse. The issues with the two digits level is further stressed in this later comment:' The average annual industry failure rate is 1.35%. Note that some high industry failure rates are driven by the small number of firms existing in the industry' 
 Uses cutoffs and Estimated Misclassification Cost (EMC) which I am not a fan of due to the arbitrariness of the relative cost and cutoff level
 I do not get why they add 'the composite stress measure' instead of just including the terms. E.g. for Zmijewski probability which consists of a lot of variables they already include and an rather arbitrary cutoff of 28% 
 I do not get this comment when they bootstrap the EMC:' There is no need to randomly select bankrupt firms since they are deterministic'
 I will need to read up on the bootsrap procedure on page 73. The results suggest that the hazard models does better than the auditors opinions for most cost levels
-The binary for the auditors opinon has an increase in odds of exp(1.8) when added to the model",4
-Multi-period corporate default prediction with stochastic covariates,Journal of Financial Economics,SMR,"US-listed industrial firms from 1980 to 2004
+The binary for the auditors opinon has an increase in odds of exp(1.8) when added to the model",4,"2006","10.1007/s11156-006-0003-x","https://doi.org/10.1007/s11156-006-0003-x","Sun_2006","Lili Sun","Springer Nature"
+"Multi-period corporate default prediction with stochastic covariates","Journal of Financial Economics","SMR","US-listed industrial firms from 1980 to 2004
 Quaterly accounting data from Compustat with stock data from CRSP
-'... timing of default, merger, other-exit, and bankruptcy are mainly from Moodys Default Risk Service and the CRSP/Compustat database. For cases in which a firm exits our database and no exit reason appears in either of these sources, we refer to Bloomberg’s CACS function, SDC, CRSP, and, when necessary, other sources'
-Only firms with records in Compustat, CRSP and Moodys data base are included. Further only firm with Moodys ‘‘Industrial’’ category are included",None,"'2,770 firms, covering 392,404 firm-months of data' of which 175 defaults. See page 11 for further outcome definitions","88% out-sample one year ahead accuracy ratio which they define as #the area between the power curve and the 45 line'
+'... timing of default, merger, other-exit, and bankruptcy are mainly from Moodys Default Risk Service and the CRSP/Compustat database. For cases in which a firm exits our database and no exit reason appears in either of these sources, we refer to Bloomberg?s CACS function, SDC, CRSP, and, when necessary, other sources'
+Only firms with records in Compustat, CRSP and Moodys data base are included. Further only firm with Moodys ??Industrial?? category are included","None","'2,770 firms, covering 392,404 firm-months of data' of which 175 defaults. See page 11 for further outcome definitions","88% out-sample one year ahead accuracy ratio which they define as #the area between the power curve and the 45 line'
 This may explain why they later get negative estimates in table 3","Forecasts default for US listed firms. The instanous hazard is modelled by the exponential distribution with macro economic and firm specific covariates
 Firm specific covariates are modelled independently with a first-order Gaussian vector autoregressive model with mean reversion 
 Estimates merger and accusitions as a separate process
 The idea of modelling the covariate process is interesting. Whether the model they propose is suitable or not is not clear to me. Firstly, estimating target values for each firm as they do in (14) seems questionable for firms where we have little data. Further, I recall reading about other models for predicting accounting data which does fairly well. These could be used in place as the covariate process is assumed independent
-Their out-sample performance is quite high for one year ahead out-sample forecast. Though, their comparison Shumway (2001) and Beaver, McNichols, and Rhie (2005) on page 24 is questionable given that these papers work with a larger an possibly harder to clasify population",3
-Bankruptcy Prediction in Norway: A Comparison Study,Applied Economics Letters,"LOGI, GAM, MM","Limited-liability firms in Norway in 1996-2000
+Their out-sample performance is quite high for one year ahead out-sample forecast. Though, their comparison Shumway (2001) and Beaver, McNichols, and Rhie (2005) on page 24 is questionable given that these papers work with a larger an possibly harder to clasify population",3,"2007","10.1016/j.jfineco.2005.10.011","https://doi.org/10.1016/j.jfineco.2005.10.011","Duffie_2007","Darrell Duffie, Leandro Saita, Ke Wang","Elsevier {BV}"
+"Bankruptcy Prediction in Norway: A Comparison Study","Applied Economics Letters","LOGI, GAM, MM","Limited-liability firms in Norway in 1996-2000
 The following exlcussion are made:
 - Firms with zero equity, short term debt or revenue from operations
 - First that does not report financial statements the last year of existence including bankrupt firms
 - Firms with  values below 0.2%-quantile and above 99.8%-quantile
-Further excludes (only) firms in the sectors salaried household work and internal organs and organizations",None,"'436;145 flrm-years corresponding to 98;421 unique flrms, and contains 2;270 bankruptcies'",AUCs arround 90% for 1 year ahead out-sample forecasts,"Fit a logistic regression for Norwegian firms with and without mixed effects. Further fits a genralized additive model 
+Further excludes (only) firms in the sectors salaried household work and internal organs and organizations","None","'436;145 flrm-years corresponding to 98;421 unique flrms, and contains 2;270 bankruptcies'","AUCs arround 90% for 1 year ahead out-sample forecasts","Fit a logistic regression for Norwegian firms with and without mixed effects. Further fits a genralized additive model 
 Illustrates how a generalized addtive model can be used to construct features for logistic regression. Though, doing so yields almost similar results for the generalized addtive model as for the logistic model (as I would assume)
 Chaning the industry dummies from from fixed to random in their mixed effects makes little difference for the out-sample AUC (as I would expect). I would find a frailty specification more interesting where the you had random industry effects that varied across time
 Note the exclussion in the 'Data source/set'. I am not sure it introduces biases. For instance, how many bankrupt firms where exlcuded due to missing data and how many firms where excluded due to zero values in some of the variables? My experince would sugest a lot 
-Add a variable for number of auditors remarks which may be useful",3
-"Firms in Financial Distress, a Survival Model Analysis",,,,,,,,
-Have Financial Statements Become Less Informative? Evidence from the Ability of Financial Ratios to Predict Bankruptcy,Review of Accounting studies,LOGI,"'NYSE and AMEX-listed Compustat firms. Bankrupt firms were identified through a variety of sources including the 2003 Compustat Annual Industrials file, the 2003 CRSP Monthly Stock file, the website Bankruptcy.com, the Capital Changes Reporter, and a list of firms generously supplied by Shumway'
-Excludes financial or utility industries",None,"544 / 4,237 firms with 74,823 firm years",Only reports in-sample and out-sample deciles ranking. Results are comparable to Shumway (2001),"Examins the predictive perform through time with a model like Shumway 2001 for American listed firms
+Add a variable for number of auditors remarks which may be useful",3,"2010","10.1080/13504850903299594","https://doi.org/10.1080/13504850903299594","Dakovic_2010","Rada Dakovic, Claudia Czado, Daniel Berg","Informa {UK} Limited"
+"Firms in Financial Distress, a Survival Model Analysis",,,,,,,,,,,,,,
+"Have Financial Statements Become Less Informative? Evidence from the Ability of Financial Ratios to Predict Bankruptcy","Review of Accounting studies","LOGI","'NYSE and AMEX-listed Compustat firms. Bankrupt firms were identified through a variety of sources including the 2003 Compustat Annual Industrials file, the 2003 CRSP Monthly Stock file, the website Bankruptcy.com, the Capital Changes Reporter, and a list of firms generously supplied by Shumway'
+Excludes financial or utility industries","None","544 / 4,237 firms with 74,823 firm years","Only reports in-sample and out-sample deciles ranking. Results are comparable to Shumway (2001)","Examins the predictive perform through time with a model like Shumway 2001 for American listed firms
 Fits a simple 3 accoutning variable model acroos two different time periods and compares. Finds stable coeffecients and out-sample decile rankings 
 Easy to read
 Later they add marked values like Shumway (2001) expect that they use returns instead of excess returns
 I hesitate to say they conclusion of robustness could not just be a fact of the chosen periods 
-I dont get why they focus on the last three deciles in their deciles ranking. Failures outsite even the first decile should be of concern given the sparse amount of failures. See table table 5 panel E versus table 8 panel G. This comment is related to phrases like:' The overall predictive power of the combined model remains essentially unchanged when accuracy is measured with respect to the bottom three deciles'",3
-"Predicting financial distress and corporate failure: A review from the state-of-the-art definitions, modeling, sampling, and featuring approaches",Knowledge-Based Systems,RA,,,,,"Review articles using 'state-of-the-art' methods and catogrise them with respect to financial distress definition, methods, sampling and feature selection
+I dont get why they focus on the last three deciles in their deciles ranking. Failures outsite even the first decile should be of concern given the sparse amount of failures. See table table 5 panel E versus table 8 panel G. This comment is related to phrases like:' The overall predictive power of the combined model remains essentially unchanged when accuracy is measured with respect to the bottom three deciles'",3,"2005","10.1007/s11142-004-6341-9","https://doi.org/10.1007/s11142-004-6341-9","Beaver_2005","William H. Beaver, Maureen F. McNichols, Jung-Wu Rhie","Springer Nature"
+"Predicting financial distress and corporate failure: A review from the state-of-the-art definitions, modeling, sampling, and featuring approaches","Knowledge-Based Systems","RA",,,,,"Review articles using 'state-of-the-art' methods and catogrise them with respect to financial distress definition, methods, sampling and feature selection
 The methods section is intersting in that it covers more 'new-age' classifiers like SVM, NN, fuzzy-network, ensambles etc. The introduction to the various method is limited and more focus is put on the articles
 There were not any many insides for me in the sampling section and feature section. It may be useful if you searching for a reference to articles that samples as you do  
 Some of the comments are qustionable or out right wrong like:' However, it [logistic] still requires that the independent variables have no linear functional relationship with each other, namely, no multi-collinearity
-problem' (which is true if the are very linearly dependent of course but by no means require complete linear independence)",4
-Neural network ensemble strategies for financial decision applications,Computers & Operations Research,,,,,,,
-Dynamics of firm financial evolution and bankruptcy prediction,Expert Systems with Applications,,,,,,,
-Ensemble with neural networks for bankruptcy prediction,Expert Systems with Applications,"NN, AdaBoost, BA","'The data set contains 1458 externally audited manufacturing firms, half of which went bankrupt during 2002–2005 while healthy firms were selected from active companies at the end of 2005'",It is not clear. I figure they must have used a skewed sample since they use binary results and given their Type I and II errors in table 6,Not clear. There is a total of 1458 firms,AUCs up to 76% using 10 fold cross validation,"Predict bankrupcty for Korean firms. Compares Neural Networks as is, with bagging and with AdaBoost. Finds improvments with both ensamble methods
+problem' (which is true if the are very linearly dependent of course but by no means require complete linear independence)",4,"2014","10.1016/j.knosys.2013.12.006","https://doi.org/10.1016/j.knosys.2013.12.006","Sun_2014","Jie Sun, Hui Li, Qing-Hua Huang, Kai-Yu He","Elsevier {BV}"
+"Neural network ensemble strategies for financial decision applications","Computers & Operations Research",,,,,,,,"2005","10.1016/j.cor.2004.03.017","https://doi.org/10.1016/j.cor.2004.03.017","West_2005","David West, Scott Dellana, Jingxia Qian","Elsevier {BV}"
+"Dynamics of firm financial evolution and bankruptcy prediction","Expert Systems with Applications",,,,,,,,"2017","10.1016/j.eswa.2017.01.016","https://doi.org/10.1016/j.eswa.2017.01.016","du_Jardin_2017","Philippe du Jardin","Elsevier {BV}"
+"Ensemble with neural networks for bankruptcy prediction","Expert Systems with Applications","NN, AdaBoost, BA","'The data set contains 1458 externally audited manufacturing firms, half of which went bankrupt during 2002?2005 while healthy firms were selected from active companies at the end of 2005'","It is not clear. I figure they must have used a skewed sample since they use binary results and given their Type I and II errors in table 6","Not clear. There is a total of 1458 firms","AUCs up to 76% using 10 fold cross validation","Predict bankrupcty for Korean firms. Compares Neural Networks as is, with bagging and with AdaBoost. Finds improvments with both ensamble methods
 Results suggest that bagging might be slightly better
 AUCs seems low 
 Would be nice to know the details herof:' Several experiments were conducted to find the effects of the number of hidden nodes on the accuracy in predicting the test data set,'
 Would also be nice to know the details hereof:' Initially 32 financial ratios... are investigated ... Finally, 7 financial ratios with the highest accuracy ratio [AUC]'
 I figure they used the entire sample for the latter previous comment. I guess this could lead to overfitting issues. It seems that they used 10-fold cross validation for the former when you look at table 5
 I guess there is one record per firm 
-Bags all the results and ignores the temporal aspect of the data",5
-A note on the use of industry-relative ratios in bankruptcy prediction,,LOGI,"US traded firms
+Bags all the results and ignores the temporal aspect of the data",5,"2010","10.1016/j.eswa.2009.10.012","https://doi.org/10.1016/j.eswa.2009.10.012","Kim_2010","Myoung-Jong Kim, Dae-Ki Kang","Elsevier {BV}"
+"A note on the use of industry-relative ratios in bankruptcy prediction","Journal of Banking {\&} Finance","LOGI","US traded firms
 Traning data consist of '114 equally matched bankrupt and nonfailed' in the period 1972 to 3. quater of 1986
 Default events is taken from Compustat and SEC from frims that 'filed bankruptcy petitions (but did not liquidate)' 
 Out sample data is taken in a similar manner with data from 4. quater of 1986 to 1987
-Industry averages are computed with data from Compustat","Paired sampling where '… each bankrupt firm was paired with a nonfailed company having the same four digit SIC code, nearly equal asset size, and data for the same year.'",67 / 67 for estimation and 34 / 34 for testing,Out-sample (in time) accuracies of 86%,"Compares financial ratios with financial ratios relative to the industry average of the ratio. Industries are defined as 4 digit SIC
+Industry averages are computed with data from Compustat","Paired sampling where '? each bankrupt firm was paired with a nonfailed company having the same four digit SIC code, nearly equal asset size, and data for the same year.'","67 / 67 for estimation and 34 / 34 for testing","Out-sample (in time) accuracies of 86%","Compares financial ratios with financial ratios relative to the industry average of the ratio. Industries are defined as 4 digit SIC
 Find that coeffecients are more stable with the industry relative ratios
 Gets better out-sample results with industry relative ratios
-Industry relative ratios may be a good idea. However, this is a small sample with paired sampling so I am reluctant to draw conclusions based on this paper",3
-Multivariate Ordinal Regression Models: An Analysis of Corporate Credit Ratings,,,,,,,,
-Dynamic forecasting of financial distress: the hybrid use of incremental bagging and genetic algorithm—empirical study of Chinese listed corporations,Risk Management,,,,,,,
-AdaBoost ensemble for financial distress prediction: An empirical comparison with data from Chinese listed companies,Expert Systems with Applications,"AdaBoost, SMR, SVM, DT","Chinese listed firms from 2000 to 2008
-'Financially distressed company is defined as the one who has had negative net profit in consecutive two years'. These firms are referred to as specially treated ",'Healthy companies are chosen from those that have never been specially treated by the matching method considering both industry and asset size',692 companies in what I gather is a 50-50 split,30 times holdout with 2/3 used in estimation and 1/3 used for testing. The mean hold out testing error for one year is 2.78%,"Uses Adaboost with decision trees and single attribute test (kind of like univariate discriminant in Beaver (1966)) for predicting distress for Chinese listed firm. Compare the results with SVM and a single decision tree
+Industry relative ratios may be a good idea. However, this is a small sample with paired sampling so I am reluctant to draw conclusions based on this paper",3,"1991","10.1016/0378-4266(91)90057-s","https://doi.org/10.1016/0378-4266(91)90057-s","Platt_1991","Harlan D. Platt, Marjorie B. Platt","Elsevier {BV}"
+"Multivariate Ordinal Regression Models: An Analysis of Corporate Credit Ratings",,,,,,,,,,,,,,
+"Dynamic forecasting of financial distress: the hybrid use of incremental bagging and genetic algorithm?empirical study of Chinese listed corporations","Risk Management",,,,,,,,"2017","10.1057/s41283-016-0012-6","https://doi.org/10.1057/s41283-016-0012-6","Liu_2017","Jiaming Liu, Chong Wu","Springer Nature"
+"AdaBoost ensemble for financial distress prediction: An empirical comparison with data from Chinese listed companies","Expert Systems with Applications","AdaBoost, SMR, SVM, DT","Chinese listed firms from 2000 to 2008
+'Financially distressed company is defined as the one who has had negative net profit in consecutive two years'. These firms are referred to as specially treated ","'Healthy companies are chosen from those that have never been specially treated by the matching method considering both industry and asset size'","692 companies in what I gather is a 50-50 split","30 times holdout with 2/3 used in estimation and 1/3 used for testing. The mean hold out testing error for one year is 2.78%","Uses Adaboost with decision trees and single attribute test (kind of like univariate discriminant in Beaver (1966)) for predicting distress for Chinese listed firm. Compare the results with SVM and a single decision tree
 Ignores the longitudinal aspect of data by bagging all observations and (potentially) only using one observation from each firm (it is not clear to me if the latter is true or not)
 I figure that 41 variables in SVM with potentially redundant ones could affact the SVM performs a lot - especially in small sample
-Finds that Adaboost performs best and particularly with single attribute test. While this is interesting I, it is hard to draw definitive conclusion due to some of the remarks above and the fact that paired sampling is used ",4
-Does Corporate Governance Affect the Financial Distress of Indonesian Company? A Survival Analysis Using Cox Hazard Model with Time-Dependent Covariates,,,,,,,,
-Classifiers selection in ensembles using genetic algorithms for bankruptcy prediction,Expert Systems with Applications,"AdaBoost, BA, DT, SMR, SVM, NN","'1,200 externally audited manufacturing firms, half of which have gone bankrupt during
-2002–2005 while healthy firms have been selected from active companies at the end of 2005' from Korea",Not clear whether the entire population of bankrupt firms is used. 50% control are seleceted though details are omitted,600 / 600 firms where I figure only one set of accountning data is selected from each firm ,Cross validated AUC of at best 77%. Seems low given that you could get 75% in-sample by sorting by total assets,"Uses ensamble learning with descision tress to predict failure for Korean firms. Propose and use a genetic algorithm to reduce the ensamble which uses the variance inflation factor in the fitness function
+Finds that Adaboost performs best and particularly with single attribute test. While this is interesting I, it is hard to draw definitive conclusion due to some of the remarks above and the fact that paired sampling is used ",4,"2011","10.1016/j.eswa.2011.01.042","https://doi.org/10.1016/j.eswa.2011.01.042","Sun_2011","Jie Sun, Ming-yue Jia, Hui Li","Elsevier {BV}"
+"Does Corporate Governance Affect the Financial Distress of Indonesian Company? A Survival Analysis Using Cox Hazard Model with Time-Dependent Covariates","Advanced Science Letters",,,,,,,,"2016","10.1166/asl.2016.8138","https://doi.org/10.1166/asl.2016.8138","Kristanti_2016","Farida Titik Kristanti, Nury Effendi, Aldrin Herwany, Erie Febrian","American Scientific Publishers"
+"Classifiers selection in ensembles using genetic algorithms for bankruptcy prediction","Expert Systems with Applications","AdaBoost, BA, DT, SMR, SVM, NN","'1,200 externally audited manufacturing firms, half of which have gone bankrupt during
+2002?2005 while healthy firms have been selected from active companies at the end of 2005' from Korea","Not clear whether the entire population of bankrupt firms is used. 50% control are seleceted though details are omitted","600 / 600 firms where I figure only one set of accountning data is selected from each firm ","Cross validated AUC of at best 77%. Seems low given that you could get 75% in-sample by sorting by total assets","Uses ensamble learning with descision tress to predict failure for Korean firms. Propose and use a genetic algorithm to reduce the ensamble which uses the variance inflation factor in the fitness function
 The genetic algorithm may or may not be a good idea. I am not sure why they use the variance inflation factor. There are other meassures of diversity which I have seen is more commonly used in ensamble learning. Moreover, I am not sure that optimizing diversity rather than performance is a good idea
 A 75% AUC simply by sorting by total assets seems to me like there is a selecting effect in the data (see table 2)
 They use (very) few classifiers. See table 4. I suspect this is as they want to use the genetic algorihtm after for 1000 rounds. Though, this beg the question what would happen if they had used more classifiers
 Ignores the longitudinal aspect of data by bagging all observations and only using one observation from each firm
-Skewed sampling with details omitted",5
-Bankruptcy prediction in banks and firms via statistical a intelligent techniques – a review,,,,,,,,
-"A comparative survey of artificial intelligence applications in finance artificial neural networks, expert systems and hybrid intelligent systems",,,,,,,,
-Hybrid and ensemble based soft computing techniques in bankruptcy prediction a survey,,,,,,,,
-Machine learning in financial crisis prediction a survey,,"RA, LDA, NN, B, BA, SVM, AdaBoost, CL, LOGI, GAM, SMR",,,,,"Review the following in default prediction using soft computing*: 
+Skewed sampling with details omitted",5,"2012","10.1016/j.eswa.2012.02.072","https://doi.org/10.1016/j.eswa.2012.02.072","Kim_2012","Myoung-Jong Kim, Dae-Ki Kang","Elsevier {BV}"
+"Bankruptcy prediction in banks and firms via statistical a intelligent techniques ? a review","European Journal of Operational Research",,,,,,,,"2007","10.1016/j.ejor.2006.08.043","https://doi.org/10.1016/j.ejor.2006.08.043","Ravi_Kumar_2007","P. Ravi Kumar, V. Ravi","Elsevier {BV}"
+"A comparative survey of artificial intelligence applications in finance artificial neural networks, expert systems and hybrid intelligent systems","Neural Computing and Applications",,,,,,,,"2010","10.1007/s00521-010-0362-z","https://doi.org/10.1007/s00521-010-0362-z","Bahrammirzaee_2010","Arash Bahrammirzaee","Springer Nature"
+"Hybrid and ensemble based soft computing techniques in bankruptcy prediction a survey","Soft Computing",,,,,,,,"2009","10.1007/s00500-009-0490-5","https://doi.org/10.1007/s00500-009-0490-5","Verikas_2009","Antanas Verikas, Zivile Kalsyte, Marija Bacauskiene, Adas Gelzinis","Springer Nature"
+"Machine learning in financial crisis prediction a survey",,"RA, LDA, NN, B, BA, SVM, AdaBoost, CL, LOGI, GAM, SMR",,,,,"Review the following in default prediction using soft computing*: 
  - Use dimension reduction methods
  - What I would coin 'automatic' feature selection
  - What they denote 'hybrid' method which is when more methods are used to model at the same time
@@ -494,21 +494,21 @@ The extend to which each methods is covered seems arbitrary to me
 The author states throughout that the results are not compared due to different data sets and validation methods. This is fair but some (subjective) opinion of the approach in the various papers would have been useful
 I do not find the notion of hybrid methods too useful. For instance, using a genetic alogrithm to select hyper-parameters and features in an SVM seems more like genreal optimization techince applied to SVM. Secondly, because the term does not seem convetional to me (though a google search do indicate that it is used) 
 
-* Soft computing: '... principal constituents of Soft Computing (SC) are Fuzzy Logic (FL), Evolutionary Computation (EC), Machine Learning (ML) and Probabilistic Reasoning (PR)' (source: wiki)",3
-A quadratic interval logit model for forecasting bankruptcy,,,,,,,,
-Predicting the survival or failure of click-and-mortar corporations: A knowledge discovery approach,,,,,,,,
-Forecasting financial condition of Chinese listed companies based on support vector machine,Expert Systems with Applications,,,,,,,
-Predicting business failure using support vector machines with straightforward wrapper: A re-sampling study,Expert Systems with Applications,,,,,,,
-From linear to non-linear kernel based classifiers for bankruptcy prediction,Neurocomputing,,,,,,,
-An Application of Support Vector Machine to Companies’ Financial Distress Prediction,,,,,,,,
-A selective ensemble based on expected probabilities for bankruptcy prediction,Expert systems with applications,,,,,,,
-"Integration of case-based forecasting, neural network, and discriminant analysis for bankruptcy prediction",Expert Systems with Applications,,,,,,,
-Predicting business failure using classification and regression tree: An empirical comparison with popular classical statistical methods and top classification mining methods,Expert Systems with Applications,,,,,,,
-The random subspace binary logit (RSBL) model for bankruptcy prediction,Knowledge-Based Systems,,,,,,,
-Principal component case-based reasoning ensemble for business failure prediction,Information & Management,,,,,,,
-Firm bankruptcy prediction: experimental comparison of isotonic separation and other classification approaches,IEEE Transactions on Systems,,,,,,,
-A genetic algorithm application in bankruptcy prediction modeling,Expert Systems with Applications,,,,,,,
-An application of support vector machines in bankruptcy prediction model,Expert Systems with Applications,"NN, SVM",,,,~76% hold-out accuracy,"Uses SVM with the goal to show: 
+* Soft computing: '... principal constituents of Soft Computing (SC) are Fuzzy Logic (FL), Evolutionary Computation (EC), Machine Learning (ML) and Probabilistic Reasoning (PR)' (source: wiki)",3,,,,,,
+"A quadratic interval logit model for forecasting bankruptcy","Omega",,,,,,,,"2005","10.1016/j.omega.2004.04.002","https://doi.org/10.1016/j.omega.2004.04.002","Tseng_2005","Fang-Mei Tseng, Lin Lin","Elsevier {BV}"
+"Predicting the survival or failure of click-and-mortar corporations: A knowledge discovery approach","European Journal of Operational Research",,,,,,,,"2006","10.1016/j.ejor.2005.05.009","https://doi.org/10.1016/j.ejor.2005.05.009","Bose_2006","Indranil Bose, Raktim Pal","Elsevier {BV}"
+"Forecasting financial condition of Chinese listed companies based on support vector machine","Expert Systems with Applications",,,,,,,,"2008","10.1016/j.eswa.2007.06.037","https://doi.org/10.1016/j.eswa.2007.06.037","DING_2008","Y DING, X SONG, Y ZEN","Elsevier {BV}"
+"Predicting business failure using support vector machines with straightforward wrapper: A re-sampling study","Expert Systems with Applications",,,,,,,,"2011","10.1016/j.eswa.2011.04.064","https://doi.org/10.1016/j.eswa.2011.04.064","Li_2011","Hui Li, Jie Sun","Elsevier {BV}"
+"From linear to non-linear kernel based classifiers for bankruptcy prediction","Neurocomputing",,,,,,,,"2010","10.1016/j.neucom.2010.07.002","https://doi.org/10.1016/j.neucom.2010.07.002","Van_Gestel_2010","Tony Van Gestel, Bart Baesens, David Martens","Elsevier {BV}"
+"An Application of Support Vector Machine to Companies? Financial Distress Prediction",,,,,,,,,"2006","10.1007/11681960_27","https://doi.org/10.1007/11681960_27","Hui_2006","Xiao-Feng Hui, Jie Sun","Springer Berlin Heidelberg"
+"A selective ensemble based on expected probabilities for bankruptcy prediction","Expert systems with applications",,,,,,,,"2009","10.1016/j.eswa.2008.06.068","https://doi.org/10.1016/j.eswa.2008.06.068","Hung_2009","Chihli Hung, Jing-Hong Chen","Elsevier {BV}"
+"Integration of case-based forecasting, neural network, and discriminant analysis for bankruptcy prediction","Expert Systems with Applications",,,,,,,,"1996","10.1016/s0957-4174(96)00056-5","https://doi.org/10.1016/s0957-4174(96)00056-5","Jo_1996","Hongkyu Jo, Ingoo Han","Elsevier {BV}"
+"Predicting business failure using classification and regression tree: An empirical comparison with popular classical statistical methods and top classification mining methods","Expert Systems with Applications",,,,,,,,"2010","10.1016/j.eswa.2010.02.016","https://doi.org/10.1016/j.eswa.2010.02.016","Li_2010","Hui Li, Jie Sun, Jian Wu","Elsevier {BV}"
+"The random subspace binary logit (RSBL) model for bankruptcy prediction","Knowledge-Based Systems",,,,,,,,"2011","10.1016/j.knosys.2011.06.015","https://doi.org/10.1016/j.knosys.2011.06.015","Li_2011:1","Hui Li, Young-Chan Lee, Yan-Chun Zhou, Jie Sun","Elsevier {BV}"
+"Principal component case-based reasoning ensemble for business failure prediction","Information & Management",,,,,,,,"2011","10.1016/j.im.2011.05.001","https://doi.org/10.1016/j.im.2011.05.001","Li_2011:2","Hui Li, Jie Sun","Elsevier {BV}"
+"Firm bankruptcy prediction: experimental comparison of isotonic separation and other classification approaches","IEEE Transactions on Systems",,,,,,,,"2005","10.1109/tsmca.2005.843393","https://doi.org/10.1109/tsmca.2005.843393","Ryu_2005","Y.U. Ryu, W.T. Yue","Institute of Electrical and Electronics Engineers ({IEEE})"
+"A genetic algorithm application in bankruptcy prediction modeling","Expert Systems with Applications",,,,,,,,"2002","10.1016/s0957-4174(02)00051-9","https://doi.org/10.1016/s0957-4174(02)00051-9","Shin_2002","Kyung-Shik Shin, Yong-Joo Lee","Elsevier {BV}"
+"An application of support vector machines in bankruptcy prediction model","Expert Systems with Applications","NN, SVM",,,,"~76% hold-out accuracy","Uses SVM with the goal to show: 
 - SVM vs. neural networks (NN)
 - SVM with different sizes of training sets
 
@@ -517,60 +517,60 @@ I have a few things against the paper:
 - The ""best"" out-sample preformance is picked amongst many candidates from table 2
 - All out-sample results are on single training and test sample split
 - Both traning and out-sample result are based on randomly sub-sampled non-defaulting firms
-- The accuracy messaures would not make sense on the whole data set",5
-SFFS-PC-NN optimized by genetic algorithm for dynamic prediction of financial distress with longitudinal data streams,Knowledge-Based Systems,,,,,,,
-Listed companies’ financial distress prediction based on weighted majority voting combination of multiple classifiers,Expert Systems with Applications,,,,,,,
-Dynamic financial distress prediction using instance selection for the disposal of concept drift,Expert Systems with Applications,,,,,,,
-Feature selection in bankruptcy prediction,Expert Systems with Applications,,,,,,,
-Financial distress prediction using support vector machines: Ensemble vs. individual,Applied Soft Computing,,"Chinese traded firms in 2000 to 2005
+- The accuracy messaures would not make sense on the whole data set",5,"2005","10.1016/j.eswa.2004.08.009","https://doi.org/10.1016/j.eswa.2004.08.009","Shin_2005","Kyung-Shik Shin, Taik Soo Lee, Hyun-jung Kim","Elsevier {BV}"
+"SFFS-PC-NN optimized by genetic algorithm for dynamic prediction of financial distress with longitudinal data streams","Knowledge-Based Systems",,,,,,,,"2011","10.1016/j.knosys.2011.04.013","https://doi.org/10.1016/j.knosys.2011.04.013","Sun_2011:1","Jie Sun, Kai-Yu He, Hui Li","Elsevier {BV}"
+"Listed companies? financial distress prediction based on weighted majority voting combination of multiple classifiers","Expert Systems with Applications",,,,,,,,"2008","10.1016/j.eswa.2007.07.045","https://doi.org/10.1016/j.eswa.2007.07.045","Sun_2008:1","Jie Sun, Hui Li","Elsevier {BV}"
+"Dynamic financial distress prediction using instance selection for the disposal of concept drift","Expert Systems with Applications",,,,,,,,"2011","10.1016/j.eswa.2010.08.046","https://doi.org/10.1016/j.eswa.2010.08.046","Sun_2011:2","Jie Sun, Hui Li","Elsevier {BV}"
+"Feature selection in bankruptcy prediction","Expert Systems with Applications",,,,,,,,,,,,,
+"Financial distress prediction using support vector machines: Ensemble vs. individual","Applied Soft Computing",,"Chinese traded firms in 2000 to 2005
 Financial distress is defined as 'specially treated (ST) by Chinese Stock Exchange due to abnormal financial status'. That is two period of negative income or a further condition on the market to book ratio","'Matching method is utilized to choose normal
 non-financial-distress companies according to the following rules.
 (1) The matched two companies have the same or similar industry.
 (2) The chosen normal company should never be specially treated.
-(3) The matched two companies should have similar asset size in the range of [−30%, +30%]'",135 / 135 firms with what I guess is 1 set of accounting statements for each firm ,82% accuracy out sample based on 30 times hold out experimints. The split is 2:1 strafied by distress or not. Though see the comment in my review about the ensamble training,"Makes an ensamble of SVM with different feature spaces and different kernals functions
+(3) The matched two companies should have similar asset size in the range of [?30%, +30%]'","135 / 135 firms with what I guess is 1 set of accounting statements for each firm ","82% accuracy out sample based on 30 times hold out experimints. The split is 2:1 strafied by distress or not. Though see the comment in my review about the ensamble training","Makes an ensamble of SVM with different feature spaces and different kernals functions
 Reduce the final ensamble with Q diversity meassure in a greedy process. The final predicition is based on weighted voting
 The feature selection seems questionable to me. While I do get why you would use PCA as you are going to use L2 norms later I do not see why you would use stepwise regression with multiple descrimination analysis or logistic regression to select features
 Feature selection is based on the entire population in hold-out test. See page 8 for details
 Use matched sampling
 This may not be a good pratice 'Sample companies with financial ratios deviating from the mean value as much as three times of standard deviation are excluded'
 If I get what they are saying on page 7 correclty ('candidate classifiers with relatively high cross validation accuracy on training dataset') then the ensamble is trained on the final testing data. If this is the case than it does not seem strange that the performance improves with the ensamble
-Cross-valdiation accuracy of 82% seems low given the above and what I have seen in other papers using matched samples for Chinese firms preidicting ST",5
-Concept Drift-Oriented Adaptive and Dynamic Support Vector Machine Ensemble With Time Window in Corporate Financial Risk Prediction,IEEE Transactions on Systems,,,,,,,
-Using genetic algorithms to evolve type-2 fuzzy logic systems for predicting bankruptcy,Kybernetes,,,,,,,
-Integrating cognitive mapping and MCDA for bankruptcy prediction in small- and medium-sized enterprises,,,,,,,,
-A Survival Approach to Prediction of Default Drivers for Indian Listed Companies,,,,,,,,
-A survey of business failures with an emphasis on prediction methods and industrial applications,,,,,,,,
-Bankruptcy prediction in banks by fuzzy rulebased classifier,,,,,,,,
-A semi-deterministic ensemble strategy for imbalanced datasets (SDEID) applied to bankruptcy prediction,,,,,,,,
-Variable selection in high-dimensional regression: a nonparametric procedure for business failure prediction,,,,,,,,
-An out-of-sample evaluation framework for DEA with application in bankruptcy prediction,,,,,,,,
-Financial distress prediction: The case of French small and medium-sized firms,,,,,,,,
-Do Stock Returns Really Decrease with Default Risk? New International Evidence,,,,,,,,
-Effects of Main Bank Switch on Small Business Bankruptcy,,,,,,,,
-Bankruptcy prediction using Partial Least Squares Logistic Regression,,,,,,,,
-Balance sheet conservatism and audit reporting conservatism,,,,,,,,
-Forecasting Corporate Bankruptcy Using Accrual-Based Models,,,,,,,,
-Incorporating sequential information in bankruptcy prediction with predictors based on Markov for discrimination,,,,,,,,
-A novel classifier ensemble approach for financial distress prediction,,,,,,,,
-Dynamic Evaluation of Corporate Distress Prediction Models,,,,,,,,
-NUS-RMI Credit Research Initiative Technical Report,,,,,,,I read the 2017 update 1,
-Multiperiod Corporate Default Prediction with the Partially Conditioned Forward Intensity,,SMR,"Compustat and CRSP data 
+Cross-valdiation accuracy of 82% seems low given the above and what I have seen in other papers using matched samples for Chinese firms preidicting ST",5,"2012","10.1016/j.asoc.2012.03.028","https://doi.org/10.1016/j.asoc.2012.03.028","Sun_2012","Jie Sun, Hui Li","Elsevier {BV}"
+"Concept Drift-Oriented Adaptive and Dynamic Support Vector Machine Ensemble With Time Window in Corporate Financial Risk Prediction","IEEE Transactions on Systems",,,,,,,,"2013","10.1109/tsmca.2012.2224338","https://doi.org/10.1109/tsmca.2012.2224338","Sun_2013","Jie Sun, Hui Li, Hojjat Adeli","Institute of Electrical and Electronics Engineers ({IEEE})"
+"Using genetic algorithms to evolve type-2 fuzzy logic systems for predicting bankruptcy","Kybernetes",,,,,,,,"2017","10.1108/k-06-2016-0152","https://doi.org/10.1108/k-06-2016-0152","Georgescu_2017","Vasile Georgescu","Emerald"
+"Integrating cognitive mapping and MCDA for bankruptcy prediction in small- and medium-sized enterprises","Journal of the Operational Research Society",,,,,,,,"2017","10.1057/s41274-016-0166-3","https://doi.org/10.1057/s41274-016-0166-3","Oliveira_2017","Manuel D. N. T. Oliveira, Fernando A. F. Ferreira, Guillermo O. PÃ©rez-Bustamante Ilander, Marjan S. Jalali","Springer Nature"
+"A Survival Approach to Prediction of Default Drivers for Indian Listed Companies","Theoretical Economics Letters",,,,,,,,"2017","10.4236/tel.2017.72011","https://doi.org/10.4236/tel.2017.72011","Gupta_2017","Vandana Gupta","Scientific Research Publishing, Inc,"
+"A survey of business failures with an emphasis on prediction methods and industrial applications","European Journal of Operational Research",,,,,,,,"1996","10.1016/0377-2217(95)00070-4","https://doi.org/10.1016/0377-2217(95)00070-4","Dimitras_1996","A.I. Dimitras, S.H. Zanakis, C. Zopounidis","Elsevier {BV}"
+"Bankruptcy prediction in banks by fuzzy rulebased classifier",,,,,,,,,"2007","10.1109/icdim.2007.369357","https://doi.org/10.1109/icdim.2007.369357","Kumar_2007","P. Ravi Kumar, V. Ravi","{IEEE}"
+"A semi-deterministic ensemble strategy for imbalanced datasets (SDEID) applied to bankruptcy prediction",,,,,,,,,"2008","10.2495/data080201","https://doi.org/10.2495/data080201","Mathiasi_Horta_2008","R. A. Mathiasi Horta, B. S. L. Pires de Lima, C. C. H. Borges","{WIT} Press"
+"Variable selection in high-dimensional regression: a nonparametric procedure for business failure prediction",,,,,,,,,,,,,,
+"An out-of-sample evaluation framework for DEA with application in bankruptcy prediction","Annals of Operations Research",,,,,,,,"2017","10.1007/s10479-017-2431-5","https://doi.org/10.1007/s10479-017-2431-5","Ouenniche_2017","Jamal Ouenniche, Kaoru Tone","Springer Nature"
+"Financial distress prediction: The case of French small and medium-sized firms","International Review of Financial Analysis",,,,,,,,"2017","10.1016/j.irfa.2017.02.004","https://doi.org/10.1016/j.irfa.2017.02.004","Mselmi_2017","Nada Mselmi, Amine Lahiani, Taher Hamza","Elsevier {BV}"
+"Do Stock Returns Really Decrease with Default Risk? New International Evidence","Management Science",,,,,,,,"2017","10.1287/mnsc.2016.2712","https://doi.org/10.1287/mnsc.2016.2712","Aretz_2017","Kevin Aretz, Chris Florackis, Alexandros Kostakis","Institute for Operations Research and the Management Sciences ({INFORMS})"
+"Effects of Main Bank Switch on Small Business Bankruptcy",,,,,,,,,,,,,,
+"Bankruptcy prediction using Partial Least Squares Logistic Regression","Journal of Retailing and Consumer Services",,,,,,,,"2017","10.1016/j.jretconser.2017.02.005","https://doi.org/10.1016/j.jretconser.2017.02.005","Ben_Jabeur_2017","Sami Ben Jabeur","Elsevier {BV}"
+"Balance sheet conservatism and audit reporting conservatism","Journal of Business Finance {\&} Accounting",,,,,,,,"2017","10.1111/jbfa.12256","https://doi.org/10.1111/jbfa.12256","Kausar_2017","Asad Kausar, Clive Lennox","Wiley-Blackwell"
+"Forecasting Corporate Bankruptcy Using Accrual-Based Models","Computational Economics",,,,,,,,"2017","10.1007/s10614-017-9681-9","https://doi.org/10.1007/s10614-017-9681-9","du_Jardin_2017:1","Philippe du Jardin, David Veganzones, Eric SÃ©verin","Springer Nature"
+"Incorporating sequential information in bankruptcy prediction with predictors based on Markov for discrimination","Decision Support Systems",,,,,,,,"2017","10.1016/j.dss.2017.04.008","https://doi.org/10.1016/j.dss.2017.04.008","Volkov_2017","Andrey Volkov, Dries F. Benoit, Dirk Van den Poel","Elsevier {BV}"
+"A novel classifier ensemble approach for financial distress prediction","Knowledge and Information Systems",,,,,,,,"2017","10.1007/s10115-017-1061-1","https://doi.org/10.1007/s10115-017-1061-1","Liang_2017","Deron Liang, Chih-Fong Tsai, An-Jie Dai, William Eberle","Springer Nature"
+"Dynamic Evaluation of Corporate Distress Prediction Models",,,,,,,,,,,,,,
+"NUS-RMI Credit Research Initiative Technical Report","Global Credit Review",,,,,,"I read the 2017 update 1",,"2015","10.1142/s2010493615500099","https://doi.org/10.1142/s2010493615500099","RMI_staff_2015","RMI staff","World Scientific Pub Co Pte Lt"
+"Multiperiod Corporate Default Prediction with the Partially Conditioned Forward Intensity","Journal of Econometrics","SMR","Compustat and CRSP data 
 Firms from 1991 to 2011 from NYSE, AMEX and Nasdaq with common stocks 
-Default indicators from Credit Research Initiative",None,"12,268 companies with 1,104,963 firm-month",Out-sample AUC up to 86% on one year ahead,"Extends 'Multiperiod corporate default prediction a forward intensity approach' to have a frailty term. This complicates the estimation method as the pseudo likelihood is no longer decomposable. Thus, likelihood evaluation is done by particle filter and parameter estimation is changed to a Baysian setup
+Default indicators from Credit Research Initiative","None","12,268 companies with 1,104,963 firm-month","Out-sample AUC up to 86% on one year ahead","Extends 'Multiperiod corporate default prediction a forward intensity approach' to have a frailty term. This complicates the estimation method as the pseudo likelihood is no longer decomposable. Thus, likelihood evaluation is done by particle filter and parameter estimation is changed to a Baysian setup
 Show that the new model has similar AUC but better aggregate estimates and wider aggregate confidance bounds 
 The frailty follows an AR(1) process. Frailty estimates suggests a random walk
 Need to look at the details. There are made some comments throughout that does not seem supported to me. E.g. the comparisons of log-pseudo likelihood with models with different penaltize without adjustment
 Somehow, the out sample figures are better than in-sample on longer horizon. Also better than 2012 paper I think for the same model
 I think  the PC-M model should have the coefficients for the matricies in (19) but I dont find the values of these
-I would have to look at both the estimaton methods and the inference in more details",3
-"Macro, Industry and Frailty Effects in Defaults: The 2008 Credit Crisis in Perspective",,SMR,US firms. Aggregate defaults are from Moody's and macro variables are from St. Louis Fed online database,None,Not specified,See my review,"Models aggregate US defaults in a state space setup. Defaults are group in two levels: one is by agent ratings and the other is by industry
+I would have to look at both the estimaton methods and the inference in more details",3,"2012","10.1016/j.jeconom.2012.05.002","https://doi.org/10.1016/j.jeconom.2012.05.002","Duan_2012:2","Jin-Chuan Duan, Jie Sun, Tao Wang","Elsevier {BV}"
+"Macro, Industry and Frailty Effects in Defaults: The 2008 Credit Crisis in Perspective",,"SMR","US firms. Aggregate defaults are from Moody's and macro variables are from St. Louis Fed online database","None","Not specified","See my review","Models aggregate US defaults in a state space setup. Defaults are group in two levels: one is by agent ratings and the other is by industry
 There are three group of latent variables: one shared by macro variables and linear predictors for defaults, one for fraitly with different loadings for each rating group and one for ratings and industry interactions. The latter is refered to as contagion. Differnt loadings to each factor is estimated
 Show that both frailty and contagion is important to model aggregate levels
 I have to major comments to the study: 1) parameters are based on the full sample (I think) and 2) I do not think the use of rating agency scores is to good. I re-call reading that the AUC of rating scores in terms of default is quite poor
-The importance sampler by Durbin and Koopman is used to evaluate the likelihood",3
-Financial ratios and bankruptcy predictions: An international evidence,International Review of Economics & Finance,,,,,,,
-A varying coefficient default model,,SMR,"CRSP and compustat with firms from AMX, NASDAQ and NYSE. Uses listed firms
-Defaults are defined as delisting codes from CRSP",It seems that firms that are merged or aqquired are removed from the sample,4686 firms with 459,Better aggregate out-sample counts of default than the previous multiperiod logit model like Shumway (2001),"Uses a local log-likelihood approach to let the covariates in a multiperiod logit model depend on macroeconomic variables. Uses very similar model to Shumway (2001)
+The importance sampler by Durbin and Koopman is used to evaluate the likelihood",3,,,,,,
+"Financial ratios and bankruptcy predictions: An international evidence","International Review of Economics & Finance",,,,,,,,"2017","10.1016/j.iref.2017.07.025","https://doi.org/10.1016/j.iref.2017.07.025","Tian_2017","Shaonan Tian, Yan Yu","Elsevier {BV}"
+"A varying coefficient default model","International Journal of Forecasting","SMR","CRSP and compustat with firms from AMX, NASDAQ and NYSE. Uses listed firms
+Defaults are defined as delisting codes from CRSP","It seems that firms that are merged or aqquired are removed from the sample","4686 firms with 459","Better aggregate out-sample counts of default than the previous multiperiod logit model like Shumway (2001)","Uses a local log-likelihood approach to let the covariates in a multiperiod logit model depend on macroeconomic variables. Uses very similar model to Shumway (2001)
 The model is too hard to estimate for many macroeconomic variables according to the author so he only uses GNP per capita in the end
 
 I have see a few downsites to the paper:
@@ -579,30 +579,30 @@ I have see a few downsites to the paper:
 - I would assume that the local log-likelihood approach will be inappropiate when macroeconomic variable with a drift is used as is the case for GDP per capita (the kernal are going to provide no mass in the end)
 - The outsample metric is aggregate predicted count of defaults. While the results are good they may be very poor for any given firm. An out-sample AUC or similar would have been good
 
-I should have given this 4 as the rating. It has 3 as it is somewhat close to the work I am doing so I need to remember this one",3
-Machine Learning in Bankruptcy Prediction,,,,,,,,
-"Pricing default events: Surprise, exogeneity and contagion",Journal of Econometrics,,,,,,,
-Stock liquidity and default risk,Journal of Financial Economics,SMR,"CRSP, Compustat and Trade and Quote (TaQ)",None,"7,128 firms and 51,527 firm-year observations",In sample results,"Uses expected default frequency (EDF) as proxy for defaults. Shows how EDF can be linked to liquidity. They perform a difference-in-difference study where they use propensity scores to get proxy for a control and treatment groups setup. This build their argument for a causal link. They end by showing to possible reasons for why liquidity will effect the likelihood of default.
+I should have given this 4 as the rating. It has 3 as it is somewhat close to the work I am doing so I need to remember this one",3,"2012","10.1016/j.ijforecast.2011.11.006","https://doi.org/10.1016/j.ijforecast.2011.11.006","Hwang_2012","Ruey-Ching Hwang","Elsevier {BV}"
+"Machine Learning in Bankruptcy Prediction","Expert Systems with Applications",,,,,,,,"2017","10.1016/j.eswa.2017.04.006","https://doi.org/10.1016/j.eswa.2017.04.006","Barboza_2017","Flavio Barboza, Herbert Kimura, Edward Altman","Elsevier {BV}"
+"Pricing default events: Surprise, exogeneity and contagion","Journal of Econometrics",,,,,,,,"2014","10.1016/j.jeconom.2014.05.005","https://doi.org/10.1016/j.jeconom.2014.05.005","Gouri_roux_2014","C. GouriÃ©roux, A. Monfort, J.P. Renne","Elsevier {BV}"
+"Stock liquidity and default risk","Journal of Financial Economics","SMR","CRSP, Compustat and Trade and Quote (TaQ)","None","7,128 firms and 51,527 firm-year observations","In sample results","Uses expected default frequency (EDF) as proxy for defaults. Shows how EDF can be linked to liquidity. They perform a difference-in-difference study where they use propensity scores to get proxy for a control and treatment groups setup. This build their argument for a causal link. They end by showing to possible reasons for why liquidity will effect the likelihood of default.
 
 I have many critiques of / comments to this paper. 
 1. EDF is 'ok' for default ranking but a very poor estimate of absolute risk. For instance, the 6 pct. mean chance of yearly default (cf. table 2) is way off. The chance should be less than .1 pct.
 2. I gather the matching with propensity scores may yield underiserable effects. I gather we migth get a unrepresentative sample of the whole population. 
 3. I do not have the background to judge the event they use. 
 4. I do not have the knowledge to judge the liquidity messaures they use. 
-5. I do not get why they did not put the liquidity messaures into a logit model or similar (see e.g. Shumway (2001)). This would have been more interesting as we avoid the proxy.",4
-Debt correlations in the wake of the financial crisis: What are appropriate default correlations for structured products?,Journal of Financial Economics,SMR,CRSP and Compustat with default indicator from Compustat,None,Not sure / could not quickly find the figure,Shows a much greater risk in pooled products due to correlation. Only results based on in-sample parameter estimates and smoothed frailty variables are shown if I am not mistaken.,"Models correlation in assets by adding a frailty intercept that follows a Ornstein-Uhlenbeck process in hazard models. Further, a mixture state transition matrix is used for the rating transition and macro economic variables following an AR(1) process. Only ratings are used on the assets levels. 
+5. I do not get why they did not put the liquidity messaures into a logit model or similar (see e.g. Shumway (2001)). This would have been more interesting as we avoid the proxy.",4,"2017","10.1016/j.jfineco.2017.03.003","https://doi.org/10.1016/j.jfineco.2017.03.003","Brogaard_2017","Jonathan Brogaard, Dan Li, Ying Xia","Elsevier {BV}"
+"Debt correlations in the wake of the financial crisis: What are appropriate default correlations for structured products?","Journal of Financial Economics","SMR","CRSP and Compustat with default indicator from Compustat","None","Not sure / could not quickly find the figure","Shows a much greater risk in pooled products due to correlation. Only results based on in-sample parameter estimates and smoothed frailty variables are shown if I am not mistaken.","Models correlation in assets by adding a frailty intercept that follows a Ornstein-Uhlenbeck process in hazard models. Further, a mixture state transition matrix is used for the rating transition and macro economic variables following an AR(1) process. Only ratings are used on the assets levels. 
 
 The results are interesting espacially with the bundled products with comparissons with the rating agents. However, it would be intersting to see the out-sample performance of the methods. 
 
 It seems that most of the results are in-sample with smoothed in-sample estimator. The methods are close to Duffie, Saita and Wang (2007) and Duffie, Eckner, Horel, & Saita (2009). Note that the citique in Duan, Sun, & Wang (2012) page 203 regarding the poor out-sample performance of the stochastic covariates of the former. This may apply here.
 
-I am not sure why to use the Gibbs sampler. I should check the details on the parameter estimation.",2
-Good and bad credit contagion: Evidence from credit default swaps,Journal of Financial Economics,SMR,"CRSP & Compustat
+I am not sure why to use the Gibbs sampler. I should check the details on the parameter estimation.",2,"2017","10.1016/j.jfineco.2017.06.011","https://doi.org/10.1016/j.jfineco.2017.06.011","Nickerson_2017","Jordan Nickerson, John M. Griffin","Elsevier {BV}"
+"Good and bad credit contagion: Evidence from credit default swaps","Journal of Financial Economics","SMR","CRSP & Compustat
 CDS data from Markit Group
-Chapter 11 fillings from www.bankruptcydata.com",Firms with 5-year spreads CDS spreads quoated in USD with data in CRSP and Compustat,"820 obligors and 512,292 daily observations",Mainly emperical in-sample results,"Looks at CDS correlation between firm in the same industry group. The main focus is correlation of the peers in the same industry as the firm with an event in a 3 to 11 day period. I have a few comments regarding the paper:
+Chapter 11 fillings from www.bankruptcydata.com","Firms with 5-year spreads CDS spreads quoated in USD with data in CRSP and Compustat","820 obligors and 512,292 daily observations","Mainly emperical in-sample results","Looks at CDS correlation between firm in the same industry group. The main focus is correlation of the peers in the same industry as the firm with an event in a 3 to 11 day period. I have a few comments regarding the paper:
 
 It is a short period with data from 2001-2004
 Few events in general. There are very few chapter 7 events. I am reluctant to conclude anything on the chapter 7 events due to the sample with the results they show.
 The definition of a 'Jump' event seems quite abitrary.
 Industry porfolios are very small. Why not use 2 digits SIC codes? 
-How do we know it is not shocks to the entire market? How does the figures compare to those firms outsite the 'industry portfolio'? How clustered are the events?",4
+How do we know it is not shocks to the entire market? How does the figures compare to those firms outsite the 'industry portfolio'? How clustered are the events?",4,"2007","10.1016/j.jfineco.2006.06.001","https://doi.org/10.1016/j.jfineco.2006.06.001","JORION_2007","P JORION, G ZHANG","Elsevier {BV}"
