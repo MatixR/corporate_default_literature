@@ -3,7 +3,7 @@ title: "Literature review of corporate default prediction "
 author: "Benjamin Christoffersen"
 date: "`r format(Sys.time(), 'Updated on %B %d, %Y')`"
 output: 
-  function(...) rmarkdown::html_document(..., css=c("css/jquery.dataTables.min.css", "css/style.css")):
+  function(...) rmarkdown::html_document(..., css=c("css/jquery.dataTables.min.css", "css/fixedColumns.dataTables.min.css", "css/style.css")):
     toc: false
 ---
 
@@ -14,19 +14,16 @@ options(scipen = 100, digits = 3)
 ## My rating
 My rating is my subject score based on the following criteria:
 
-* Relevance if you are building bankruptcy prediction models
-* Large data samples (not just listed firms)
-* Non-financial firms since there is a general consensus in the literature that these firms should be modeled separately
-* Different models, method etc. 
-* Different countries or data sets that are commonly used in literature
-* Credit scoring is not considered unless I find the paper relevant to prediction
+* Relevance if you are building bankruptcy prediction models and implications of/motvation to use such models.
+* Large data samples (not just listed firms).
+* Non-financial firms since there is a general consensus in the literature that these firms should be modeled separately.
+* Different models, method etc.
+* Different countries or data sets that are commonly used in literature.
 
-Details of the rating are explaind in "My review". An NA rating means that I have not yet read the paper/document but it is on my TODO list or that I have read the paper/document but not written a review yet
+Details of the rating are explaind in "My review". An empty rating means that I have not yet read the paper/document but it is on my TODO list or that I have read the paper/document but not written a review yet
 
 ## Further notes
-The word logistic regression will be used both for papers using probit models and logistic regression. The logic is that there is usually little difference in practice between the two
-
-TODO: write explanation for frailty versus contagion
+The word logistic regression will be used both for papers using probit models and logistic regression. The logic is that there is usually little difference in practice between the two.
 
 ## Review table
 
@@ -129,6 +126,14 @@ for(i in 1:nrow(review_data)){
 eval(save_exp, envir = environment())
 ```
 
+```{r ref_man_setup, echo = FALSE}
+unloadNamespace("RefManageR")
+library(RefManageR)
+bib <- RefManageR::ReadBib(fname_bib, check = FALSE)
+RefManageR::BibOptions(
+  check.entries = FALSE, style = "markdown", cite.style = "authoryear",
+  bib.style = "numeric")
+```
 
 ```{r format_data, echo = FALSE}
 #####
@@ -190,7 +195,7 @@ for(s in c("g_scholar", "Url")){
 }
 ```
 
-```{r make_data_tbl, echo=FALSE,results='asis'}
+```{r make_data_tbl, echo=FALSE,results='asis', warning = FALSE}
 #####
 # Change column order
 review_data <- review_data[, !colnames(review_data) %in% "Publisher"]
@@ -274,9 +279,9 @@ cat(readLines(fname), sep = "\n")
 jname <- "table.js"
 unlink(jname)
 f <- file(jname, open = "at")
-
 p("<!--html_preserve-->")
 p("<script src='js/jquery.dataTables.min.js'></script>")
+p("<script src='js/dataTables.fixedColumns.min.js'></script>")
 p('<script type="text/javascript">')
 
 p('// Sort function for NA from https://datatables.net/forums/discussion/7446/numeric-sort-with-na-in-some-cells')
@@ -300,9 +305,13 @@ p("};")
 
 p("$(document).ready(function() {")
 p("$('#review_tbl').DataTable( {", 1)
-p('"scrollY": "600px",', 2)
+p('"scrollY": "800px",', 2)
 p('"scrollX": true,', 2)
+p('"pageLength": 4,', 2)
+p('"lengthMenu": [4, 8, 12],', 2)
 p('"scrollCollapse": true,', 2)
+p('"scrollCollapse": true,', 2)
+p('fixedColumns: { leftColumns: 2 },', 2)
 p(paste0(
   '"order": [[', 
   which(colnames(review_data) == "My rating (1: best, 5: worst)") - 1, 
@@ -313,21 +322,21 @@ p(paste0(
 #####
 # Setup columnDefs
 columnDefs <- c(
-  "Article name" = '"className": "dt-body-left", "width": "18em"', 
-  "Authors" = '"className": "dt-body-left", "width": "15em"',
-  "Journal" = '"className": "dt-body-left", "width": "10em"', 
-  "Models" = '"className": "dt-body-left", "width": "20em"', 
+  "Article name" = '"className": "dt-body-left", "width": "18em", "searchable": true,', 
+  "Authors" = '"className": "dt-body-left", "width": "15em", "searchable": true,',
+  "Journal" = '"className": "dt-body-left", "width": "10em", "searchable": true,', 
+  "Models" = '"className": "dt-body-left", "width": "20em", "searchable": true,', 
   "My rating (1: best, 5: worst)" = 
     '"className": "dt-body-center", "width": "9em", "type": "numeric_ignore_nan"', 
   "My review" = '"className": "dt-body-left", "width": "40em"', 
   "g_scholar" = '"className": "dt-body-center", "width": "5em"', 
   "Url" = '"className": "dt-body-center", "width": "5em"',
-  "Data source/set" = '"className": "dt-body-left", "width": "40em"', 
-  "Sampling" = '"className": "dt-body-left", "width": "20em"', 
+  "Data source/set" = '"className": "dt-body-left", "width": "40em", "searchable": true,', 
+  "Sampling" = '"className": "dt-body-left", "width": "20em", "searchable": true,', 
   "Sample size (failure / non-failure)" = 
-    '"className": "dt-body-left", "width": "20em"', 
+    '"className": "dt-body-left", "width": "20em", "searchable": true,', 
   "Year" = '"className": "dt-body-right", "width": "5em", "type": "numeric_ignore_nan"',
-  "Outcome" = '"className": "dt-body-left", "width": "20em"',
+  "Outcome" = '"className": "dt-body-left", "width": "20em", "searchable": true',
 
   "doi" = '"className": "dt-body-left", "width": "10em"',
   "Key" = '"className": "dt-body-left", "width": "1em"'
@@ -356,3 +365,16 @@ close(f)
 # Print content of file
 cat(readLines(jname), sep = "\n")
 ```
+
+# .bib file
+
+<div id="bib_file" style="overflow-y: scroll; height:400px; font-family: 'Lucida Console'; border: 1px solid #ccc; border-radius: 4px; background-color: white; padding: 9.5px; margin: 0 0 10px;" >
+
+```{r refs, results = "asis", echo = FALSE}
+cat("<!--html_preserve-->")
+cat(gsub("^\\ \\ ", "&emsp;", htmltools::htmlEscape(readLines(fname_bib))), sep ="<br>")
+cat("<!--/html_preserve-->")
+```
+
+</div>
+
