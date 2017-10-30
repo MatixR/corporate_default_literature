@@ -1,0 +1,363 @@
+\documentclass{article}
+
+\title{Corporate~default~literature~review}
+\author{Benjamin~Christoffersen}
+
+\usepackage[round]{natbib}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+
+\newcommand{\seccite}[1]{\subsection{\cite{#1}}\label{sec:#1}}
+
+
+\makeatletter
+\newcommand\scite[1]{%
+  \@ifundefined{r@sec:#1}{%
+    \cite{#1}%
+  }{%
+    \citet[see section~\ref{sec:#1},][]{#1}%
+  }%
+}
+\makeatother
+
+\usepackage{Sweave}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This note covers the moste cited paper or most interesting paper I have read on corporate default prediction. The data sets are US publicly traded firms unless stated otherwise. See \url{https://github.com/boennecd/corporate_default_literature} for more papers, a sortable table with topic tags and more. I apologize a for the many typos. I apologize if I have misunderstood something which have led to invalidt comments.
+\end{abstract}
+
+\tableofcontents
+
+\section{`Standard models'}
+
+\seccite{beaver66}
+Performs univariate analysis of US firms. Uses paried matching based on asset size and three digit SIC. While the paper is highly cited the paper is also dated. I say there is little compared to other papers.
+
+\seccite{altman68}
+uses multivariate discriminant analysis on US publicly traded manufacturing firms with default from 1946-1965. A matched sample is used strafied on size with 33-33 firms in each. The cross validation and other results in the paper provides evidence that the model does perform well in discriminating between defaulting and non-defaulting firms \emph{using financial ratio}. The cons of the paper are:
+
+\begin{itemize}
+  \item Only one financial record is used per firm.
+  \item Non-defaulting firm are required to be in existence in 1965.
+  \item A size requirement is imposed on the matched non-defaulting firms. 
+  \item Small sample size.
+  \item Only one industry.
+\end{itemize}
+
+
+
+\seccite{platt91}
+Compares financial ratios with financial ratios relative to the industry average of the ratio. Industries are defined as 4 digit SIC which must be sparse for some groups. Find that coeffecients are more stable with the industry relative ratios. Gets better out-sample results with industry relative ratios.
+
+Industry relative ratios may be a good idea. However, this is a small sample with paired sampling so I am reluctant to draw conclusions based on this paper.
+
+
+
+\seccite{shumway01}
+shows that using one record per firm can introduce biases in the model. Further, he shows how to fit a discrete time model instead and adjust the p-values. He introduces new market values which turns out to be quite predictive. He uses firms traded on NYSE and AMEX in 1962 to 1992. Illustrates promissing results with one year ahead out-sample forecasts. Find no evidence that firm age has an influence on default. 
+
+
+
+\seccite{lykke04}
+Use logistic regresion as in \scite{shumway01} with a few new / non-commenly used covaraites. Use a large sample of firms. Finds that, critical auditor comment is quite significant, some differences with a sector by sector model and firms size (in terms of number of employees) have impact on the ability to predict in sample and on estimates. An out-of-sample comparison would be nice.
+
+
+
+\seccite{chava04}
+Estimate a model like \scite{shumway01}. They add NASDAQ firms which increases the sample size. They estimate a model with four level dummy for industries with intercept and slope interactions. Find minor improvments in out-sample tests with their best performing model 
+It is not clear to me why they only use some dummy and covariate interactions and not others. I.e. why is there not an interaction term between say EXRET and industry? 
+
+It may worth to look at the following comment if you are goind to use industry variables '... there are a few well-known problems with the SIC codes as reported by both COMPUSTAT and CRSP (see ...'.
+
+I have tried replicated their results on a similar data set. The slopes dummies are more sensitive to a few observation and a chi-square test shows no significant difference. I gather the some of slopes dummies are significant due to the estimation period (right after Dot-com) and extreme covariates in some industries. Adding a spline to some of the covariates seems like a better option.
+
+
+
+\seccite{jones04}
+Use mixed multinomial regression models and ordinal regerssion with random slopes for Australian. Finds significant varinace estimates for some of the slopes. I think the random slopes are industry specific but it not clear to me. Use only accounting variables.
+
+Use an 3 level ordinal variable for firms survival, distress or ' for bankruptcy followed by the appointment of liquidator insolvency administrators, or receivers'. See page 1020.
+
+I find that it hard to figure out what they are doing at various states through out the article.
+
+It seems to me that their out-sample test figure is whether the models gets the overall fractions right - not whether they get the label right. I so no reason why this would be a good measurement of performance unless you have allready shown e.g. good AUC. See page 1033. 
+
+
+\seccite{beaver05}
+Examins the predictive perform through time with a model like \scite{shumway01}. Fits a simple 3 accoutning variable model across different time horizons of forecast and compares. Finds stable coeffecients (in this model!) and out-sample decile rankings. Then they add marked values like \scite{shumway01} expect that they use returns instead of excess returns.
+
+I speculate that their conclusion of robustness could not just be a fact of the chosen periods. I do not get why they focus on the last three deciles in their deciles ranking. Failures outsite even the first decile should be of concern given the sparse amount of failures. See table table 5 panel E versus table 8 panel G. This comment is related to phrases like:' The overall predictive power of the combined model remains essentially unchanged when accuracy is measured with respect to the bottom three deciles'.
+
+I do not get why they only use two periods of estimation. Further, do note the large change in the estimates (c.f., table 8).
+
+
+
+\seccite{berg07}
+Models defaults using generalized aditive models in Norway with limited liability firms. Finds improvments using generalized additve models compared to linear discrimination, logistic regression and neural networks. Use change variables from previous year which may be a good idea. 
+I am not sure whether it is a good idea to use the industry means for the first year of data. Details about this comment would be useful:' In a preliminary analysis we removed variables that were not significant in any model'.
+
+
+
+\scite{sun07}
+Fits a hazard model like \scite{shumway01}. Finds that the hazard models performs better than auditors going concern opinion but the latter does have increamental information.
+
+It seems like a lot observations are excluded who does not have a 10-K filed prior (see table 1). I do not see why they exclude the utility firms and sample the non-bankerupt firms. I do not get why they split the firms into a train and test data-set. You can easily do cross-validation later? I guess including Current Assets/Total Assets and Cash/Total Assets could lead to multicollinearity issues. 
+
+Use lagged year default rates based on two digits SIC codes. May be a good idea though I figure som of the two digits SIC codes groups will be sparse. Use cutoffs and Estimated Misclassification Cost (EMC) which I am not a fan of due to the arbitrariness of the relative cost and cutoff level. I do not get why they add 'the composite stress measure' instead of just including the terms. E.g. for Zmijewski probability which consists of a lot of variables they already include and an rather arbitrary cutoff of 28 pct. 
+
+I do not get this comment when they bootstrap the EMC:' There is no need to randomly select bankrupt firms since they are deterministic'. I will need to read up on the bootsrap procedure on page 73. The results suggest that the hazard models does better than the auditors opinions for most cost levels. 
+
+
+
+
+\seccite{campbell08}
+fit a model logistic model like \scite{shumway01} with many adjustments. The first one is that they use daily returns and quarterly accounting data. The idea to also use market value in the denominators of the ratios seems obvious though I am not sure the 10 pct. differnece is the best choice. The inclusion of the averages with geomtric weights and other descission makes me wonder how much data dredging they have done. Find minor effects of industry dummies add and some interactions like in \scite{chava04}. Year dummies have an effect which suggest a frailty term is needed. (c.f., page 2916). 
+
+I guess the article got a lot attension due to the trading strategies and comparison with Merton model. I would like to see another metric for out-sample forecast than pseudo-R2 (c.f., page 2915). An issue with comparisson with other paper is that they include a D rating or lower as a distress.
+
+
+
+\seccite{tanthanongsakkun09}
+Compares the variables from \scite{altman68}, \scite{zmijewski84}, and \scite{shumway01} in logistic model with the distance-to-default for companies listed on the Australian Stock Exchange (ASX). Further, they combine commonly used ratios with the distance-to-default in a logistic model.
+
+Interesting that they find that the distance-to-default model out-performs the other.
+
+\begin{itemize}
+  \item It is unclear to me whether the reported Forecasting Accuracy is in-sample or out-sample.
+  \item It does not seem like they winsorize. The covaraites takes extreme values which likely estime the slope estimates.
+  \item They use an aribtrary cutoff point to evaluate the expected cost measure of classification errors. AUC would be better.
+\end{itemize}
+
+
+\seccite{wu10}
+Test previous model specification for logit models as in \scite{shumway01} and \scite{altman68}, \scite{zmijewski84} and \scite{ohlson80}. They also compare with the distance to default as in \scite{hillegeist04} and with the orignal models (e.g. linear discriminant analysis for \scite{altman68}). In general, they find that the \scite{shumway01} performs the best in- and out-sample where they add a few new variables.
+
+The results are not comparable to other paper. Firstly, 'we only include firms with a Standard Industrial Classification (SIC) code that is less than 4000 or between 5000 and 5999 (effectively, we exclude financial firms)'. \scite{shumway01} only excludes the latter group keeping all other SICs. 
+
+Further, they do the following which shows that they did not get the point \scite{shumway01}:' ... except that we only include one firm-year observation for each bankrupt firm but all firm-year observations for the surviving firms. This refinement significantly improves model performance.'
+
+They include log of closing price at end of previous fiscal year as the 'firm size variable' rather than market value or total asset. I do not think they get what they are doing in this regard.
+
+I would assume that this action would make their result artifically high:' We exclude firms that are delisted from CRSP or deleted from Compustat for reasons other than bankruptcy or liquidation'.
+
+\seccite{christidis10}
+Model default of UK listed firms using logisitic regression as in \scite{shumway01}. Use both macro economic variables and firm specefic variables. This does not sounds like the best approach to select variables:' From the potential candidate list, an extensive univariate analysis and the testing of alternative logit models, we end up with the following list of variables'.
+
+They should not compare the AUC of the model in table 5 with the full population versus the model in table 6 with the subset that only has market data. They do this when they write '... the area under the ROC curve also increase from 81.24 pct. to 89.92 pct. and 89.61 pct. in models 1 and 2'. I hope they use the same data set when they make the liklihood ratio test.
+
+They get only a slight improvment in AUC by including macro economic variables. They select five industry and add intercept and slopes for each industry kinda like in \scite{chava04}. They '... conduct simple t-tests to check whether variables [industry slopes and intercepts] are found to be significant' and exclude variables on the basis hereof. I figure this must be on the full sample which may inflate their perform metrics later. They finds small improvments in in-sample AUC and decile ranking out-sample (in time).
+
+
+
+\seccite{aastebro12}
+While I do find competing risk models interesting (which they model) I have no idea why they only include firms with a Altman Z-score at some point prior in the sample. That is, a Z-score of 0.5 or less during the period 1980-1988. I do not know why the randomly sample industries for the model they estimate.
+
+Either their ROC curves is mirrored or their performance is horriable (see page 14)... There are many mor strange things about they do.
+
+
+
+\seccite{duan12}
+estimates a piecewise exponential for competing risk problem. The itensities are combined exit and default given exit. Yields an easy to evaluate pseudo likelihood. There is a parameter for each month in the itensity. Shows considerable better outsample performance compared to \scite{duffie07}. The performance in out-sample x-month a head forecast are good. I would have to look at the details on the pseudo likelihood setup.
+
+
+
+\seccite{tian15}
+Performs an logistic regression with Lasso (L1) penalty with data from the US. Find improvements in relative to the model in \scite{campbell08} and with Merton's distance-to-default.
+
+I do not think to conclusions should be drawn on which covariate are selected when multicollinearity is present. As far as I re-call, the selection properties of Lasso regression is ussually driven under the assumption of orthogonal design matricies for good reasons. However, the selection seems stable.
+
+
+
+\seccite{banai16}
+Models firm failure for micro, small and medium-sized enterprises with logistic models as in \scite{shumway01}. Categorize firms in terms of sales figures and employees. Use macro economics variables . As rightly mentioned, the banks may introduce a selection bias with which firms that are in the sample as the consider firms are only those with loans. Finds provide evidence that larger firms are more homogeneous and their credit risk depends more on the financial indicators of the company. I see the following cons: 
+
+\begin{itemize}
+  \item Including a dummy variable for each year. You cannot forecast with this model. 
+  \item The continuous dropping of variable (including age factor levels) based on arguments like: '... we did not include the liquidity positon of microenterprises, since we are not convinced that greater liquidity would directly increase the credit risk of a company'. I suspect the reason is multicollinearity.
+  \item Comparing estimates signs and magnitudes with different specification of the linear predictor -- especially if multicollinearity is an issue.
+\end{itemize}
+
+
+
+
+\seccite{kenney16}
+Estimates a discrete cox regression with interval censoring (i.e., use the cloglog function in binary regression) for Australian firms. The model is very similar to \scite{shumway01} though with a different link function. The underlying time variable is set to the log of age of the firm times a constant from what I gather. Age is 'measured as the natural log of the number of years since the company registered with Default indicator is from Australian Securities and Investments Commission'. I would not think this would add anything given \scite{shumway01} shows that the age of the firm does not seem to matter in the US. However, it is significant in their model. 
+
+Notice that adding a year dummy to a discrete Cox regression is essentially semi parametric cox regression where the underlying time process is the calender time. The dummies are significant. It suggests that there is time variation in the intercept (i.e., frailty).
+
+
+
+\section{`Machine learning models'}
+TODO: write me.
+
+
+
+\section{Contagion}
+\seccite{das07}
+Cox model with constant baseline with both macro economic and firm specific varables. Test whether there is clustering that would not accour if the model is true. They reject most of their tests which could imply that some sort of clustering should be accounted for in estimation according to the authors. This can be due to missing covariates, fraitly variables or contagion. 
+
+The claim is that the test are for the doubly stochastic assumption, independent jump processes. However, \scite{lando10} show that the test are a misspecification test.
+
+
+
+\seccite{azizpour08}
+Models aggreagate defaults count for US firms. The models includes both frailty and contagion. The intensity is a CIR process (which gives the frailty) with a term added with a weight function taking the counts of defaults as input (which gives the contagion). Different functions of the number of events is used for the contagion effect. See page 15. The two terms though mean that the 'frailty' is no longer a pure 'frailty' term as it leads to contagion.
+
+I am not sure whether or not their test or estimation methods are a good idea. Using grid search on 5 dimension parameter space seems tedious. Further, why should the exponential decay weight parameter be the same for both terms? They get 1374 defaults which seems like a lot compared to other papers that use Moody's data base. I gather this is because they do not need data from Compustat and CRSP. It is questionable though how comparable this make the paper with others.
+
+Some notes that may be useful when reading: 
+- Zero-factor: Hawkess process (i.e., no 'frailty' term).
+- One-factor: CIR process with contagion effect.
+- One-factor w/ covariates: add one of the covariates (macro variables) to the intensity. It is not clear to me how the covariate affects the intensity. Does it just enter linearly? I will need to read up on this part. 
+
+They find that adding the 'frailty' term '... does not improve the fit'. Make out-sample test and find what seems like decent results (see figure 10).   
+
+I would hesitate to conclude that this also applies for firms specefic models rather than default counting process. The paper may be interesting if you want to model aggregate counts.
+
+
+
+\seccite{lando10}
+Fails to reject a test of  which may indicate contagion shown in \scite{das07} on US data with proportional hazard model with constant baseline. Further, the authors does not find a sigificant effect of adding a Hawkess process to model contagation which has previously been used in other papers. The difference is that the authors add both macro economic and firm specific variable.
+
+The authors also shows that the test in \scite{das07} does not test conditional independence, doubly stochastic assumption, but rather orthogonality. Excludes default within same coorporate family which  may be a good idea. 
+
+They only use models with entries in the Moodys' data base, CRSP and Compustate which yields a smaller sample than in other papers. It seems like there is no intercept in the model. I gather this must be wrong (c.f., page 359).
+
+
+
+\seccite{azizpour16}
+Model counts of yearly defaults for US firms using a with both frailty and contagion. The paper seem to be a newer version of \scite{azizpour08} with more and different content. The frailty variable the mean-reverting Cox-Ingersoll-Ross. Contagion is modeled by self-exciting specification of Hawkes process which depends on the dates with at least one default and a function of the sum of the face values of defaulted debt. The latter is new compared to \scite{azizpour08} at seems like a reasonable way to weight defaults. The estimation method has also been changed to a filtered likelihood method rather than grid search.
+
+Find that both contagion and frailty is important. They further find that contagion is the most influential of the two.
+
+I do not give much for the Omitted firm-specific variables section. What happens in the cross-section for the firms variables may not reflect the information for the firms that actually default. Thus, I find it hard to conclude that '... while firm-specific default risk factors may contain significant information about idiosyncratic default risk, they only contain little information about the systematic default risk not captured by our macroeconomic variables'. I would hesitate to conclude that this also applies for firms specefic models rather than default counting process. The paper may be interesting if you want to model aggregate counts.
+
+Notice that they use the goodness of fit test in \scite{das07} so be aware of the comments about this test in \scite{lando10}.
+
+
+\subsection{See also}
+\scite{koopman10}.
+
+
+
+\section{Frailty}
+\seccite{duffie09}
+Models US firms from from 1979 to 2004 with a cox model with constant or a frailty baseline and with both firm speicific and macro economics variables. Models are estimated with with an EM algorithm using MCMC with a Gibss sampler. The shared frailty variable is an  Ornstein Uhlenbeck process. The adding the frailty makes little difference in the estimates. As the authors write: 'Allowing for frailty does not add significantly to firm-by-firm default prediction'. 
+
+Further, they also provide a Baysian analysis for the model parameters. Their results suggest that MLE estimates may provide do not account for skew in the parameter distribution. I am not sure how much their choice of prior effects this results.
+
+The sample seems small compared to other paper. I gather it is because the firms need to have an entry in the Moody's data base. 
+
+It is not clear to me what they do in the `Portfolio Default Quantile Tests` section. I gather they must use the parameter estimates for the whole sample period which likely affects their results (otherwise how do you get results for 1980). Moreover, I do not get what 'quantiles of the conditional distributions of the total number of defaults' is and how this yields 0-1 y-axis where 1 is bad from what I gather. 
+
+They (seem) to use the random covaraites from \scite{duffie07} for forecasts. It has received som criticism for poor performance in \scite{duan12}.
+
+
+
+\seccite{dakovic10}
+Fit a logistic regression for Norwegian firms with and without mixed effects. Further fits a genralized additive model. Illustrates how a generalized addtive model can. It does seems like there are nonlinearities. Though, the out of time AUC for the generalized addtive model are almost the same. The GLM does include some covariate transformations included after the seing the GAM fit so this is not too surprising.
+
+They change the industry dummies from from fixed to random in their mixed effects mdoel. It makes little difference for the out-sample AUC (as I would expect). It would be more interesting when the error term has time dependence I would gather. Overall 
+
+\begin{itemize}
+  \item Nice with a non-publicly traded and non-US study.
+  \item Be aware that firms are excluded if division by zero is encountered or firms '... missing flnancial statements for at least one year before bankruptcy or the end of the observation period'. The latter removes 75 pct. of the defaults.
+  \item The study period is short (1996-2000).
+\end{itemize}
+
+
+\seccite{koopman10}
+Models aggregate US defaults rates in a state space setup. Defaults are group in two levels: one is by agent ratings and the other is by industry. There are three group of latent variables: one shared by macro variables and linear predictors for defaults, one for fraitly with different loadings for each rating group and one for ratings and industry interactions. The latter is refered to as contagion. Differnt loadings to each factor is estimated. Show that both frailty and contagion is important to model aggregate levels.
+
+A few comments are
+
+\begin{itemize}
+  \item parameters are based on the full sample (I think).
+  \item I do not think the use of rating agency scores is to good. I re-call reading that the AUC of rating scores in terms of default is quite poor. It may affect their results if the rankings are off to start.
+\end{itemize}
+
+
+
+\seccite{koopman11}
+Model defaults counts in cross sections (industry * age * rating groups)  using binomial models with logstic link function. The models includes a shared fraility variable across sections. The frailty variable follows a stationary AR(1). More than 100 macro economic variables are included. Principal component is used to reduce the dimension. Principle components and an EM algorithm is also used to impute missing macro economic variables. The final linear predictor for each group is 'fixed cross section effect + frailty effect + macro effects + marked values effect'.
+
+The model is estimated using an approxiamte state space method. Finds a significant effect of the frailty variable. I will have to check the way they reduce the number of estimated parameters (c.f., page 321). I do not think the use of rating agency scores is to good. I re-call reading that the AUC of rating scores in terms of default is quite poor. It may affect their results if the rankings are off to start as they write on page 319.
+
+The paper may imply that frailty should be accounted for in individual firm models. The arguments in the out-sample section is persuasive.
+
+
+
+\seccite{duan13}
+Extends \scite{duan12} to have a frailty term. This complicates the estimation method as the pseudo likelihood is no longer decomposable. Thus, likelihood evaluation is done by particle filter and parameter estimation is changed to a Baysian setup. Show that the new model has similar AUC but better aggregate estimates and wider aggregate confidance bounds. The frailty follows an AR(1) process. Frailty estimates suggests a close to random walk model. 
+
+There are made some comments throughout that does not seem supported to me. E.g. the comparisons of log-pseudo likelihood with models with different penalization without adjustment.
+
+Somehow, the out sample figures are better than in-sample on longer horizon. Also better than 2012 paper I think for the same model. I think the PC-M model should have the coefficients for the matricies in (19) but I dont find the values of these. I would have to look at both the estimaton methods and the inference in more details. E.g., is the number of particles sufficients?
+
+
+
+\seccite{nickerson17}
+apply the model in \scite{duffie09} to stress the importance of modelling default correlations for  collateralized loan obligations, collateralized debt obligations and collateralized bond obligations. That is, they use an Ornstein-Uhlenbeck process for the intercept. Further, they only use firm ratings for the firm specific covariates which simplifies the estimation. Lastly, they use mixing model for the rating transition. I.e. we have random covaraites as in \scite{duffie07}. They provide evidence that that the rating agency may underestimate the default correlation. Some important points to further look at is:
+
+\begin{itemize}
+  \item It is unclear how the 2000 firms are sampled/selected. See page 460.
+  \item Unclear which delisting codes they use. See page 460.
+  \item Seems like most results are based on the in-sample parameter estiamtes. I have no idea how the model with perform out-sample.
+  \item I am not sure why to use the Gibbs sampler. I should check the details on the parameter estimation.
+  \item The critique of \scite{duffie07} in \scite{duan12} may also apply here regarding poor out-sample performance (c.f.,  page 203).
+\end{itemize}
+
+
+
+\subsection{See also}
+\scite{das07}, \scite{azizpour16} and \scite{azizpour08}.
+
+
+\section{Random/varying coefficients}
+\seccite{hwang12}
+Uses a local log-likelihood approach to let the covariates in a multiperiod logit model depend on macroeconomic variables. Uses very similar model to Shumway (2001). The model is too hard to estimate for many macroeconomic variables according to the author so he only uses GNP per capita in the end. I see a few downsites to the paper 
+
+\begin{itemize}
+  \item Firms that are eventually merged or aqquired might be removed from the sample (this would explain the sample size). This seems odd and may bias the result (c.f., page 680). 
+  \item Default indicator might explain the low count of defaults. Other authors have done more regiourse work. I have not come across many other paper that uses the delisting code from CRSP.
+  \item You have to select a bandwidth with the model. 
+  \item I would assume that the local log-likelihood approach will be inappropiate when macroeconomic variable with a drift is used as is the case for GDP per capita (the kernal are going to provide no mass in the end). 
+  \item The out-sample metric is absolute difference between aggregate predicted defaults and the realised. While the results are good they may be very poor for any given firm. An out-sample AUC or similar would have been good.
+\end{itemize}
+
+
+
+\seccite{lando13}
+uses an additive intensity (Aalen) models from the \verb|timereg| package in R. The study is descriptive and shows that the coeffecient in typical models used (e.g. \scite{shumway01}) in default prediction may be time-varying. The model baseline hazard with macro economic variables. Some thoughts points are:
+
+\begin{itemize}
+  \item Descriptive study that cannot be used for prediction
+  \item Both the 2557 firms and 370 defaults seems low. I guess it is because the firms needs to have an entry in Moody's data base.
+  \item The interaction between distance-to-default and assets seems odd. The covariate must have a heavy right tail?
+\end{itemize}
+
+
+
+\section{Random covariates}
+\seccite{duffie07}
+Uses a parametric proportional hazard model with the exponential distribution with macro economic and firm specific covariates. Firm specific covariates are modelled independently with a first-order Gaussian vector autoregressive model with mean reversion. Uses competing risk to model other exists.
+
+The idea of modelling the covariate process is interesting. Whether the model they propose is suitable or not is not clear to me. Firstly, estimating target values for each firm as they do in (14) seems questionable for firms where we have little data. See the critique in \scite{duan12} who shows poor out-sample performance.
+
+Their out-sample performance is quite high for one year ahead out-sample forecast. Though, their comparison with other papers are not fair as the other papers has different set of firms -- the other papers have 'firm is included in our data set provided it has a common firm identifier for the Moodys and Compustat databases, and is of the Moodys ‘‘Industrial’’ category'.
+
+
+
+\subsection{See also}
+\scite{duffie09}, \scite{nickerson17}.
+
+
+
+
+\newpage
+\bibliographystyle{plainnat}
+\bibliography{bibliography}
+
+\end{document}

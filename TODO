@@ -1,13 +1,1 @@
-Use RefManageR_0.14.20.tar\RefManageR\vignettes
-Maybe checkout RefManageR::ReadPDFs
-Maybe checkout RefManageR::SearchBib
-
-Maybe checkout RefManageR::ReadCrossRef
-Checkout the api on https://github.com/CrossRef/rest-api-doc
-
-You can likely do something like the following to get information from the .bib file
-library(RefManageR)
-file.name <- system.file("Bib", "biblatexExamples.bib", package = "RefManageR")
-bib <- ReadBib(file.name, check = FALSE)
-
-bib[author = "westfahl"][[1]]$publisher
+Find some API to get citations counts

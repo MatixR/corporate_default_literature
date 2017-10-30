@@ -12,9 +12,16 @@ CL,Cluster analysis
 FA,Factor analysis
 ACF,Accelerated Failure time 
 CM,Cox Hazard model
-GAM,Generalized Additive models,
+GAM,Generalized Additive models
 RF,Random Forests
 MM,Mixed model
 FR,Frailty
 CO,Contagion
 RA,Review article
+LM,Linear models
+RCo,Random covariates
+RCa,Random coefficients
+HM,Hazard model
+CR,Competing risk
+La,Lasso
+DtD,Distance-to-default

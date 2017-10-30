@@ -25,6 +25,8 @@ Details of the rating are explaind in "My review". An empty rating means that I 
 ## Further notes
 The word logistic regression will be used both for papers using probit models and logistic regression. The logic is that there is usually little difference in practice between the two.
 
+I apologize a for the many typos. I apologize if I have misunderstood something which have led to me to make invalidt comments.
+
 ## Review table
 
 ```{r load_data, echo = FALSE}
@@ -32,10 +34,10 @@ The word logistic regression will be used both for papers using probit models an
 fname_data <- "data/review_data.csv"
 review_data <- read.csv(
   fname_data, header = T, sep = ",", quote = '"', 
-  stringsAsFactors = F, fileEncoding = "UTF-8", na.strings = "")
+  stringsAsFactors = F, fileEncoding = "UTF-8-BOM", na.strings = "")
 actual_headers <- read.csv(
   fname_data, header = F, sep = ",", quote = '"', 
-  stringsAsFactors = F, nrows = 1, fileEncoding = "UTF-8")
+  stringsAsFactors = F, nrows = 1, fileEncoding = "UTF-8-BOM")
 colnames(review_data) <- actual_headers
 
 fname_bib <- "data/ref.bib"
@@ -94,7 +96,7 @@ find_ref <- function(.title, journal = NA_character_){
 save_exp <- expression({
   write.csv(
           review_data, file = fname_data,
-          quote = TRUE, row.names = FALSE, fileEncoding = "UTF-8", na = "")
+          quote = TRUE, row.names = FALSE, fileEncoding = "UTF-8-BOM", na = "")
   RefManageR::WriteBib(bib, fname_bib)
 })
 

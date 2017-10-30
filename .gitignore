@@ -4,3 +4,7 @@
 .Ruserdata
 packrat/lib*/
 packrat/src/
+
+writeup/*
+!writeup/*.bib
+!writeup/*.tex
