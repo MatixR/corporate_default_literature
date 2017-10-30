@@ -8,3 +8,4 @@ packrat/src/
 writeup/*
 !writeup/*.bib
 !writeup/*.tex
+!writeup/*.pdf
